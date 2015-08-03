@@ -1,0 +1,172 @@
+/*h1*/
+#sub_content >div:first-child {width:100%; height:140px; background:url(../images/common/h1_1.png) no-repeat center #f5f5f5}
+#sub_content >div:first-child h1 ,#sub_content >div:first-child p {width:1100px; margin:0 auto; text-align:right; padding:35px 60px 0 0; font-size:23px;}
+#sub_content >div:first-child p {  padding:0 60px 0 0; color:#bbb; line-height:1;}
+
+/*보호동물찾기 보호소찾기 탭*/
+ul.sch_ul {width:1100px; margin:60px auto 0}
+ul.sch_ul:after {display:block; content:""; clear:both}
+ul.sch_ul >li {float:left}
+ul.sch_ul >li h2{width:550px}
+ul.sch_ul >li h2 button{ width:100% ;height:90px;font-family:Nanum Gothic; font-size:24px ; border:1px solid #ccc;  }
+ul.sch_ul >li.on h2 button{background:#0054a5; color:#fff; border:0 } 
+
+
+.search .sch_cont {width:1100px; margin:0 auto}
+/*셀렉영역*/
+.search_form{ border:1px solid #ccc; padding:20px; border-radius:5px}
+.search_form .custom_input {width:165px; height:50px; margin-right:15px;border:1px solid #ccc;  border-radius:5px}
+.search_form .custom_input.focus_on {border:2px solid #00aeef; width:163px;}
+.search_form .custom_input input {width:115px; height:50px;font-size:17px; padding-left:10px;  border-radius:5px}
+.search_form .custom_input button {background-position:-15px; margin:5px 0 0 0}
+.search_form .custom_input button.on {background:url(/img/common/arrow-down-on.gif) no-repeat 0}
+/*정렬기준 및 등록동물수*/
+.search .list_area >ul.sort, .list_area >ul.sort >li, .list_area >span {display:inline-block; font-size:15px;color:#b8b8b8 }
+.search .list_area >ul.sort, .list_area >span {margin:60px 0 0 0}
+.search .list_area >ul.sort {width:800px;}
+.search .list_area >span {width:275px; text-align:right;}
+.search .list_area >ul.sort li {padding:0 0 0 20px; }
+.search .list_area >ul.sort li.on {color:#555;font-weight:600}
+.search .list_area >ul.sort li:first-child:after, .search .list_area >ul.sort li:nth-child(2):after {display:inline-block; content:""; width:2px; height:18px; margin-left:20px;background:#b8b8b8 ; vertical-align:-3px}
+.search .list_area >span span {color:#01adef; font-weight:600}
+.search .list_area >div {margin:10px 0 0 0 ; padding:60px 0 0 0;border-top:1px solid #ccc; }
+/*보호소리스트, 동물리스트*/
+.list_area section {display:inline-block; position:relative; width:248px; margin:0 0 20px 17px ; border:1px solid #ccc; border-radius:5px; font-size:13.5px; }
+.list_area section h1{padding:255px 0 7px 10px; font-size:18px; font-weight:800; color:#000}
+.list_area .centerList section h1 {padding-top:230px}
+.list_area section img {position:absolute; top:0; border-radius:5px 5px 0 0}
+.list_area section span:nth-child(2) {position:absolute; display:block; width:50px; height:55px;top:0; left:180px;border-radius:0 0 5px 5px; z-index:10; background: rgba(1,173,239,0.5); color:#fff; text-align:center; }
+.list_area section span:nth-child(2) >span {width:25px; height:30px;margin:0 auto;display:block;font-size:0; background:url(../images/common/poomda_img2.png) no-repeat -310px 3px }
+.list_area section span:nth-child(2).myFav >span {background-position:-335px 3px}
+.list_area section p {font-weight:600; padding:0 10px 10px; line-height:1.3}
+.list_area section span:nth-child(6) {display:block; height:40px;;padding-left: 30px;;border-top:1px solid #ccc; line-height:2.8; font-weight:800; background:url(../images/common/location.png) no-repeat 10px}
+.list_area .centerList section span:nth-child(5) {display:block; height:40px;;padding-left: 30px;;border-top:1px solid #ccc; line-height:2.8; font-weight:800; background:url(../images/common/location.png) no-repeat 10px}
+.list_area section >span:nth-child(4) {position:absolute; top:190px; left:90px;display:block; border-radius:50% ; width:60px; text-align:center; font-size:15px; background:#121212; color:#fff; line-height:1.3 }
+.list_area section >span.temp, .list_area section >span.comp {padding-top:10px; height:50px;}
+.list_area section >span.comp {background:#aaa}
+.list_area section >span.shel {height:40px; padding-top:20px; background:#555555;}
+/*찾기버튼*/
+.search form fieldset >button.btn_sch {width:125px; height:51px; padding-left:50px;border-radius:5px;  font-family:Nanum Gothic; font-size:17px;
+text-align:left; vertical-align:top; background:url(../images/common/search.png) no-repeat 25px 20px #01adef; color:#fff}
+
+
+ul.page {text-align:center; margin-top:70px;}
+ul.page li{ display:inline-block ; }
+ul.page li a {display:block; width:40px; height:30px; border:1px solid #ccc; border-radius:5px; text-align:center; padding-top:10px;}
+ul.page li a:link ,ul.page li a:visited {color:#000}
+ul.page li.on a {background:#000;}
+ul.page li.on a:link ,ul.page li.on a:visited {color:#fff}
+
+/*리스트 마우스오버*/
+div.more_info {display:none;position:absolute; top:0; left:0;width:248px; height:385px; background:rgba(0,0,0,0.5); border-radius:5px; text-align:center; }
+.list_area div.more_info a{margin:0 auto; display:block; width:160px; height:55px; background:#fff; border-radius:7px; font-size:17px; line-height:3}
+.animalList div.more_info a:first-child {margin:130px auto 15px;}
+.list_area div.more_info a:hover ,.search .list_area div.more_info button:hover {background:#01adef; }
+.list_area div.more_info a:link, .search .list_area div.more_info a:visited {color:#555}
+.list_area .centerList .more_info {height:355px;}
+.list_area .centerList .more_info a:first-child {margin:90px auto 15px;}
+.list_area .centerList .more_info button {margin:0 auto; display:block; width:160px; height:55px; background:#fff; border-radius:7px; font-size:17px; line-height:3; margin-top:15px; font-family:Nanum-Gothic}
+.search input.center_name {width:520px; height:50px; padding-left:10px; margin-right:20px;;border:1px solid #ccc; border-radius:5px; font-family:Nanum Gothic; font-size:16px }
+.search .list_area.li_center section span {display:block;height:40px; padding-left: 30px;;border-top:1px solid #ccc; line-height:2.8; font-weight:800; background:url(../images/common/location.png) no-repeat 10px}
+
+/*보호소정보*/
+.center_info aside {width:1100px; margin:30px auto 0; text-align:right;  }
+.center_info aside button {width:90px; height:35px ;padding-left:30px;font-family:NanumGothic; vertical-align:top ;color:#ababab; background:url(../images/search/report.png) no-repeat 0 ; text-align:left;  }
+.center_info aside a {display:inline-block ; width:80px; height:35px; background:url(../images/search/admin.png) no-repeat 0 ; text-align:left; padding-left:30px; line-height:2.8}
+.center_info aside a:link, .center_info aside a:visited {color:#ababab}
+.center_info .info_container {width:1100px; margin:0 auto}
+.center_info .info_container >h1, .center_info .info_container >ul, .center_info .info_container >ul li {display: inline-block}
+.center_info .info_container >h1 {margin-top:20px;;font-family:'맑은 고딕',Malgun-Gothic, Nanum-Gothic; font-size:30px; font-weight:600; color:#777; }
+.center_info .info_container >ul {float:right; margin:30px 0 0 0}
+.center_info .info_container >ul >li {width:70px; height:30px; padding:0 0 0 35px;border:1px solid #ccc;font-size:14px; color:#353535; border-radius:5px; line-height:2.2}
+.center_info .info_container >ul >li:first-child {background:url(../images/search/like.png) no-repeat 13px }
+.center_info .info_container >ul >li:nth-child(2) {background:url(../images/search/share.png) no-repeat 13px }
+.center_info .info_container >ul >li:last-child {background:url(../images/search/fav.png) no-repeat 13px }
+.center_info .info_contents {position:relative;margin:15px 0 70px 0; padding:60px 0 0 0;border-top:1px solid #ccc; clear:both;}
+.info_contents .center_image, .info_contents .center_inform {display:inline-block; vertical-align:top}
+.info_contents .center_image >h1, .info_contents .center_inform >h1 {font-size:0}
+.info_contents .center_image ul {width:425px; height:635px;}
+.info_contents .center_image ul li {position:relative; display:inline-block; background:url(../images/common/noimage-big.jpg) no-repeat center}
+.info_contents .center_image ul li img {width:200px; height:150px}
+.info_contents .center_image ul li:first-child img {width:420px; height:450px;}
+.info_contents .center_image ul li:last-child {margin-left:15px;}
+.info_contents .center_image ul li button {position:absolute; width:36px; height:36px ;top:10px; left: 10px; background:url(../images/search/add.png) no-repeat; font-size:0}
+.info_contents .center_inform {width:600px; height:635px; margin:0 0 0 70px; }
+.info_contents .center_inform .btn_wrap >button {width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#01adef ; color:#fff;border-radius:8px}
+.info_contents .center_inform .btn_wrap >button:nth-child(3) {background:#1ca3bb;margin:0  0 0 35px; }
+.info_contents .center_inform .btn_wrap >div {display:none; position:absolute; top:-55px ; left:200px;width:660px ; height:490px; background:#fff; border-radius:10px; z-index:300}
+.question_layer h2 {background:#0054a6; height:70px; color:#fff; font-size:24px; padding:0 0 0 20px; line-height:3; border-radius:10px 10px 0 0}
+.question_layer div {text-align:center; color:#000 }
+.question_layer div img {display:block; width:100px; height:100px; border:1px solid #e2e2e2; border-radius:5px; margin:30px auto 0}
+.question_layer div span {line-height:3}
+.question_layer div p {margin:25px 0;font-size:18px;}
+.question_layer button {display:block; margin: 0 auto;  }
+.question_layer button.send_msg {width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#00aeef; color:#fff;border-radius:8px}
+button.close_lyr {position:absolute; top:20px; right:25px;width:33px; height:33px; background:url(/img/common/close_btn.png) no-repeat; font-size:0;}
+.message_layer {display:none;position:absolute;top:-55px ; left:200px;width:660px ; height:490px; background:#fff; border-radius:10px; z-index:300}
+.message_layer> span:first-child {display:block;background:#0054a6; height:70px; color:#fff; font-size:24px; padding:0 0 0 20px; line-height:3; border-radius:10px 10px 0 0}
+.message_layer form {padding:30px 0 0 23px}
+.message_layer form >span:first-child {display:block; font-size:18px;}
+.message_layer form >span em {color:#01adef}
+.message_layer form textarea {margin:20px 0 0 0;display:block; width:600px; height:150px; border-radius:5px}
+.message_layer span.txt_count {display:block; text-align:right; padding:7px 30px 0 0}
+.message_layer form button[type=submit] {display:block; margin:40px auto 0;width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#01adef ; color:#fff;border-radius:8px}
+.info_contents .center_inform >table {width:100%; }
+.info_contents .center_inform >table th {color:#999; width:100px; text-align:left; vertical-align:top; padding:15px 0 0 5px;}
+.info_contents .center_inform >table td {padding:10px 0 ; font-size:18px; color:#353535}
+.info_contents .center_inform >table td:nth-child(2) {width:215px}
+.info_contents .center_inform >table a.url {color:#0072bc; border-bottom:1px solid}
+.info_contents .volunteer h1 {margin:50px 0 20px 0;padding:0 0 0 5px; font-size:16px;}
+.info_contents .volunteer >div {border:1px solid #ccc; margin-left:5px}
+.info_contents .volunteer .vlt_pic {display:inline-block ;text-align:center; width:150px; height:220px; padding:20px; vertical-align:top}
+.info_contents .volunteer .vlt_pic img {display:block; width:150px; height:180px; }
+.info_contents .volunteer .vlt_pic button { width:150px; height:30px; margin:10px 0 0 0;background:#00aeef; color:#fff; font-family:Malgun-Gothic; font-size:16px; border-radius:5px}
+.info_contents .volunteer table {display:inline-block; width:380px; margin:10px 0 0 5px}
+.info_contents .volunteer table th {width:95px; text-align:left; vertical-align:top; padding:10px 0}
+.info_contents .volunteer table td {padding:10px 0; font-size:14px; color:#353535}
+
+.list_area >h2 {width:770px;;font-size:30px; font-weight:600; color:#777; display:inline-block; }
+.center_info .list_area >span {margin:0; display:inline-block; vertical-align:baseline; width:300px; text-align:right}
+.center_info .list_area >span span {color:#01adef; font-weight:600;}
+.center_info .list_area .animalList{border-top:1px solid #ccc; padding:60px 0 0 0}
+.voluntary {margin:70px 0 0 0;}
+.voluntary >h2 {width:770px;;font-size:30px; font-weight:600; color:#777; display:inline-block; }
+.center_info .voluntary >span {margin:0; display:inline-block; vertical-align:baseline; width:300px; text-align:right}
+.center_info .voluntary >span span {color:#01adef; font-weight:600;}
+.voluntary .volunList {margin:5px 0 0 0;border-top:1px solid #ccc;padding:70px 0 0 0}
+.voluntary .volunList >section {position:relative;height:222px; margin: 0 0 10px 0;border:1px solid #ccc; border-radius:8px;}
+.voluntary .volunList >section >h1 {position:absolute; left:830px; top:70px;;width:65px; height:52px; padding:12px 0 0 0; line-height:1.2; font-size:16px; color:#fff; border-radius:50%; text-align:center; }
+.voluntary .volunList >section >h1.vol_cate1 {background:#23b7b5}
+.voluntary .volunList >section >h1.vol_cate2 {background:#f67e62}
+.vol_left {width:240px; height:222px; position:relative; display:inline-block}
+.vol_left img {width:240px; height:222px; border-radius:5px 0 0 5px}
+.vol_left >span {position:absolute; top:0; display:block; width:50px; height:55px;top:0; border-radius:0 0 5px 5px; z-index:10; background: rgba(1,173,239,0.5); color:#fff; text-align:center;}
+.vol_left span.connect {left:130px;}
+.vol_left span.fav {left:190px; }
+.vol_left span span {width:25px; height:30px; margin:0 auto;display:block;font-size:0; }
+.vol_left span.connect span {background:url(../images/search/share_on.png) no-repeat center 10px}
+.vol_left span.fav span {background:url(../images/common/poomda_img2.png) no-repeat -310px 3px}
+.vol_middle {width:610px; display:inline-block; vertical-align:top; padding:20px 0 0 0px}
+.vol_middle h1 {font-size:18px; color:#353535; font-weight:600; margin:0 0 0 30px; line-height:1}
+.vol_middle >p {margin:15px 0 15px 30px; height:40px; width:550px; }
+.vol_middle >ul {border-top:1px solid #ccc; padding: 10px 0 0 30px }
+.vol_middle >ul li { font-size:14px; color:#353535; margin-top:3px}
+.vol_middle >ul li h2 {display:inline-block; font-weight:600; width:65px; padding-left:25px}
+.vol_middle >ul li:first-child h2 {background:url(../images/search/calendar.png) no-repeat 0}
+.vol_middle >ul li:nth-child(2) h2 {background:url(../images/common/center.png) no-repeat 0}
+.vol_middle >ul li:last-child h2 {font-size:0}
+.vol_middle ul ul.vol_list {margin-top:-10px;}
+.vol_middle ul ul.vol_list li{padding:0 10px;display:inline-block; background:#999; color:#fff; text-align:center; border-radius:5px; margin:0 5px 0 0}
+.vol_right {display:inline-block; vertical-align:top; text-align:center; border-left:1px solid #ccc;  width:237px; height:222px}
+.vol_right >h2:first-child span{font-size:0}
+.vol_right >h2:first-child {font-size:30px; color:#222; margin:30px 0 0 0}
+.vol_right >h2:nth-child(2)  {margin:15px 0;color:#01adef; font-size:14px; background:url(../images/search/peo_num.png) no-repeat  80px 4px ; padding:0 0 0 30px}
+.vol_right >h2:nth-child(2) span.bold{display:block; font-size:24px; line-height:1.8; margin-left:-30px}
+.vol_right img {width:40px; height:40px; border-radius:5px; vertical-align:middle; border:1px solid #e2e2e2}
+.vol_right div span {font-size:16px; display:inline-block; vertical-align:middle; margin:0 0 0 5px}
+.reply {margin:70px 0 0 0;}
+.reply >h2 {width:770px;;font-size:30px; font-weight:600; color:#777; display:inline-block; }
+.center_info .reply >span {margin:0; display:inline-block; vertical-align:baseline; width:300px; text-align:right}
+.center_info .reply >span span {color:#01adef; font-weight:600;}
+
+div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%; z-index:200 }
