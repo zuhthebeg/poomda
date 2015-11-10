@@ -8,16 +8,13 @@ import org.poomda.shelter.Shelter
 
 class Animal {
 	User user
-	AnimalType type
-	AnimalStatus status
 	AnimalBreed breed
 	
 	String name
 	
 	String gender
 	
-	Integer age
-	String ageType
+	String age
 	
 	String weight
 	
@@ -26,8 +23,10 @@ class Animal {
 	
 	String introduction
 	String adoptionInquiry
+	String status
 	
 	Shelter shelter
+	String tempShelter
 	
 	Integer viewCount = 0
 	
@@ -35,19 +34,22 @@ class Animal {
 	Date lastUpdated
 	
     static constraints = {
-		name nullable:false
-		gender inList:['Male','Female']
-		ageType inList:['Year', 'Month', "Day"]
+		name nullable:true, maxSize:20
+		gender inList:['수컷','암컷','중성화']
+		age maxSize:10
 		//breed inList:['protected','complete']
-		introduction nullable : true, maxsize:4000
-		adoptionInquiry nullable : true, maxsize:4000
+		introduction nullable : true, maxsize:2000
+		adoptionInquiry nullable : true, maxsize:2000
 		feature nullable : true
 		shelter nullable : true
+		tempShelter nullable : true
+		status inList:['개인보호중','센터보호중','입양완료','반환','자연사','안락사']
     }
 	static mapping ={
 		introduction type: 'text'
 		adoptionInquiry type: 'text'
 		viewCount defaultValue: "0"
+		shelter index:'shelter'
 	}
 	String toString(){
 		return name

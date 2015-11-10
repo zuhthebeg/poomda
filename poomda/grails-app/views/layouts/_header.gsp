@@ -11,12 +11,13 @@
 			<ul>
 				<li>
 					<span>
-						<span>쪽지( 7 )</span> 홍길동님
+						<span>쪽지( 7 )</span> <sec:username/>님
 					</span>
 				</li>
 				<sec:ifNotLoggedIn>
 				<li>
 					<g:link controller="login">로그인</g:link>
+					<facebookAuth:connect />
 				</li>
 				</sec:ifNotLoggedIn>
 				<sec:ifLoggedIn>
@@ -26,7 +27,7 @@
 				</sec:ifLoggedIn>
 				<sec:ifNotLoggedIn>
 					<li>
-						<g:link controller="user" action="create">가입하기</g:link>
+						<g:link controller="user" action="regist">가입하기</g:link>
 					</li>
 				</sec:ifNotLoggedIn>
 				<sec:ifLoggedIn>
@@ -37,6 +38,7 @@
 					</li>
 				</sec:ifLoggedIn>
 			</ul>
+			
 		</div>
 		<!-- home-menu // S -->
 
@@ -44,41 +46,31 @@
 		<nav>
 			<ul>
 				<li class="gnb-menu-1">
-					<g:link controller="shelter" action="regCenter" class="on">
-						보호소 등록하기
-					</g:link>
+					<g:activeLink controller="shelter" action="regCenter" activeClass="on">보호소 등록하기</g:activeLink>
 				</li>
 				<li>
 					<span></span>
 				</li>
 				<li class="gnb-menu-2">
-					<g:link controller="animal" action="regAnimal">
-						동물 등록하기
-					</g:link>
+					<g:activeLink controller="animal" action="regAnimal" activeClass="on">동물 등록하기	</g:activeLink>
 				</li>
 				<li>
 					<span></span>
 				</li>
 				<li class="gnb-menu-3">
-					<g:link controller="search" action="searchAnimal">
-						동물/보호소 찾기
-					</g:link>
+					<g:activeLink controller="search" action="searchAnimal" activeClass="on">동물/보호소 찾기</g:activeLink>
 				</li>
 				<li>
 					<span></span>
 				</li>
 				<li class="gnb-menu-4">
-					<g:link controller="service" action="service">
-						봉사/후원참여
-					</g:link>
+					<g:activeLink controller="service" action="service" activeClass="on">봉사/후원참여</g:activeLink>
 				</li>
 				<li>
 					<span></span>
 				</li>
 				<li class="gnb-menu-5">
-					<g:link controller="sponsor" action="sponsor">
-						봉사/후원등록
-					</g:link>
+					<g:activeLink controller="sponsor" action="sponsor" activeClass="on">봉사/후원등록</g:activeLink>
 				</li>
 			</ul>
 		</nav>

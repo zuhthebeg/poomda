@@ -1,12 +1,13 @@
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.file.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="search.css"/>
-		<script src="../js/sub.js"></script>
+		<asset:javascript src="sub.js"/>
 		
 	</head>
 	<body>
@@ -17,11 +18,11 @@
 			<p>보호중인 동물과 보호소를 찾을 수 있습니다.</p>
 		</div>
 		<ul class="sch_ul"><!--보호소,동물찾기 탭 공통클래스 sch_ul-->
-			<li class="on"> 
-				<h2><button type="button" onclick="location.href='./search_animal.jsp'">보호 동물 찾기</button></h2>
+			<li> 
+				<h2><button type="button" onclick="location.href='${request.contextPath}/search/searchAnimal'">보호 동물 찾기</button></h2>
 			</li>
-			<li>
-				<h2><button type="button" onclick="location.href='./search_center.jsp'">보호소 찾기</button></h2>
+			<li class="on">
+				<h2><button type="button" onclick="location.href='${request.contextPath}/search/searchCenter'">보호소 찾기</button></h2>
 			</li>
 		</ul>	
 				<div class="sch_cont">
@@ -70,104 +71,24 @@
 								<li>최근등록순</li>
 								<li>추천순</li>
 							</ul>
-							<span>검색결과 <span>6개</span></span>
+							<g:set var="searchResult" value="${Shelter.list([max:8, sort:'dateCreated', order:'desc']) }" />
+							<span>검색결과 <span>${searchResult.size()}</span></span>
 							<div class="centerList">
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span class="myFav"><span>나를 포함 이 동물을 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span><div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-									
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
-								<section>
-									<h1>남양주 보호소</h1>
-									<span><span>이 보호소를 관심등록한 수</span>+999</span>
-									<img src="../img/main/shaterlisttast.jpg" alt="보호소사진" />
-									<p>100여마리의 동물들과 소장님이 함께 생활하고 있는 보호소</p>
-									<span>경기도 남양주시</span>
-									<div class="more_info">
-										<a href='./center_info.jsp'  title='보호소정보 바로가기'>보호소 보기</a>
-										<button type='button'>입양문의</button>
-										<button type='button'>봉사문의</button>
-									</div>
-								</section>
+								<g:each in="${searchResult}" var="shelter">
+									<section>
+										<h1>${shelter.name }</h1>
+										<span class="myFav"><span>나를 포함 이 동물을 관심등록한 수</span>+999</span>
+										<g:set var="imgShelter" value="${ImgShelter.findByShelter(shelter)}"/>
+										<img src="${imgShelter?.filepath + '/' + imgShelter?.filename}" alt="보호소모습" width="100%" />
+										<p>${shelter.introduction }</p>
+										<span>${shelter.address}</span>
+										<div class="more_info">
+											<g:link controller="shelter" action="centerInfo" params="[shelterId:shelter.id]" title='보호소정보 바로가기'>보호소 보기</g:link>
+											<button type='button'>입양문의</button>
+											<button type='button'>봉사문의</button>
+										</div>	
+									</section>
+								</g:each>
 							</div>	
 							<ul class="page">
 								<li><a href="" title="이전목록으로 이동">&lt;</a></li>

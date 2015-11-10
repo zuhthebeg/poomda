@@ -1,6 +1,6 @@
 package org.poomda
 
-import org.poomda.service.Service;
+import org.poomda.activity.Service;
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

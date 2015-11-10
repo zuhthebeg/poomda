@@ -77,29 +77,20 @@ function itemClick(targetObj){
 /***********************************************************************************************************/
 
 
-function uploadImgSetting(){
-	$("button[id^=uploadImgBtn]").click(function(){
-		var idNumber = this.id.substring(this.id.length-1);
-		$("#uploadImgComp"+idNumber).click();
-	});
-	
-	$("input[id^=uploadImgComp]").change(function(){
-		
-		var idNumber = this.id.substring(this.id.length-1);
-		
-	    var files = !!this.files ? this.files : [];
+function uploadImgSetting(obj){
+		console.log(obj)
+    var files = !!obj.files ? obj.files : [];
 
-	    if (!files.length || !window.FileReader) return;
+    if (!files.length || !window.FileReader) return;
 
-	    if (/^image/.test( files[0].type)){
+    if (/^image/.test( files[0].type)){
 
-	        var reader = new FileReader();
-	        reader.readAsDataURL(files[0]);
-	        reader.onloadend = function(){
-	        	$("#uploadPreview"+idNumber).css("background-image", "url("+this.result+")");
-	        };
-	    }
-	});
+        var reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onloadend = function(){
+        	$(obj).parent().css("background-image", "url("+this.result+")");
+        };
+    }
 }
 
 /***********************************************************************************************************/

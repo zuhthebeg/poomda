@@ -130,7 +130,13 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
+	'/**/upload/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-	'/dbconsole':                	  ['permitAll']
+	'/dbconsole/**':                  ['ROLE_ADMIN']
 	]
+
+grails.plugin.springsecurity.facebook.domain.classname='org.poomda.member.FacebookUser'
+//827933583947504
+grails.plugin.springsecurity.facebook.appId='12345678900000'
+grails.plugin.springsecurity.facebook.secret='76c2279743c99da3715e3d00f29a1234'
 	

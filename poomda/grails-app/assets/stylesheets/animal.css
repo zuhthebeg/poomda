@@ -14,8 +14,8 @@ fieldset legend {font-size:0}
 fieldset.img_up {width:410px; float:left;}
 fieldset.img_up input[type=file] {font-size:0; visibility:hidden}
 fieldset.img_up ul button[type=button]{
-	position:absolute; top:8px; left:10px;width:40px; height:40px; 
-	background:url(../images/main/poomda_img.png) no-repeat -280px -13px; font-size:0}
+	position:absolute; top:8px; left:10px;width:34px; height:32px; 
+	background:url(../images/main/poomda_img.png) no-repeat -280px -16px; font-size:0}
 fieldset.img_up ul li {border:1px solid #ccc; position:relative}
 fieldset.img_up ul li:first-child {height:430px; background:url(../images/main/poomda_img.png) no-repeat 0 -80px}
 fieldset.img_up ul li:nth-child(2),  fieldset.img_up ul li:nth-child(3) {display:inline-block; margin:20px 0 0 0;width: 191px; height: 150px; background:url(../images/main/poomda_img.png) no-repeat -420px -75px}
@@ -113,20 +113,20 @@ ul.sch_ul li.on >div {display:block;}
 .reg_animal fieldset >input {padding:13px 0 13px 10px; border:1px solid #ccc; border-radius:5px; width:310px; font-size:17px; font-family:Nanum Gothic; }
 .reg_animal form fieldset >button.btn_sch {width:115px; height:51px; padding-left:50px;border-radius:5px;  font-family:Nanum Gothic; font-size:17px;
 text-align:left; vertical-align:top; background:url(../images/common/search.png) no-repeat 25px 20px #01adef; color:#fff}
-.reg_animal form >a {display:inline-block; width:150px; padding:11px 11px 11px 50px;background:url(../images/common/add.png) no-repeat 20px #0054a5; color:#fff; vertical-align:top; font-family:Nanmum Gothic; font-size:17px; border-radius:5px;
+.reg_animal form >a {    float: right;display:inline-block; width:150px; padding:11px 11px 11px 50px;background:url(../images/common/add.png) no-repeat 20px #0054a5; color:#fff; vertical-align:top; font-family:Nanmum Gothic; font-size:17px; border-radius:5px;
 text-align:left; } 
 .reg_animal .custom_input {display:inline-block; padding:13px 15px 13px 10px; border:1px solid #ccc;  border-radius:5px;  } 
 .reg_animal li div div >p {text-align:right; font-size:15px; line-height:4; margin-bottom:20px;}
 .reg_animal .center_list section {position:relative;display:inline-block; width:248px; margin:0 0 20px 20px ; border:1px solid #ccc; border-radius:5px; font-size:13.5px; }
 .reg_animal .center_list section h1{padding:230px 0 7px 10px; font-size:18px; font-weight:800;}
-.reg_animal .center_list section p {font-weight:600; padding: 0 10px 10px;}
+.reg_animal .center_list section p {font-weight:600; padding: 0 10px 10px;    height: 46px;    overflow: overlay;}
 .reg_animal .center_list section span:nth-child(5) {display:block;height:40px; padding-left: 30px;;border-top:1px solid #ccc; line-height:2.8; font-weight:800; background:url(../images/common/location.png) no-repeat 10px}
 .reg_animal li div >a {display:block; width:230px; margin:80px auto;text-align:center; font-size:20px; letter-spacing:8px; }
 .reg_animal ul li:nth-child(2) form {border:0; padding:0; width:1100px; }
 .reg_animal ul li:nth-child(2) form fieldset {display:block; ; border:1px solid #ccc; padding:20px; border-radius:5px;}
 .reg_animal ul li:nth-child(2) form fieldset >span {display:inline-block; width:120px; background:#01adef; color:#fff; 
 font-size:17px; line-height:3; vertical-align:middle; border-radius:5px; text-align:center; margin-right:20px }
-.reg_animal .center_list section >img {position:absolute; top:0; left:0; border-radius:5px 5px 0 0}
+.reg_animal .center_list section >img {    z-index: -1;position:absolute; top:0; left:0; border-radius:5px 5px 0 0}
 .reg_animal .center_list section span:nth-child(2) span{display:block;font-size:0; width:16px; height:16px; background:url(../images/main/main-ico.png) no-repeat; margin:10px auto 5px}
 .reg_animal .center_list section span:nth-child(2) {position:absolute; background:rgba(1,173,239,0.6); width:53px; height:57px; color:#fff; text-align:center; font-weight:600; font-size:14px; border-radius:0 0 5px 5px; top:0;right:15px;; z-index:100 }
 .reg_animal .center_list section span:nth-child(2).myFav span {background:url(../images/main/main-ico.png) no-repeat 0 -16px ; }

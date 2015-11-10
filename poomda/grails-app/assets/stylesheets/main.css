@@ -1,4 +1,4 @@
-/* FONT STACK */
+/* FONT STACK
 body,
 input, select, textarea {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -7,16 +7,16 @@ input, select, textarea {
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.1;
 }
-
+ */
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
+	/* background-color: #ddd;
 	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
 	background-image: linear-gradient(top, #aaa, #ddd);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 	height: 100%;
 	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
 	-webkit-box-sizing: border-box;
@@ -25,7 +25,7 @@ html {
 }
 
 html.no-cssgradients {
-	background-color: #aaa;
+	/* background-color: #aaa; */
 }
 
 .ie6 html {
@@ -33,7 +33,7 @@ html.no-cssgradients {
 }
 
 html * {
-	margin: 0;
+	/* margin: 0; */
 }
 
 /* body {
@@ -49,7 +49,7 @@ html * {
  */
 #grailsLogo {
 	background-color: #64BD4F;
-	content: "Happycode";
+	content: "Poomda";
 }
 #grailsLogo a > img {
 	/* display: none; */
@@ -67,7 +67,7 @@ html * {
 	height: 100%;
 }
 
-
+/* 
 h1 {
 	color: #48802c;
 	font-weight: normal;
@@ -81,7 +81,7 @@ ul {
 
 img {
 	border: 0;
-}
+} */
 
 /* GENERAL */
 
@@ -92,13 +92,13 @@ img {
 
 .content {
 }
-
+/* 
 .content h1 {
 	border-bottom: 1px solid #CCCCCC;
 	margin: 0.8em 1em 0.3em;
 	padding: 0 0.25em;
 }
-
+ */
 .scaffold-list h1 {
 	border: none;
 }

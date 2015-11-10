@@ -31,7 +31,7 @@ class User {
 		username blank: false, unique: true, email : true
 		password blank: false
 		
-		nickname nullable:true
+		nickname nullable:true, unique:true
 		gender nullable:true
 		age nullable:true
 		phone nullable:true

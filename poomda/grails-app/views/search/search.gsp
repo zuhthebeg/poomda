@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="search.css"/>
-		<script src="../js/sub.js"></script>
+		<asset:javascript src="sub.js"/>
 		
 	</head>
 	<body>

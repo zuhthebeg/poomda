@@ -13,7 +13,7 @@ class UserLikeAnimal implements Serializable {
 	static boolean exists(long userId, long animalId) {
 		UserLikeAnimal.where {
 			user == User.load(userId) &&
-			animal == Role.load(animalId)
+			animal == Animal.load(animalId)
 		}.count() > 0
 	}
 	

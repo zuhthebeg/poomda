@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="animal.css"/>
-		<script src="../js/sub.js"></script>
+		<asset:javascript src="sub.js"/>
 		
 	</head>
 	<body>
@@ -21,7 +21,7 @@
 			<li>정보입력</li>
 			<li><h2>완료</h2></li>
 		</ul>	
-		<p>보호소 등록이 완료되었습니다!</p>
+		<p>동물 등록이 완료되었습니다!</p>
 		<a href="" title="등록 동물 바로가기" class="btn_blue">등록한 동물 보러가기</a>
 	</div>
 	<!-- sub-content // E -->

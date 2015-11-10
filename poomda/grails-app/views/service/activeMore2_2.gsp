@@ -5,9 +5,8 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
-		<asset:stylesheet src="main.css"/>
 		<asset:stylesheet src="service.css"/>
-		<script src="../js/sub.js"></script>
+		<asset:javascript src="sub.js"/>
 		
 	</head>
 	<body>

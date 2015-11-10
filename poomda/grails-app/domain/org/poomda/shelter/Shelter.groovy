@@ -7,6 +7,7 @@ class Shelter {
 	User user
 	String name
 	String address
+	String addressDetails
 	
 	String siteName
 	String introduction
@@ -18,11 +19,14 @@ class Shelter {
 	Date lastUpdated
 	
     static constraints = {
+		name nullable : false, maxSize : 100
+		introduction nullable : true, maxSize : 4000
+		siteName nullable : true, maxSize:100, url:true
 		address nullable : false
-		
-		introduction nullable : true, maxsize : 4000
-		serviceInquiry nullable:true, maxsize : 1000
-		adoptionInquiry nullable:true, maxsize : 1000
-		siteName nullable : true, maxsize:100, url:true
+		addressDetails nullable : true
+		serviceInquiry nullable:true, maxSize : 1000
+		adoptionInquiry nullable:true, maxSize : 1000
     }
+	
+	String toString(){return name}
 }

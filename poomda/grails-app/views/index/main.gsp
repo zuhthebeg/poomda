@@ -1,5 +1,6 @@
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.file.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,16 +24,17 @@
 			
 			<!-- main-shelter-list Program box // S -->
 			<div class="main-shelter-list">
-				<g:each in="${Animal.list([max:4,sort:dateCreated,order:desc]) }" var="animal" status="i">
+				<g:each in="${Animal.list([max:4,sort:'dateCreated',order:'desc']) }" var="animal" status="i">
 					<section>
 						<a href="#;" class="main-shelter-count">
 							<span ${animal.getLikeCount() < 10 ?'': 'class="on"' }></span>
-							${animal.getLikeCount() < 10 ? animal.getLikeCount() : 10+'+' } / ${animal.id}
+							${animal.getLikeCount() < 10 ? animal.getLikeCount() : 10+'+' }
 						</a>
 						<a href="${request.contextPath}/animal/show/${animal.id}">
 							<dl>
 								<dt>
-									<img src="../assets/main/shaterlisttast.jpg" alt="말라뮤트 사진">
+									<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
+									<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
 									<span class="main-shelter-case-${i%3}">
 										${animal.breed}
 									</span>
@@ -42,7 +44,7 @@
 										${animal.name}
 									</h2>
 									<p>
-										${animal.gender == 'Male' ? '수컷' : '암컷'} / ${animal.age }${animal.ageType == 'Year' ? '살' : '개월' } / ${animal.furColor}-${animal.feature}
+										${animal.gender} / ${animal.age } / ${animal.furColor}-${animal.feature}
 									</p>
 									<span>
 										<strong>남양주 보호소</strong>(경기-남양주)

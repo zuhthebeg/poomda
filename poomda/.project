@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>poomda</name>
+	<name>poomda_ver_1</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -26,7 +26,7 @@
 		<link>
 			<name>.link_to_grails_plugins</name>
 			<type>2</type>
-			<location>C:/Users/cocy/workspace/poomda/target/work/plugins</location>
+			<location>C:/Users/cocy/git/poomda/poomda/target/work/plugins</location>
 		</link>
 	</linkedResources>
 </projectDescription>
