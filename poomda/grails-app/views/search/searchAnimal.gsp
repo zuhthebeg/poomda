@@ -32,7 +32,7 @@
 						<fieldset>
 							<legend>보호중인 동물 찾기</legend>
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="지역"  class="select" readonly />
+								<input type="text" value="지역" name="address" class="select" readonly />
 								<button type="button">지역을 선택하세요</button>
 								<ul class="option_li">
 										<g:each in="${org.poomda.locale.Address.list() }" var="address">
@@ -41,14 +41,14 @@
 								</ul>
 							</div>
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="구"  class="select" readonly />
+								<input type="text" value="구" name="addressDetails"  class="select" readonly />
 								<button type="button">구를 선택하세요</button>
 								<ul class="option_li">
 									<li>전체</li>
 								</ul>
 							</div>	
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="동물"  class="select" readonly />
+								<input type="text" value="동물" name="animalType" class="select" readonly />
 								<button type="button">동물 선택하세요</button>
 								<ul class="option_li">
 									<g:each in="${AnimalType.list() }" var="type">
@@ -57,14 +57,14 @@
 								</ul>
 							</div>	
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="품종"  class="select" readonly />
+								<input type="text" value="품종" name="breedName" class="select" readonly />
 								<button type="button">품종을 선택하세요</button>
 								<ul class="option_li" id="breedList">
 									<li>직접입력</li>
 								</ul>
 							</div>	
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="상태"  class="select" readonly />
+								<input type="text" value="상태" name="status" class="select" readonly />
 								<button type="button">보호 상태를 선택하세요</button>
 								<ul class="option_li">
 									<g:each in="${Animal.constraints.status.inList}" var="status">
@@ -84,7 +84,7 @@
 					</ul>
 					<span>등록된 동물 <span>${Animal.count() } 마리 </span></span>
 					<div class="animalList">
-						<g:render template="../animal/animallist" model="[animalList : Animal.findAllByShelterIsNotNull([max:8])]"></g:render>
+						<g:render template="../animal/animallist" model="[animalList : animalList]"></g:render>
 					</div>	<!--section END-->
 					<ul class="page">
 						<li><a href="" title="이전목록으로 이동">&lt;</a></li>

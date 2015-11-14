@@ -11,7 +11,12 @@
 			<ul>
 				<li>
 					<span>
-						<span>쪽지( 7 )</span> <sec:username/>님
+						<sec:ifLoggedIn>
+							<span>쪽지( 7 )</span> <sec:username/>님
+						</sec:ifLoggedIn>
+						<sec:ifNotLoggedIn>
+							안녕하세요! 품다입니다.
+						</sec:ifNotLoggedIn>
 					</span>
 				</li>
 				<sec:ifNotLoggedIn>
