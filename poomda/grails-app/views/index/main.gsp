@@ -30,7 +30,7 @@
 							<span ${animal.getLikeCount() < 10 ?'': 'class="on"' }></span>
 							${animal.getLikeCount() < 10 ? animal.getLikeCount() : 10+'+' }
 						</a>
-						<a href="${request.contextPath}/animal/show/${animal.id}">
+						<g:link controller='animal' action="animalInfo" params="[animalId:animal?.id]" title='등록 동물 바로가기' class="btn_blue">
 							<dl>
 								<dt>
 									<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
@@ -51,7 +51,7 @@
 									</span>
 								</dd>
 							</dl>
-						</a>
+						</g:link>
 					</section>
 				</g:each>
 			</div>

@@ -49,7 +49,7 @@
 						<div class="question_layer">
 								<h2>입양문의 방법</h2>
 								<div>
-									<img src="../img/search/img_spl.png" alt="봉사등록자 이미지" />
+									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
 									<span>간달풍/30대 남성</span>
 									<p>
 										저에게 쪽지를 보내주시거나 카카오톡 아이디<br />
@@ -64,7 +64,7 @@
 						<div class="question_layer">
 								<h2>봉사문의 방법</h2>
 								<div>
-									<img src="../img/search/img_spl.png" alt="봉사등록자 이미지" />
+									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
 									<span>간달풍/30대 남성</span>
 									<p>
 										봉사는 페이지에 있는 대표 사이트 다음카페로 오셔서<br />
@@ -98,54 +98,8 @@
 							<td colspan="3"><a class="url" href="${shelter.siteName}" target="_blank" title="사이트 새창열림">${shelter.siteName}</a></td>
 						</tr>
 					</table>
-					<section  class="volunteer">
-						<h1>등록한 봉사자</h1>
-						<div>
-							<div class="vlt_pic">
-								<img src="" alt="등록한 봉사자 사진" />
-								<button type="button" class="go_msg">쪽지보내기</button>
-							</div>
-							<table>
-								<caption>등록한 봉사자 정보</caption>
-								<colgroup>
-									<col span="30%">
-								<col span="70%">
-								</colgroup>
-								<tr>
-									<th scope="row"><h2>닉네임</h2></th>
-									<td>간달풍</td>
-								</tr>
-								<tr>
-									<th scope="row"><h2>연령대/성별</h2></th>
-									<td>30대/남성</td>
-								</tr>
-								<tr>
-									<th scope="row"><h2>연락처</h2></th>
-									<td>카톡 bacehee</td>
-								</tr>
-								<tr>
-									<th scope="row"><h2>자기소개</h2></th>
-									<td>저는 수의사, 프로그래머입니다.</td>
-								</tr>
-								<tr>
-									<th scope="row"><h2>활동이력</h2></th>
-									<td>2014년부터 가평군 유기동물 보호소에서 동물 보호업무를 담당하고 있습니다.</td>
-								</tr>
-							</table>
-						</div>
-					</section>
+					<g:render template="../user/profileCard" model="[user:shelter.user]"></g:render>
 				</section>
-				<div class="message_layer">
-					<span>쪽지보내기</span>
-					<form action="" method="">
-						<span><em>간달퐁</em>에게</span>
-						<textarea>
-						</textarea>
-						<span class="txt_count"><span>33</span>/1000자</span>
-						<button type="submit">쪽지 발송</button>
-					</form>
-					<button type="button" class="close_lyr">닫기</button>
-				</div>
 			</div>	
 			<div class="list_area ">
 				<h2>품고있는 동물들</h2>
@@ -175,7 +129,7 @@
 					<section>
 						<h1 class="vol_cate1">봉사<br />활동</h1>
 						<div class="vol_left">
-							<img src="../img/main/shaterlisttast.jpg" alt="봉사활동 등록사진" />
+							<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="봉사활동 등록사진" />
 							<span class="connect"><span>이 봉사활동을 공유한 수</span>+999</span>
 							<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+999</span>
 						</div>
@@ -211,7 +165,7 @@
 								참여인원<span class="bold">10명</span>
 							</h2>
 							<div>
-								<img src="../img/search/img_spl.png" alt="봉사등록자 이미지" />
+								<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
 								<span>반달아빠</span>
 							</div>
 						</div>
@@ -219,7 +173,7 @@
 					<section>
 						<h1 class="vol_cate2">후원<br />활동</h1>
 						<div class="vol_left">
-							<img src="../img/common/noimages.gif" alt="봉사활동 등록사진" />
+							<img src="${assetPath(src: 'common/noimages.gif')}" alt="봉사활동 등록사진" />
 							<span class="connect"><span>이 봉사활동을 공유한 수</span>+999</span>
 							<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+999</span>
 						</div>
@@ -251,7 +205,7 @@
 								참여인원<span class="bold">10명</span>
 							</h2>
 							<div>
-								<img src="../img/search/img_spl.png" alt="봉사등록자 이미지" />
+								<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
 								<span>반달아빠</span>
 							</div>
 						</div>

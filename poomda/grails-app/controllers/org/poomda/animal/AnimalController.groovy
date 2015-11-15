@@ -59,9 +59,9 @@ class AnimalController {
 				if(!it.empty){
 					def fileItem = it.getFileItem()
 					it.transferTo(new File(storagePath+"/"+fileItem.name))
-					def imgShelter = new ImgAnimal(  animal:animal, user : user, filename:fileItem.name,filepath:request.getContextPath()+tempPath, extention : fileItem.name.split('\\.')[1], status : 'INITIALIZE' )
-					if(!imgShelter.save(true)){
-						println imgShelter.getErrors()
+					def imgFile = new ImgAnimal(  animal:animal, user : user, filename:fileItem.name,filepath:request.getContextPath()+tempPath, extention : fileItem.name.split('\\.')[1], status : 'INITIALIZE' )
+					if(!imgFile.save(true)){
+						println imgFile.getErrors()
 					}
 				}
 			}

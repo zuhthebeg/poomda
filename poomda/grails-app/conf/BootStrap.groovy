@@ -2,6 +2,8 @@ import org.poomda.activity.ActivityType
 import org.poomda.animal.Animal
 import org.poomda.animal.AnimalBreed
 import org.poomda.animal.AnimalType
+import org.poomda.file.ImgAnimal
+import org.poomda.file.ImgShelter
 import org.poomda.locale.Address
 import org.poomda.locale.Country
 import org.poomda.member.Role
@@ -43,9 +45,11 @@ class BootStrap {
 		
 		def s1 = new Shelter(name:'남양주 보호소', address:'경기-남양주', user:admin, introduction:
 			'경기도 남양주시에 위치하여 2011년부터 여러 봉사자들과 함께 동물들을 보호해 오고 있습니다. 강아지,고양이 합쳐서 100여마리 규모의 보호소 입니다.').save(failOnError:true)
+		new ImgShelter(  shelter:s1, user : admin, filename:'shelter_sample.jpg',filepath:'/poomda/upload/shelter/', extention : 'jpg', status : 'INITIALIZE' ).save(failOnError:true)
 		def s2 = new Shelter(name:'마석보호소', address:'마석', user:admin, introduction:
 			'마석에 위치하여 2011년부터 여러 봉사자들과 함께 동물들을 보호해 오고 있습니다. 강아지,고양이 합쳐서 200여마리 규모의 보호소 입니다.').save(failOnError:true)
-		
+		new ImgShelter(  shelter:s2, user : admin, filename:'shelter_sample.jpg',filepath:'/poomda/upload/shelter/', extention : 'jpg', status : 'INITIALIZE' ).save(failOnError:true)
+			
 		new AnimalBreed(register:admin,animalType:at1,name:'골든 리트리버',nameKor:'골든 리트리버').save(failOnError:true)
 		new AnimalBreed(register:admin,animalType:at1,name:'래브라도 리트리버',nameKor:'래브라도 리트리버').save(failOnError:true)
 		new AnimalBreed(register:admin,animalType:at1,name:'도베르만',nameKor:'도베르만').save(failOnError:true)
@@ -133,7 +137,8 @@ class BootStrap {
 		new AnimalBreed(register:admin,animalType:at2,name:'네벨룽',nameKor:'네벨룽').save(failOnError:true)
 		
 		5.times{
-			new Animal(shelter:s1, name:'말라뮤트', user : admin, status : '개인보호중', breed:ab1, gender:'수컷', age:'2살', furColor:'실버그레이',feature:'꼬리에 까만 무늬 있음', weight:'1kg').save(failOnError:true)
+			def temp_animal=new Animal(shelter:s1, name:'말라뮤트', user : admin, status : '개인보호중', breed:ab1, gender:'수컷', age:'2살', furColor:'실버그레이',feature:'꼬리에 까만 무늬 있음', weight:'1kg').save(failOnError:true)
+			new ImgAnimal(  animal:temp_animal, user : user, filename:'animal_sample.jpg',filepath:'/poomda/upload/animal/', extention : 'jpg', status : 'INITIALIZE' ).save(failOnError:true)
 		}
 		def animal1 = new Animal(shelter:s2, name:'doggi', user : admin, status : '개인보호중', breed:ab1, gender:'수컷', age:'1살', furColor:'white',weight:'1kg').save(failOnError:true)
 		def animal2 = new Animal(shelter:s2,name:'cathy', user : admin, status : '개인보호중', breed:ab2, gender:'암컷', age:'5개월', furColor:'black',weight:'1kg').save(failOnError:true)
