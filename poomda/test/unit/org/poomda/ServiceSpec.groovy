@@ -1,6 +1,6 @@
 package org.poomda
 
-import org.poomda.activity.Service;
+import org.poomda.activity.Volunteer;
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -8,7 +8,7 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Service)
+@TestFor(Volunteer)
 class ServiceSpec extends Specification {
 
     def setup() {
