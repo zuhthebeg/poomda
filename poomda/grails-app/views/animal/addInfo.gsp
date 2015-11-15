@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="animal.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
@@ -130,7 +130,7 @@
 						</tr>
 					</table>
 					<p><span>*</span>된 표시는 필수입력 입니다.
-					<fieldset>
+					<fieldset> 
 						<button type="reset" class="btn_gray">취소</button>
 						<button type="submit" class="btn_blue">완료</button>
 					</fieldset>
@@ -141,13 +141,5 @@
 		<div class="back">
 		</div>
 
-<script>
-var bodyheight=document.getElementById("wrap-m").offsetHeight;
-var back=document.getElementsByClassName("back");
-back[0].style.height=bodyheight+"px";
-back[0].style.display="block";
-
-	</script>
-	
 </body>
 </html>

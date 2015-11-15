@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="service.css"/> 
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
@@ -25,43 +25,29 @@
 				
 				<!-- service-choice // S -->
 				<div class="service-choice">
-					<a href="./service.jsp" class="on">
+					<g:activeLink controller="service" action="Volunteer" activeClass="on">
 						봉사활동 찾기
-					</a>
-					<a href="./service2.jsp">
+					</g:activeLink>
+					<g:activeLink controller="service" action="Sponsored" activeClass="on">
 						후원활동 찾기
-					</a>
+					</g:activeLink>
 				</div>
 				<!-- service-choice // E -->
 				<p>
 					진정한 실천을 하고 있는 아름다운 당신!
 				</p>
+				
+				
+				
 				<!-- service-place // S -->
 				<div class="service-place">
 					<label>
-						<select>
-							<option selected>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-						<option>This Is A Longer Option</option>
-						</select>
+						<g:select from="${org.poomda.locale.Address.list()}" optionKey="state" name="addressId" noSelection="${['':'지역'] }" value="${params.addressId}" />
 					</label>
 					<label>
 						<select>
 							<option selected>
 								구 
-							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
 							</option>
 						</select>
 					</label>
@@ -70,26 +56,10 @@
 							<option selected>
 								보호소 
 							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
 						</select>
 					</label>
 					<label>
-						<select>
-							<option selected>
-								물품후원
-							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-						</select>
+						<g:select from="${activityTypeList}" optionKey="name" name="activityType" value="${params.activityType}" />
 					</label>
 					<a href="#;">
 						찾기
@@ -136,13 +106,13 @@
 			<div class="main-service-list">
 				<section>
 					<a href="#;" class="main-service-case-3">
-						<img src="../img/common/noimage-small.jpg">
+						<img src="${assetPath(src: 'common/noimage-small.jpg')}">
 						반달아빠
 					</a>
 					<a href="./outreach.jsp">
 						<dl>
 							<dt>
-								<img src="../img/common/noimages.gif" alt="NO IMAGE">
+								<img src="${assetPath(src: 'common/noimages.gif')}" alt="NO IMAGE">
 							</dt>
 							<dd>
 								<div class="main-service-tit">
@@ -220,13 +190,13 @@
 						999+
 					</a>
 					<a href="#;" class="main-service-case-3">
-						<img src="../img/common/noimage-small.jpg">
+						<img src="${assetPath(src: 'common/noimage-small.jpg')}">
 						반달아빠
 					</a>
 					<a href="./outreach.jsp">
 						<dl>
 							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
+								<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="말라뮤트 사진">
 							</dt>
 							<dd>
 								<div class="main-service-tit">

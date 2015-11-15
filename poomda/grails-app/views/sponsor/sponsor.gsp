@@ -1,12 +1,13 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.member.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="sponsor.css"/>
-		<asset:javascript src="sub.js"/>
+		
 	</head>
 	<body>
 	<!-- sub-content // S -->
@@ -46,16 +47,17 @@
 						</h2>
 						<ul>
 							<li>
-								<a href="#;" class="on">
+								<a href="#;" class="on activityType" onclick="$('.activityType').removeClass('on');$(this).addClass('on');$('#activityType').val('Volunteer')">
 									봉사활동
 								</a>
 							</li>
 							<li>
-								<a href="#;">
+								<a href="#;" class="activityType" onclick="$('.activityType').removeClass('on');$(this).addClass('on');$('#activityType').val('Sponsored')">
 									후원활동
 								</a>
 							</li>
 						</ul>
+						<input type="hidden" name="activityType" id="activityType" value="Volunteer" />
 					</div>
 					<div class="sponsor-object">
 						<h2>
@@ -63,12 +65,12 @@
 						</h2>
 						<ul>
 							<li>
-								<a href="#;">
+								<a href="#;" class="on serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('#animalList').show();">
 									동 물
 								</a>
 							</li>
 							<li>
-								<a href="#;">
+								<a href="#;" class="serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('#shelterList').show();">
 									보호소
 								</a>
 							</li>
@@ -80,18 +82,7 @@
 				<!-- sponsor-place // S -->
 				<div class="sponsor-place">
 					<label>
-						<select>
-							<option selected>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-						<option>This Is A Longer Option</option>
-						</select>
+						<g:select from="${org.poomda.locale.Address.list()}" optionKey="state" name="addressId" noSelection="${['':'지역'] }" value="${params.addressId}" />
 					</label>
 					<label>
 						<select>
@@ -125,37 +116,38 @@
 			<!-- sponsor-condition // E -->
 			
 			<!-- main-shelter-list Program box // S -->
-			<div class="main-shelter-list">
-				<section>
+			<div class="main-shelter-list" id="animalList">
+			
+<g:each in="${Animal.list([max:8,sort:'dateCreated',order:'desc'])}" var="animal" status="i">
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');" ${i==4 ? 'style=margin:0px;' : ''}>
 					<a href="#;" class="main-shelter-count">
 						<span class="on"></span>
-						999+
+						${UserLikeAnimal.countByAnimal(animal) }+
 					</a>
-					<a href="http://naver.com" class="on">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
+								<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
 							</dt>
 							<dd>
 								<h2>
-									말라뮤트
+									${animal}
 								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만asdsd
-								</p>
+								<p>${animal.gender } / ${animal.age } / ${animal.breed}-${animal.feature}</p>
 								<span>
-									<strong>경기도 남양주시</strong>
+									<strong>${animal.shelter?.address}</strong>
 								</span>
 							</dd>
 						</dl>
 					</a>
 				</section>
-				<section>
+</g:each><%--
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						12
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -174,12 +166,12 @@
 						</dl>
 					</a>
 				</section>
-				<section>
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						123
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -198,12 +190,12 @@
 						</dl>
 					</a>
 				</section>
-				<section>
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						999+
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -228,7 +220,7 @@
 						<span></span>
 						999+
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -247,12 +239,12 @@
 						</dl>
 					</a>
 				</section>
-				<section>
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						12
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -271,12 +263,12 @@
 						</dl>
 					</a>
 				</section>
-				<section>
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						123
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -295,12 +287,12 @@
 						</dl>
 					</a>
 				</section>
-				<section>
+				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
 					<a href="#;" class="main-shelter-count">
 						<span></span>
 						999+
 					</a>
-					<a href="#;">
+					<a href="#animalList" class="checked">
 						<dl>
 							<dt>
 								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
@@ -319,13 +311,13 @@
 						</dl>
 					</a>
 				</section> 
-			</div>
+			--%></div>
 			<!-- main-shelter-list Program box // E -->
 
 			<div class="sponsor-navbox">
-				<a href="${request.contextPath}/sponsor/sponsor2" class="sponsor-next">
+				<g:link  controller="sponsor" action="sponsor2" class="sponsor-next">
 					다 음 >
-				</a>
+				</g:link>
 			</div>
 		</div>
 	</div>

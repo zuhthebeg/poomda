@@ -66,11 +66,10 @@ $(".animalList >section, .centerList >section").on("mouseover", function(){
 
 //쪽지보내기
 $("button.go_msg").on("click",function(){
-	$("#wrap-m").append("<div class='back'></div>");
-	$(".message_layer").show();
+	$("body").append("<div class='back'></div>");
+	$("#msgSendModal").show();
 	$(".message_layer textarea").focus();
 	 back_h();
-	
 });
 
 // for search form
@@ -87,19 +86,39 @@ $('.option_li').find('li').each(function(){
 		$(this).parent().hide();
 	});
 });
+$('.close_lyr').click(function(){
+	$(this).parent().hide();
+	$('.back').height(0);
+});
 
-
-
-	//검정배경 height
-	function back_h(){
-		var bodyheight=document.getElementById("wrap-m").offsetHeight;
-		var set_div=document.getElementsByClassName("back");
-		set_div[0].style.height=bodyheight+"px";
-	}		
-	
-	
 }); //END
+//검정배경 height
+function back_h(){
+	var bodyheight=getDocHeight();
+	var set_div=document.getElementsByClassName("back");
+	set_div[0].style.height=bodyheight+"px";
+}		
+function getDocHeight() {
+    var D = document;
+    return Math.max(
+        Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+        Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+        Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+    );
+}	
 
+
+function openMsgModal(){
+	$('#msgModal').show();
+	$("body").prepend("<div class='back'></div>");
+	 back_h();		
+}
+function openSendMsgModal(){
+	$("body").append("<div class='back'></div>");
+	$("#msgSendModal").show();
+	$(".message_layer textarea").focus();
+	 back_h();	
+}
 function beforeSearchFormSubmit(data){
 	var valid = false;
 	$(data).find('input').each(function(){

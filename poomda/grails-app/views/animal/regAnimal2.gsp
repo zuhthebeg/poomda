@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="animal.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
@@ -19,7 +19,7 @@
 			</div>	
 			<ul class="step">
 				<li>보호장소 선택</li>
-				<li><h2>정보입력<h2></li>
+				<li><h2>정보입력</h2></li>
 				<li>완료</li>
 			</ul>	
 			<g:form url="[controller: 'Animal', action:'regAnimalOk']" method="post" enctype="multipart/form-data"  class="clearFix">
@@ -139,7 +139,7 @@
 						<th scope="row">소개<span>*</span></th>
 						<td colspan="3">
 							<fieldset class="txtareaWrap">
-								<textarea name="introduction" maxlength="1000" value="${params.introduction}">예) 타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 지금은 보호소에서 건강히 지내고 있으며 애교가 많습니다.</textarea>
+								<textarea name="introduction" maxlength="1000" >${params.introduction}예) 타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 지금은 보호소에서 건강히 지내고 있으며 애교가 많습니다.</textarea>
 								<span class="textLength"><span></span>/1000자</span>
 							</fieldset>
 						
@@ -149,7 +149,7 @@
 						<th scope="row">입양문의<span>*</span></th>
 						<td colspan="3">
 							<fieldset class="txtareaWrap">
-								<textarea name="adoptionInquiry" maxlength="1000" value="${params.adoptionInquiry}">예) 개인 보호중 입니다. 010-000-0000 연락 바랍니다.	오전10시~오후8시 연락가능.
+								<textarea name="adoptionInquiry" maxlength="1000">${params.adoptionInquiry}예) 개인 보호중 입니다. 010-000-0000 연락 바랍니다.	오전10시~오후8시 연락가능.
 								</textarea>
 								<span class="textLength"><span></span>/1000자</span>
 							</fieldset>

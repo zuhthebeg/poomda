@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="sponsor.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
@@ -44,7 +44,7 @@
 				<!-- service-input // S -->
 				<div class="service-input">
 					<div class="input-img">
-						<img src="../img/common/no-image-big3.gif">
+						<img src="${assetPath(src: 'common/no-image-big3.gif')}">
 						<a href="#;"></a>
 						<input type="file">
 					</div>
@@ -168,9 +168,8 @@
 										<p>
 											107 <span class="gray-text">/ 1000 자</span><br>
 											<br>
-											<span class="red-text">*<span> 된 표시는 필수입력 입니다.
+											<span class="red-text">*</span> 된 표시는 필수입력 입니다.
 										</p>
-									</td>
 									</td>
 								</tr>
 							</tbody>

@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
-		<asset:javascript src="sub.js"/>
+		
 		<script>
 		    // This is called with the results from from FB.getLoginStatus().
 		    function statusChangeCallback(response) {

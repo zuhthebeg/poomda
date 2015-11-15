@@ -21,6 +21,7 @@
   		<asset:stylesheet src="common.css"/>
   		<asset:stylesheet src="layout.css"/>
 		<asset:javascript src="application.js"/>
+		<asset:javascript src="sub.js"/>
 		<g:layoutHead/>
 	</head>
 	<body>
@@ -29,6 +30,7 @@
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		<g:render template="/layouts/message" />	
 		<g:render template="/layouts/footer" />	
 	</body>
 </html>

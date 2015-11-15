@@ -7,9 +7,16 @@ import org.poomda.shelter.Shelter;
 
 class Sponsor extends Activity{
 	
-	Integer sponsorAmount
+	static hasMany = [activityType:ActivityType]
+	Integer donationAmount
+	String sponsoredItem
 	
 	static constraints = {
-		sponsorAmount range: 1..1000000 
+		donationAmount range: 1..1000000 
+		sponsoredItem nullable : true
+	}
+	
+	static mapping = {
+		donationAmount defaultValue : "0"
 	}
 }

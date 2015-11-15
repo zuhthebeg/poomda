@@ -73,4 +73,7 @@ class AnimalController {
 	def breedlist(){
 		render AnimalBreed.findAllByAnimalType(AnimalType.get(params.id)) as JSON
 	}
+	def animalInfo(){
+		render view:'animalInfo', model : [animal:Animal.get(params.animalId)]
+	}
 }

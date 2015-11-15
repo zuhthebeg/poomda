@@ -15,4 +15,7 @@ class Address {
 		details nullable : true
 		postNumber nullable : true
     }
+	
+	String toString(){this.state}
 }
+ 

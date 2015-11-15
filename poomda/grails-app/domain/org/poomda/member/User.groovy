@@ -12,7 +12,8 @@ class User {
 	boolean passwordExpired
 	
 	String nickname
-	Integer gender
+	String gender
+	Date birthday
 	Integer age
 	String phone
 	String introduction
@@ -32,7 +33,8 @@ class User {
 		password blank: false
 		
 		nickname nullable:true, unique:true
-		gender nullable:true
+		gender nullable:true, inList:['남','여','기타']
+		birthday nullable:true
 		age nullable:true
 		phone nullable:true
 		introduction nullable:true, maxSize: 1000
@@ -67,5 +69,10 @@ class User {
 	
 	String toString(){
 		return nickname
+	}
+	
+	String getAgeByBirthday(){
+		if(!this.birthday) return null
+		this.age = ((new Date(new Date().time - (this.birthday).time ).time) / 1000 / 60 / 60/ 24 / 365).toInteger()
 	}
 }

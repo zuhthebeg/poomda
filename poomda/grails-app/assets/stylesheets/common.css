@@ -458,3 +458,14 @@ body {overflow-y:scroll;}
  .form_wrap{position:relative;display:inline-block;}
  .form_wrap p{width:160px; text-align:right; font-size:18px; margin-right:10px; float:left;margin-top:15px;}
  .form_wrap span.point_tit{font-size:16px; color:#f26d7d;}
+ 
+ button.close_lyr {position:absolute; top:20px; right:25px;width:33px; height:33px; background:url(./common/close_btn.png) no-repeat; font-size:0;}
+.message_layer {display:none;position:absolute;top:100px ; left:32%;width:660px ; height:490px; background:#fff; border-radius:10px; z-index:300}
+.message_layer> span:first-child {display:block;background:#0054a6; height:70px; color:#fff; font-size:24px; padding:0 0 0 20px; line-height:3; border-radius:10px 10px 0 0}
+.message_layer form {padding:30px 0 0 23px}
+.message_layer form >span:first-child {display:block; font-size:18px;}
+.message_layer form >span em {color:#01adef}
+.message_layer form textarea {margin:20px 0 0 0;display:block; width:600px; height:150px; border-radius:5px}
+.message_layer span.txt_count {display:block; text-align:right; padding:7px 30px 0 0}
+.message_layer form button[type=submit],input[type=submit]  {display:block; margin:40px auto 0;width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#01adef ; color:#fff;border-radius:8px}
+div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%; z-index:200 }

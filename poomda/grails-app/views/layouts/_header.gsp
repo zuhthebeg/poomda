@@ -1,3 +1,4 @@
+<%@ page import="org.poomda.member.*" %>
 <!-- wrap-m // S -->
 <div id="wrap-m">
 	<!-- header // S -->
@@ -12,7 +13,8 @@
 				<li>
 					<span>
 						<sec:ifLoggedIn>
-							<span>쪽지( 7 )</span> <sec:username/>님
+							<g:set var="msgCount" value="${UserMessage.countByUserAndIsRead(User.get(sec.loggedInUserInfo(field: 'id')),false)}" />
+							<span ${msgCount > 0 ? 'onclick=openMsgModal()' : ''} >쪽지( ${msgCount} )</span> <sec:username/>님
 						</sec:ifLoggedIn>
 						<sec:ifNotLoggedIn>
 							안녕하세요! 품다입니다.
@@ -28,7 +30,7 @@
 				<sec:ifLoggedIn>
 					<li>
 						<g:link controller="logout">로그아웃</g:link>
-					</li>
+					</li> 
 				</sec:ifLoggedIn>
 				<sec:ifNotLoggedIn>
 					<li>

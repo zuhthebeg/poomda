@@ -14,5 +14,13 @@ class ServiceController {
 	def outreach3(){}
 	def outreach4(){}
 	def service(){}
+	def volunteer(){
+		render view : 'service', model: [activityTypeList : ActivityType.findAllByType('Volunteer') ]
+	}
+	def sponsored(){
+		render view : 'service', model: [activityTypeList : ActivityType.findAllByType('Sponsored') ]
+	}
+	
 	def service2(){}
 }
+ 

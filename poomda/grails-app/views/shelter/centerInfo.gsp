@@ -7,15 +7,15 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="search.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
 <!-- sub-content // S -->
 	<div id="sub_content" class="center_info">
 		<div>
-			<h1>동물/보호소 찾기</h1>
-			<p>보호중인 동물과 보호소를 찾을 수 있습니다.</p>
+			<h1>보호소 정보</h1>
+			<p>보호소 정보를 확인하세요.</p>
 		</div>
 		<aside>
 			<button type="button">신고하기</button>

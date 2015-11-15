@@ -41,6 +41,7 @@ header > .home-menu > ul > li > span{
 }
 header > .home-menu > ul > li > span > span{
 	color:#2d8ce7;
+	cursor: pointer;
 }
 header > nav > ul > li{
 	text-align:center;

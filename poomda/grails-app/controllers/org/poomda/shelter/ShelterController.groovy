@@ -43,7 +43,9 @@ class ShelterController {
 				}
 			}
 		}
+		render view : 'regCenterOk' , model : [shelter : shelter]
 	}
+	
 	def regCenterModify(){}
 	
 	def searchShelter(){

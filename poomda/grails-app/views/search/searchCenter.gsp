@@ -7,7 +7,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="search.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>

@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="animal.css"/>
-		<asset:javascript src="sub.js"/>
+		
 		
 	</head>
 	<body>
@@ -79,7 +79,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th><h2>입양문의</h2></span>*</span></th>
+							<th><h2>입양문의</h2><span>*</span></th>
 							<td>
 								<fieldset class="txtareaWrap">
 									<textarea maxlength="1000" >보호중인 동물을 입양할 수 있는 방법을 상세히 적어주세요.</textarea>
@@ -88,9 +88,9 @@
 							</td>
 						</tr>
 						<tr>
-							<th><h2>봉사문의</h2></span>*</span></th>
+							<th><h2>봉사문의</h2><span>*</span></th>
 							<td>
-								<<fieldset class="txtareaWrap">>
+								<fieldset class="txtareaWrap">
 									<textarea maxlength="1000">보호소 봉사활동에 참여할 수 있는 방법을 상세히 적어주세요.</textarea>
 									<span class="textLength"><span></span>/1000자</span>
 								</fieldset>
@@ -106,7 +106,7 @@
 					<p><span>*</span>된 표시는 필수입력 입니다.
 					<fieldset>
 						<button type="button" class="btn_gray_light">취소</button>
-						<button type="button" class="btn_gray">삭제</button>
+						<button type="button" class="btn_gray" onclick="location.href='/shelter/delete/${shelter?.id}'">삭제</button>
 						<button type="button" class="btn_blue">완료</button>
 					</fieldset>
 				</form>

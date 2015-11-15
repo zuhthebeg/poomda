@@ -15,7 +15,9 @@ class SearchController {
 	def searchAnimal(){
 		println params
 		println AnimalType.findByNameKor(params.animalType)
-		def max = params.max ?:8
+		params.max = params.max ?:8
+		params.sort = params.sort ?:'dateCreated'
+		params.order = params.order ?:'desc'
 		def animalList = Animal.findAll(params){
 			//if(params.address)like('address',"%${params.address}%")
 			//if(params.addressDetails)like('addressDetails',"%${params.addressDetail}%")
@@ -23,12 +25,13 @@ class SearchController {
 			if(params.breedName&& !params.breedName.equals('품종'))eq('breed',AnimalBreed.findByName(params.breedName))
 			if(params.status&& !params.status.equals('상태'))eq('status',params.status)
 		}
-		println animalList
-		animalList = animalList ?: Animal.findAllByShelterIsNotNull([max:8])
+		animalList = animalList ?: Animal.findAllByShelterIsNotNull([max:8,sort:'dateCreated',order:'desc'])
 		render view : 'searchAnimal', model : [animalList:animalList]
 	}
 	def searchCenter(){
-		def max = params.max ?:8
+		params.max = params.max ?:8
+		params.sort = params.sort ?:'dateCreated'
+		params.order = params.order ?:'desc'
 		def shelterList = Shelter.findAll(params){
 			if(params.address)like('address',"%${params.address}%")
 			if(params.addressDetails)like('addressDetails',"%${params.addressDetail}%")

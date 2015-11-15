@@ -869,7 +869,7 @@
 .question_layer div span {line-height:3}
 .question_layer button {display:block; margin: 0 auto;  }
 .question_layer button.send_msg {width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#00aeef; color:#fff;border-radius:8px; margin-bottom:20px;}
-button.close_lyr {position:absolute; top:20px; right:25px;width:33px; height:33px; background:url(/img/common/close_btn.png) no-repeat; font-size:0;}
+button.close_lyr {position:absolute; top:20px; right:25px;width:33px; height:33px; background:url(./common/close_btn.png) no-repeat; font-size:0;}
 
 div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%; z-index:200 }
 .question_layer button.send_msg {width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#00aeef; color:#fff;border-radius:8px}
