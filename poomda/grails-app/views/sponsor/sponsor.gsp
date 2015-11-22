@@ -1,5 +1,6 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.member.*" %>
 <!DOCTYPE html>
 <html>
@@ -65,16 +66,17 @@
 						</h2>
 						<ul>
 							<li>
-								<a href="#;" class="on serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('#animalList').show();">
+								<a href="#;" class="on serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('.targetList').hide();$('#animalList').show();$('#target').val('Animal')">
 									동 물
 								</a>
 							</li>
 							<li>
-								<a href="#;" class="serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('#shelterList').show();">
+								<a href="#;" class="serviceTarget" onclick="$('.serviceTarget').removeClass('on');$(this).addClass('on');$('.targetList').hide();$('#shelterList').show();$('#target').val('Shelter')">
 									보호소
 								</a>
 							</li>
 						</ul>
+						<input type="hidden" name="target" id="target" value="Animal" />
 					</div>
 				</div>
 				<!-- sponsor-choice // E -->
@@ -116,208 +118,70 @@
 			<!-- sponsor-condition // E -->
 			
 			<!-- main-shelter-list Program box // S -->
-			<div class="main-shelter-list" id="animalList">
-			
-<g:each in="${Animal.list([max:8,sort:'dateCreated',order:'desc'])}" var="animal" status="i">
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');" ${i==4 ? 'style=margin:0px;' : ''}>
-					<a href="#;" class="main-shelter-count">
-						<span class="on"></span>
-						${UserLikeAnimal.countByAnimal(animal) }+
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
-							</dt>
-							<dd>
-								<h2>
-									${animal}
-								</h2>
-								<p>${animal.gender } / ${animal.age } / ${animal.breed}-${animal.feature}</p>
-								<span>
-									<strong>${animal.shelter?.address}</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-</g:each><%--
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						12
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						123
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						999+
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section> 
-				
-				<section class="marginleft-clear">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						999+
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						12
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						123
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section>
-				<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');">
-					<a href="#;" class="main-shelter-count">
-						<span></span>
-						999+
-					</a>
-					<a href="#animalList" class="checked">
-						<dl>
-							<dt>
-								<img src="../img/main/shaterlisttast.jpg" alt="말라뮤트 사진">
-							</dt>
-							<dd>
-								<h2>
-									말라뮤트
-								</h2>
-								<p>
-									수컷 / 3살 / 실버그레이-꼬리에 까만 무늬 있음
-								</p>
-								<span>
-									<strong>경기도 남양주시</strong>
-								</span>
-							</dd>
-						</dl>
-					</a>
-				</section> 
-			--%></div>
+			<div class="main-shelter-list targetList" id="animalList">
+				<g:each in="${Animal.list([max:8,sort:'dateCreated',order:'desc'])}" var="animal" status="i">
+					<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');" ${i==4 ? 'style=margin:0px;' : ''}>
+						<a href="#;" class="main-shelter-count">
+							<span class="on"></span>
+							${UserLikeAnimal.countByAnimal(animal) }+
+						</a>
+						<a href="#animalList" class="checked" onclick="$('#targetValue').val('${animal.id}')">
+							<dl>
+								<dt>
+									<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
+								</dt>
+								<dd>
+									<h2>
+										${animal}
+									</h2>
+									<p>${animal.gender } / ${animal.age } / ${animal.breed}-${animal.feature}</p>
+									<span>
+										<strong>${animal.shelter?.address}</strong>
+									</span>
+								</dd>
+							</dl>
+						</a>
+					</section>
+				</g:each>
+				<input type="hidden" name="targetValue" id="targetValue" value=""/>
+			</div>
 			<!-- main-shelter-list Program box // E -->
 
+
+			<!-- main-shelter-list Program box // S -->
+			<div class="main-shelter-list targetList" id="shelterList">
+				<g:each in="${Shelter.list([max:8,sort:'dateCreated',order:'desc'])}" var="shelter" status="i">
+					<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');" ${i==4 ? 'style=margin:0px;' : ''}>
+						<a href="#;" class="main-shelter-count">
+							<span class="on"></span>
+							${UserLikeShelter.countByShelter(shelter) }+
+						</a>
+						<a href="#shelterList" class="checked" onclick="$('#targetValue').val('${shelter.id}')">
+							<dl>
+								<dt>
+									<img src="${imgShelter ? imgShelter?.filepath + '/' + imgShelter?.filename : ''}" alt="보호소 사진" width="100%" />
+								</dt>
+								<dd>
+									<h2>
+										${shelter}
+									</h2>
+									<p>${shelter.name } / ${shelter.siteName}</p>
+									<span>
+										<strong>${shelter?.address}</strong>
+									</span>
+								</dd>
+							</dl>
+						</a>
+					</section>
+				</g:each>
+				<input type="hidden" name="targetValue" id="targetValue" value=""/>
+			</div>
+			<!-- main-shelter-list Program box // E -->
+			
 			<div class="sponsor-navbox">
-				<g:link  controller="sponsor" action="sponsor2" class="sponsor-next">
+				<a href="#sponsor2" onclick="location.href='sponsor2?activityType='+$('#activityType').val()+'&target='+$('#target').val()+'&targetValue='+$('#targetValue').val();" class="sponsor-next">
 					다 음 >
-				</g:link>
+				</a>
 			</div>
 		</div>
 	</div>

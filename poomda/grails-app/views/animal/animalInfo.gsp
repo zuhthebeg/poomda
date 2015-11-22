@@ -50,7 +50,7 @@
 								<h2>입양문의 방법</h2>
 								<div>
 									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-									<span>${animal.user.nickname} / ${animal.user.getAgeByBirthday()}${animal.user.gender}</span>
+									<span>${animal.user?.nickname} / ${animal.user.getAgeByBirthday()}${animal.user.gender}</span>
 									<p>
 										저에게 쪽지를 보내주시거나 카카오톡 아이디<br />
 										Bacehee로 연락주시면 자세히 안내해 드리겠습니다.<br />
@@ -65,7 +65,7 @@
 								<h2>봉사문의 방법</h2>
 								<div>
 									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-									<span>${animal.user.nickname} / ${animal.user.getAgeByBirthday()}${animal.user.gender}</span>
+									<span>${animal.user?.nickname} / ${animal.user.getAgeByBirthday()}${animal.user.gender}</span>
 									<p>
 										봉사는 페이지에 있는 대표 사이트 다음카페로 오셔서<br />
 										봉사신청을 하셔야 합니다.
@@ -104,7 +104,9 @@
 							<td colspan="3">${animal.adoptionInquiry}</td>
 						</tr>
 					</table>
-					<g:render template="../user/profileCard" model="[animal:animal.user]"></g:render>
+					<g:if test="${animal.user}">
+						<g:render template="../user/profileCard" model="[animal:animal.user]"></g:render>
+					</g:if>
 				</section>
 			</div>	
 		</section>

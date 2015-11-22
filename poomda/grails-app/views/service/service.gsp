@@ -53,9 +53,8 @@
 					</label>
 					<label>
 						<select>
-							<option selected>
-								보호소 
-							</option>
+							<option selected>보호소 </option>
+							<option>동물 </option>
 						</select>
 					</label>
 					<label>
