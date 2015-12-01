@@ -9,7 +9,14 @@ class ServiceController {
 	def activeMore1_2(){}
 	def activeMore2_1(){}
 	def activeMore2_2(){}
-	def outreach(){}
+	def outreach(){
+		println params.id
+		def activity = Activity.get(params.id)
+		activity.viewCount++
+		activity.save(true)
+		println activity.viewCount
+		render view:'outreach' , model : [activity:activity]
+	}
 	def outreach2(){}
 	def outreach3(){}
 	def outreach4(){}

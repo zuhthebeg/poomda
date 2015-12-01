@@ -49,6 +49,7 @@
 						<input type="file">
 					</div>
 					<div class="input-form">
+						<form action="sponsor3" id="activityForm">
 						<table>
 							<colgroup>
 								<col width="100">
@@ -60,8 +61,8 @@
 										대상<span>*</span>
 									</th>
 									<td class="target-td">
-										<input type="text" value="반달이네 보호소" readonly>
-										<a href="#;">
+										<input type="text" value="${sponsorTarget}" readonly>
+										<a href="#;" onclick="history.back();">
 											변경
 										</a>
 									</td>
@@ -71,7 +72,7 @@
 										제목<span>*</span>
 									</th>
 									<td class="subject-td">
-										<input type="text" placeholder="제목을 입력해 주세요.">
+										<input type="text" name="title" placeholder="제목을 입력해 주세요.">
 									</td>
 								</tr>
 								<tr>
@@ -79,7 +80,7 @@
 										모집기간<span>*</span>
 									</th>
 									<td class="calendar-td">
-										<input type="text" value="2015-02-05" readonly>
+										<input type="text" value="2015-02-05" name="period" readonly>
 										<a href="#;"></a>
 									</td>
 								</tr>
@@ -89,21 +90,14 @@
 									</th>
 									<td class="place-td">
 										<label>
-											<select>
-												<option selected>
-													세종특별자치시
-												</option>
-												<option>
-													지역
-												</option>
-												<option>
-													지역
-												</option>
-											<option>This Is A Longer Option</option>
+											<select name="address"> 
+												<g:each in="${org.poomda.locale.Address.list() }" var="address">
+													<option>${address.state}</option>
+												</g:each>
 											</select>
 										</label>
 										<label>
-											<select class="all-select">
+											<select name="area" class="all-select">
 												<option selected>
 													전체
 												</option>
@@ -116,7 +110,7 @@
 											<option>This Is A Longer Option</option>
 											</select>
 										</label>
-										<input type="text" placeholder="상세주소(선택입력)">
+										<input type="text" name="areaDetails" value="상세주소" placeholder="상세주소(선택입력)">
 									</td>
 								</tr>
 								<tr>
@@ -124,21 +118,12 @@
 										활동성격<span>*</span>
 									</th>
 									<td class="active-etc">
-										<a href="#;">
-											청소
-										</a>
-										<a href="#;">
-											미용
-										</a>
-										<a href="#;">
-											의료
-										</a>
-										<a href="#;">
-											보수
-										</a>
-										<a href="#;">
-											기타
-										</a>
+									<input type="hidden" name="activityInfo" value="test" />
+										<g:each in="${typeList}" var="type">
+											<a href="#;">
+												${type}
+											</a>
+										</g:each>
 										<p>
 											다중선택 가능
 										</p>
@@ -149,22 +134,9 @@
 										소개글<span>*</span>
 									</th>
 									<td class="active-introduce">
-										<textarea>타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
+										<textarea name="introduction">타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
 티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-
-지금은 보호소에서 건강히 잘 지내고 있으며 애교가 많습니다.타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
-티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-
-지금은 보호소에서 건강히 잘 지내고 있으며 애교가 많습니다.타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
-티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-
-지금은 보호소에서 건강히 잘 지내고 있으며 애교가 많습니다.타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
-티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-
-지금은 보호소에서 건강히 잘 지내고 있으며 애교가 많습니다.타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
-티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-
-지금은 보호소에서 건강히 잘 지내고 있으며 애교가 많습니다.</textarea>
+</textarea>
 										<p>
 											107 <span class="gray-text">/ 1000 자</span><br>
 											<br>
@@ -174,6 +146,10 @@
 								</tr>
 							</tbody>
 						</table>
+						<input type="hidden" value="${activityType}" name="activityType" />
+						<input type="hidden" value="${target}" name="target" />
+						<input type="hidden" value="${sponsorTarget.id}" name="sponsorTarget" />
+						</form>
 					</div>
 				</div>
 				<!-- service-input // E -->
@@ -185,7 +161,7 @@
 				<a href="/" class="sponsor-cancle">
 					취 소
 				</a>
-				<a href="./sponsor3.jsp" class="sponsor-ok">
+				<a href="#" onclick="$('#activityForm').submit()" class="sponsor-ok">
 					완 료
 				</a>
 			</div>

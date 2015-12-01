@@ -21,22 +21,12 @@ class BootStrap {
 		User manager = new User(username:'manager@manager.com', password:'manager', nickname:'manager', enabled:true).save(failOnError:true)
 		User user = new User(username:'user@user.com', password:'user',  nickname:'개발자', enabled:true, gender:'남',birthday:new Date()-10000, introduction : '유저입니다.', activityHistory:'개발했어요').save(failOnError:true)
 		
-		String nickname
-		Integer gender
-		Integer age
-		String phone
-		String introduction
-		String activityHistory
-		String profile
-		String liveTag
-		String secessionType
-		String secessionReason
-		
 		def roleAdmin = Role.findOrSaveWhere(authority:"ROLE_ADMIN").save(failOnError:true)
 		def roleManager = new Role(authority: 'ROLE_MANAGER').save(failOnError:true)
 		def Role roleUser = new Role(authority: 'ROLE_USER').save(failOnError:true)
 		
 		UserRole.create admin, roleAdmin, true
+		UserRole.create admin, roleUser, true
 		UserRole.create manager, roleManager, true
 		UserRole.create user, roleUser, true
 

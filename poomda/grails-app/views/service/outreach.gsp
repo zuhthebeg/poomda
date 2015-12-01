@@ -1,5 +1,6 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.activity.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,7 +27,7 @@
 				<!-- outreach-tit // S -->
 				<div class="outreach-tit">
 					<h2>
-						2차] 반달이네 보호소 정기 봉사활동
+						${activity.title }
 					</h2>
 					<div>
 						<ul class="user-menu">
@@ -44,17 +45,17 @@
 						<ul class="user-menu-2">
 							<li class="user-ddabong">
 								<a href="#;" class="on">
-									추천 777
+									추천 ${org.poomda.member.UserLikeActivity.countByActivity(activity)}
 								</a>
 							</li>
 							<li class="user-share">
 								<a href="#;">
-									공유 99
+									공유 ${activity.shareCount}
 								</a>
 							</li>
 							<li class="user-interest">
 								<a href="#;">
-									관심 999+
+									관심 ${activity.viewCount}+
 								</a>
 							</li>
 						</ul>
@@ -67,22 +68,22 @@
 					<div class="outreach-menu">
 						<ul>
 							<li>
-								<a href="./outreach.jsp" class="on">
+								<a href="#" class="on">
 									활동정보
 								</a>
 							</li>
 							<li>
-								<a href="./outreach2.jsp">
+								<a href="outreach2">
 									활동현황 <span>(999+)</span>
 								</a>
 							</li>
 							<li>
-								<a href="./outreach3.jsp">
+								<a href="outreach3">
 									댓글  <span>(9)</span>
 								</a>
 							</li>
 							<li>
-								<a href="./outreach4.jsp">
+								<a href="outreach4">
 									후기 <span>(0)</span>
 								</a>
 							</li>
@@ -91,7 +92,7 @@
 					
 					<div class="outreach-content">
 						<div class="img-content">
-							<img src="../img/service/outreach-testimg.jpg">
+							<img src="${assetPath(src: 'service/outreach-testimg.jpg')}">
 							<label>
 								<input type="file">
 							</label>
@@ -111,7 +112,8 @@
 											활동대상
 										</th>
 										<td>
-											반달이네 보호소 <a href="#">자세히</a>
+											<g:if test="${activity.shelter}">${activity.shelter}<g:link controller="shelter" action="centerInfo" params="[shelterId:activity.shelter.id]">자세히</g:link></g:if>
+											<g:if test="${activity.animal}">${activity.animal}<g:link controller="animal" action="animalInfo" params="[animalId:activity.animal.id]">자세히</g:link></g:if>
 										</td>
 									</tr>
 									<tr>
@@ -119,7 +121,7 @@
 											모집기간
 										</th>
 										<td>
-											<strong>2015-03-28 까지</strong>
+											<strong>${activity.period.format( 'yyyy년 M월 dd일 까지' )}</strong>
 										</td>
 									</tr>
 									<tr>
@@ -127,7 +129,7 @@
 											남은시간
 										</th>
 										<td>
-											<strong>10</strong> 일
+											<strong>${activity.activityUser.size() }</strong> 일
 										</td>
 									</tr>
 									<tr>
@@ -154,118 +156,17 @@
 									</tr>
 								</tbody>
 							</table>
+							<g:render template="../user/profileCard" model="[user:activity.user,type:2]"></g:render>
 							<h3>
-								주최자 정보
-							</h3>
-							<div class="outreach-host">
-								<ul>
-									<li>
-										<img src="../img/common/noimage-big.jpg">
-									</li>
-									<li>
-										<a href="#">
-											쪽지보내기
-										</a>
-									</li>
-								</ul>
-								<table class="outreach-joinform-2">
-									<colgroup>
-										<col width="25%">
-										<col width="75%">
-									</colgroup>	
-									<tbody>
-										<tr>
-											<th>
-												닉네임
-											</th>
-											<td>
-												간달퐁
-											</td>
-										</tr>
-										<tr>
-											<th>
-												연령대/성별
-											</th>
-											<td>
-												30대/남성
-											</td>
-										</tr>
-										<tr>
-											<th>
-												연락처
-											</th>
-											<td>
-												카톡 bacehee
-											</td>
-										</tr>
-										<tr>
-											<th>
-												자기소개
-											</th>
-											<td>
-												저는 수의사, 프로그래머입니다. 저는 수의사, 프로그래머입니다. 저는 수의사, 프로그래머
-											</td>
-										</tr>
-										<tr>
-											<th>
-												활동이력
-											</th>
-											<td>
-												2014년 부터 가평군 유기동물 보호소에서 동물 보호업무를 담당하고 있습니다.
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<h3>
-								참여인원 (20명)
+								참여인원 (${activity.activityUser.size()}명)
 							</h3>
 							<div class="outreach-joinform-3">
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
-								<a href="#;">
-									<img src="../img/common/noimage-small.jpg"> 반달아빠
-								</a>
+							
+								<g:each in="${activity.activityUser}" var="aUser">
+									<a href="#;">
+										<img src="${assetPath(src: 'common/noimage-small.jpg')}"> ${aUser.nickname }
+									</a>
+								</g:each>
 							</div>
 						</div>
 					</div>
@@ -278,15 +179,10 @@
 						소개글
 					</h2>
 					<p>
-						안녕하세요. 이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. <br>
-						추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다. 안녕하세요. <br>
-						이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. 추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다.
-						<br>
-						<br>
-						<br>
+						${activity.activityInfo}
 					</p>
 					<div>
-						<img src="../img/service/outreach-testimg-2.jpg">
+						<img src="${assetPath(src: 'service/outreach-testimg-2.jpg')}">
 					</div>
 				</div>
 				<!-- outreach-intro // E -->

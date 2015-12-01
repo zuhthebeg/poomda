@@ -2,6 +2,7 @@
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.member.*" %>
+<%@ page import="org.poomda.file.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -125,6 +126,7 @@
 							<span class="on"></span>
 							${UserLikeAnimal.countByAnimal(animal) }+
 						</a>
+						<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
 						<a href="#animalList" class="checked" onclick="$('#targetValue').val('${animal.id}')">
 							<dl>
 								<dt>
@@ -149,7 +151,7 @@
 
 
 			<!-- main-shelter-list Program box // S -->
-			<div class="main-shelter-list targetList" id="shelterList">
+			<div class="main-shelter-list targetList" id="shelterList" style="display: none;">
 				<g:each in="${Shelter.list([max:8,sort:'dateCreated',order:'desc'])}" var="shelter" status="i">
 					<section onclick="$('.checked').removeClass('on'); $(this).find('.checked').addClass('on');" ${i==4 ? 'style=margin:0px;' : ''}>
 						<a href="#;" class="main-shelter-count">
@@ -159,6 +161,7 @@
 						<a href="#shelterList" class="checked" onclick="$('#targetValue').val('${shelter.id}')">
 							<dl>
 								<dt>
+									<g:set var="imgShelter" value="${ImgShelter.findByShelter(shelter)}"/>
 									<img src="${imgShelter ? imgShelter?.filepath + '/' + imgShelter?.filename : ''}" alt="보호소 사진" width="100%" />
 								</dt>
 								<dd>

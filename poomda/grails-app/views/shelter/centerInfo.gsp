@@ -98,7 +98,7 @@
 							<td colspan="3"><a class="url" href="${shelter.siteName}" target="_blank" title="사이트 새창열림">${shelter.siteName}</a></td>
 						</tr>
 					</table>
-					<g:render template="../user/profileCard" model="[user:shelter.user]"></g:render>
+					<g:render template="../user/profileCard" model="[user:shelter.user,type:1]"></g:render>
 				</section>
 			</div>	
 			<div class="list_area ">
@@ -126,90 +126,7 @@
 				<h2>품고있는 활동들</h2>
 				<span>등록된 활동 <span>3개</span></span>
 				<div class="volunList">
-					<section>
-						<h1 class="vol_cate1">봉사<br />활동</h1>
-						<div class="vol_left">
-							<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="봉사활동 등록사진" />
-							<span class="connect"><span>이 봉사활동을 공유한 수</span>+999</span>
-							<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+999</span>
-						</div>
-						<section class="vol_middle">
-							<h1>[2차] 반달이네 보호소 정기봉사활동!</h1>
-							<p>	
-								보호소에 불이나서 여러가지 도움이 필요합니다. 많은 분들의 참여를 기다리겠습니다.
-							</p>
-							<ul>
-								<li>
-									<h2>모집기간</h2> 
-									<span>2014년 5월 25일까지</span>
-								</li>
-								<li>
-									<h2>장소</h2> 
-									<span>경기도 고양시 시청앞</span>
-								</li>							
-								<li>
-									<h2>봉사목록</h2>
-									<ul class="vol_list">
-										<li>청소</li>
-										<li>보수</li>
-										<li>미용</li>
-										<li>차량</li>
-										<li>의료</li>
-									</ul>
-								</li>	
-							</ul>	
-						</section>
-						<div class="vol_right">
-							<h2><span>봉사진행상황</span>완료</h2>
-							<h2>
-								참여인원<span class="bold">10명</span>
-							</h2>
-							<div>
-								<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-								<span>반달아빠</span>
-							</div>
-						</div>
-					</section>
-					<section>
-						<h1 class="vol_cate2">후원<br />활동</h1>
-						<div class="vol_left">
-							<img src="${assetPath(src: 'common/noimages.gif')}" alt="봉사활동 등록사진" />
-							<span class="connect"><span>이 봉사활동을 공유한 수</span>+999</span>
-							<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+999</span>
-						</div>
-						<section class="vol_middle">
-							<h1>[3차] 포천 애린동산 사료보내기 후원모집</h1>
-							<p>	
-								포런 애린동산에는 1천여마리의 동물들이 있어 사료가 항상 모자랍니다. 집에 기호가 맞지 않아 먹지 않고 있는 사료라도...
-							</p>
-							<ul>
-								<li>
-									<h2>모집기간</h2> 
-									<span>2014년 5월 25일까지</span>
-								</li>
-								<li>
-									<h2>장소</h2> 
-									<span>경기도 고양시 시청앞</span>
-								</li>							
-								<li>
-									<h2>후원목록</h2>
-									<ul class="vol_list">
-										<li>물품후원</li>
-									</ul>
-								</li>	
-							</ul>	
-						</section>
-						<div class="vol_right">
-							<h2><span>봉사진행상황</span>진행중</h2>
-							<h2>
-								참여인원<span class="bold">10명</span>
-							</h2>
-							<div>
-								<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-								<span>반달아빠</span>
-							</div>
-						</div>
-					</section>
+					<g:render template="../service/activityList" model="[type:2, activityList:org.poomda.activity.Activity.findAllByShelter(shelter,[max:2,order:'desc',sort:'dateCreated'])]"/>
 				</div>
 				<ul class="page">
 						<li><a href="" title="이전목록으로 이동">&lt;</a></li>

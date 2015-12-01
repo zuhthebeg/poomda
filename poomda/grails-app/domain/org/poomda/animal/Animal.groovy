@@ -29,6 +29,7 @@ class Animal {
 	String tempShelter
 	
 	Integer viewCount = 0
+	Integer shareCount = 0
 	
 	Date dateCreated
 	Date lastUpdated
@@ -49,6 +50,7 @@ class Animal {
 		introduction type: 'text'
 		adoptionInquiry type: 'text'
 		viewCount defaultValue: "0"
+		shareCount defaultValue: "0"
 		shelter index:'shelter'
 	}
 	String toString(){
@@ -65,5 +67,8 @@ class Animal {
 	
 	Integer getLikeCount() {
 		if(user) return UserLikeAnimal.countByAnimal(this)
+	}
+	def beforeInsert(){
+		if(!name) name = breed
 	}
 }

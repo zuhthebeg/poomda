@@ -31,7 +31,6 @@ class AnimalController {
 		render view:'regAnimal2', model:[tempShelter:tempShelter]
 	}
 	def regAnimalOk(){
-		println params
 		def breed = AnimalBreed.findByNameKor(params.breedName)
 		def user = User.get(springSecurityService.principal.id)
 		
@@ -66,7 +65,7 @@ class AnimalController {
 				}
 			}
 		}
-		
+		render view:'regAnimalOk', model:[animal:animal]
 	}
 	def regAnimalModify(){}
 	def addInfo(){}

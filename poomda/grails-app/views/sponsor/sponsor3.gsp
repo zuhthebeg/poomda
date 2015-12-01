@@ -44,9 +44,9 @@
 					<p>
 						활동 등록이 완료되었습니다!
 					</p>
-					<a href="#;">
+					<g:link controller="service" action="outreach" params="[id:activity.id]">
 						등록한 활동 보러가기
-					</a>
+					</g:link>
 				</div>
 				<!-- sponsor-finish // E -->
 

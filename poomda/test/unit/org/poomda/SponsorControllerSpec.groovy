@@ -1,5 +1,7 @@
 package org.poomda
 
+import org.poomda.activity.SponsorController;
+
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

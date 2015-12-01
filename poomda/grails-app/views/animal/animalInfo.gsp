@@ -19,7 +19,6 @@
 		</div>
 		<aside>
 			<button type="button">신고하기</button>
-			<g:link action="regCenterModify" params="[id:animal.id]" title="관리페이지 바로가기">관리페이지</g:link>
 		</aside>	
 		<section class="info_container">
 			<h1>${shelter}</h1>
@@ -76,7 +75,7 @@
 						</div>
 					</div>	
 					<table>
-						<caption>보호소 정보</caption>
+						<caption>보호 동물 정보</caption>
 						<colgroup>
 							<col span="15%" />
 							<col span="35%" />
@@ -103,9 +102,15 @@
 							<th scope="row"><h2>입양 문의</h2></th>
 							<td colspan="3">${animal.adoptionInquiry}</td>
 						</tr>
+						<g:if test="${animal.shelter}">
+							<tr>
+								<th scope="row">보호중인 보호소</th>
+								<td colspan="3"><g:link controller="shelter" action="centerInfo" params="[shelterId:animal.shelter.id]">${animal.shelter}</g:link></td>
+							</tr>
+						</g:if>
 					</table>
 					<g:if test="${animal.user}">
-						<g:render template="../user/profileCard" model="[animal:animal.user]"></g:render>
+						<g:render template="../user/profileCard" model="[user:animal.user,type:1]"></g:render>
 					</g:if>
 				</section>
 			</div>	
