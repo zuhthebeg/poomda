@@ -84,7 +84,7 @@
 						</colgroup>
 						<tr> 
 							<th scope="row"><h2>이름</h2></th>
-							<td>${animal.name} ${animal.breed }</td>
+							<td>${animal.name ?: animal.breed}</td>
 							<th scope="row"><h2>상태</h2></th>
 							<td>${animal.status }</td>
 						</tr>

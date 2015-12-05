@@ -69,6 +69,6 @@ class Animal {
 		if(user) return UserLikeAnimal.countByAnimal(this)
 	}
 	def beforeInsert(){
-		if(!name) name = breed
+		if(!name) name = breed.name
 	}
 }

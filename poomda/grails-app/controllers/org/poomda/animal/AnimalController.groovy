@@ -13,7 +13,9 @@ class AnimalController {
 	def springSecurityService
 	def scaffold = Animal
     //def index() { }
+	@Secured (['ROLE_USER'])
 	def regAnimal(){}
+	@Secured (['ROLE_USER'])
 	def regAnimal2(){
 		//log.info "User agent: " + request.getHeader("User-Agent")
 		println request.method
@@ -30,6 +32,7 @@ class AnimalController {
 		
 		render view:'regAnimal2', model:[tempShelter:tempShelter]
 	}
+	@Secured (['ROLE_USER'])
 	def regAnimalOk(){
 		def breed = AnimalBreed.findByNameKor(params.breedName)
 		def user = User.get(springSecurityService.principal.id)
@@ -67,6 +70,7 @@ class AnimalController {
 		}
 		render view:'regAnimalOk', model:[animal:animal]
 	}
+	@Secured (['ROLE_USER'])
 	def regAnimalModify(){}
 	def addInfo(){}
 	def breedlist(){
