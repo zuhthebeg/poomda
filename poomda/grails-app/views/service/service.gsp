@@ -98,7 +98,7 @@
 					</li>
 				</ul>
 				<p>
-					등록된 봉사활동 <span>8 개</span>
+					등록된 봉사활동 <span>${org.poomda.activity.Activity.count() } 개</span>
 				</p>
 			</div>
 			<!-- main-service-list Program box // S -->

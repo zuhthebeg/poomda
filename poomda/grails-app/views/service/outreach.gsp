@@ -1,6 +1,7 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.activity.*" %>
+<%@ page import="org.poomda.file.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -92,7 +93,11 @@
 					
 					<div class="outreach-content">
 						<div class="img-content">
-							<img src="${assetPath(src: 'service/outreach-testimg.jpg')}">
+							<g:set var="imgs" value="${ImgActivity.findAllByActivity(activity) }" />
+							<g:if test="${! imgs}"><img src="${assetPath(src: 'common/noimage-big.jpg')}"></g:if>
+							<g:each var="imgActivity" in="${imgs}">
+								<img src="${imgActivity?.filepath + '/' + imgActivity?.filename}" alt="활동 모습" width="100%" />
+							</g:each>
 							<label>
 								<input type="file">
 							</label>
@@ -162,9 +167,11 @@
 							</h3>
 							<div class="outreach-joinform-3">
 							
-								<g:each in="${activity.activityUser}" var="aUser">
+								<g:each in="${activity.activityUser}" var="user">
 									<a href="#;">
-										<img src="${assetPath(src: 'common/noimage-small.jpg')}"> ${aUser.nickname }
+										<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-small.jpg')}" />
+										<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" /> 
+										${user.nickname }
 									</a>
 								</g:each>
 							</div>

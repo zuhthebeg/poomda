@@ -5,6 +5,7 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
+		<asset:stylesheet src="regist.css"/>
 		
 		<script>
 		    // This is called with the results from from FB.getLoginStatus().
@@ -151,12 +152,14 @@
 		                }
 		            });
 		        }*/
+
+		        $('#frm').submit();
 		    }
 		</script>
 	</head>
 	<body>
 	
-	<form name="frm" id="frm">
+	<form name="frm" id="frm" action="regist2" method="post">
 		<input type="hidden" name="nickChk" id="nickChk" value="N" />
 		<input type="hidden" name="facebook_id" id="facebook_id" value="" />
 		<input type="hidden" name="profile" id="profile" value="" />
@@ -175,15 +178,14 @@
 	             <div class="form_wrap mat10">
 	                <p>이메일</p><input type="text" id="email" name="email" class="ip_b ip_tx w_400" placeholder=""></div><br>
 	             <div class="form_wrap mat10">
-	                <p>비밀번호</p><input type="text" id="pwd" name="pwd" class="ip_b ip_tx w_400" placeholder=""></div>
+	                <p>비밀번호</p><input type="password" id="pwd" name="pwd" class="ip_b ip_tx w_400" placeholder=""></div>
 	              <div class="form_wrap mat10">
-	                <p>비밀번호 확인</p><input type="text" id="rePwd" name="rePwd" class="ip_b ip_tx w_400" placeholder=""></div>
+	                <p>비밀번호 확인</p><input type="password" id="rePwd" name="rePwd" class="ip_b ip_tx w_400" placeholder=""></div>
 	        </div>
 	        <div class="info_btn">
 	                <a href="javascript:doNext();">다음</a>
 	        </div>
 	    </section><!-- 본문 영역 끝 -->
 	</form>
-
 </body>
 </html>

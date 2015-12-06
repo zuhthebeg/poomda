@@ -14,7 +14,7 @@
 					<span>
 						<sec:ifLoggedIn>
 							<g:set var="msgCount" value="${UserMessage.countByUserAndIsRead(User.get(sec.loggedInUserInfo(field: 'id')),false)}" />
-							<span ${msgCount > 0 ? 'onclick=openMsgModal()' : ''} >쪽지( ${msgCount} )</span> <sec:username/>님
+							<span ${msgCount > 0 ? 'onclick=openMsgModal()' : ''} >쪽지( ${msgCount} )</span> ${User.get(sec.loggedInUserInfo(field: 'id')).nickname }님
 						</sec:ifLoggedIn>
 						<sec:ifNotLoggedIn>
 							안녕하세요! 품다입니다.

@@ -4,7 +4,8 @@
 		<h1>등록한 봉사자</h1>
 		<div>
 			<div class="vlt_pic">
-				<img src="${assetPath(src: 'common/noimage-big.jpg')}" alt="등록한 유저 사진" />
+				<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-big.jpg')}" />
+				<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" />
 				<button type="button" class="go_msg">쪽지보내기</button>
 			</div>
 			<table>
@@ -19,7 +20,7 @@
 				</tr>
 				<tr>
 					<th scope="row"><h2>연령대/성별</h2></th>
-					<td>${user?.getAgeByBirthday()} / ${user?.gender}</td>
+					<td>${user? (user?.age/10).toInteger() : 2}0대  / ${user?.gender}</td>
 				</tr>
 				<tr>
 					<th scope="row"><h2>연락처</h2></th>
@@ -45,7 +46,8 @@
 	<div class="outreach-host">
 		<ul>
 			<li>
-				<img src="${assetPath(src: 'common/noimage-big.jpg')}">
+				<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-big.jpg')}" />
+				<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진"     width="120" />
 			</li>
 			<li>
 				<a href="#">
@@ -72,7 +74,7 @@
 						연령대/성별
 					</th>
 					<td>
-						${user?.getAgeByBirthday()} / ${user?.gender}
+						${user? (user?.age/10).toInteger() : 2}0대 / ${user?.gender}
 					</td>
 				</tr>
 				<tr>
@@ -80,7 +82,7 @@
 						연락처
 					</th>
 					<td>
-						카톡 bacehee
+						${user?.phone}
 					</td>
 				</tr>
 				<tr>

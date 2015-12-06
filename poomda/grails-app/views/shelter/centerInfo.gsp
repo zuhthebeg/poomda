@@ -49,12 +49,11 @@
 						<div class="question_layer">
 								<h2>입양문의 방법</h2>
 								<div>
-									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-									<span>간달풍/30대 남성</span>
+									<g:set var="defaultImgPath" value="${assetPath(src: 'search/img_spl.png')}" />
+									<img src="${shelter.user.profile ? shelter.user.profile : defaultImgPath}" alt="봉사등록자 이미지"  />
+									<span>${shelter.user.nickname} / ${shelter.user? (shelter.user?.age/10).toInteger() : 2}0대  ${shelter.user?.gender}성</span>
 									<p>
-										저에게 쪽지를 보내주시거나 카카오톡 아이디<br />
-										Bacehee로 연락주시면 자세히 안내해 드리겠습니다.<br />
-										혹은 보호소 대표 카페로 오시면 됩니다.
+										${shelter.serviceInquiry}
 									</p>
 								</div>
 								<button type="button" class="send_msg">쪽지보내기</button>
@@ -64,11 +63,11 @@
 						<div class="question_layer">
 								<h2>봉사문의 방법</h2>
 								<div>
-									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-									<span>간달풍/30대 남성</span>
+									<g:set var="defaultImgPath" value="${assetPath(src: 'search/img_spl.png')}" />
+									<img src="${shelter.user.profile ? shelter.user.profile : defaultImgPath}" alt="봉사등록자 이미지"  />
+									<span>${shelter.user.nickname} / ${shelter.user? (shelter.user?.age/10).toInteger() : 2}0대  ${shelter.user?.gender}성</span>
 									<p>
-										봉사는 페이지에 있는 대표 사이트 다음카페로 오셔서<br />
-										봉사신청을 하셔야 합니다.
+										${shelter.adoptionInquiry}
 									</p>
 								</div>
 								<button type="button" class="send_msg">쪽지보내기</button>
@@ -84,17 +83,17 @@
 							<col span="35%" />
 						</colgroup>
 						<tr>
-							<th scope="row"><h2>보호소<h2></th>
+							<th scope="row"><h2>보호소</h2></th>
 							<td>${shelter.name}</td>
-							<th scope="row"><h2>지역<h2></th>
+							<th scope="row"><h2>지역</h2></th>
 							<td>${shelter.address}</td>
 						</tr>
 						<tr>
-							<th scope="row"><h2>소개<h2></th>
+							<th scope="row"><h2>소개</h2></th>
 							<td colspan="3">${shelter.introduction}</td>
 						</tr>
 						<tr>
-							<th scope="row"><h2>대표사이트<h2></th>
+							<th scope="row"><h2>대표사이트</h2></th>
 							<td colspan="3"><a class="url" href="${shelter.siteName}" target="_blank" title="사이트 새창열림">${shelter.siteName}</a></td>
 						</tr>
 					</table>

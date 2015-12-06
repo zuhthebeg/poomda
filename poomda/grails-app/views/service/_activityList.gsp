@@ -12,13 +12,17 @@
 				${org.poomda.member.UserLikeActivity.countByActivity(activity)}+
 			</a>
 			<a href="#;" class="main-service-case-3">
-				<img src="${activity.attchImg.size() > 0 ? assetPath(src: 'main/shaterlisttast.jpg') :assetPath(src: 'common/noimage-small.jpg')}">
+				<!-- <img src="${activity.attchImg.size() > 0 ? assetPath(src: 'main/shaterlisttast.jpg') :assetPath(src: 'common/noimage-small.jpg')}"> -->
+				<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-small.jpg')}" />
+				<img src="${activity.user.profile ? activity.user.profile : defaultImgPath}" alt="등록한 유저 사진" /> 
 				${activity.user}
 			</a>
 			<g:link action="outreach" controller="service" params="[id:activity.id]">
 				<dl>
 					<dt>
-						<img src="${assetPath(src: 'common/noimages.gif')}" alt="NO IMAGE">
+						<g:set var="img" value="${org.poomda.file.ImgActivity.findByActivity(activity) }" />
+						<g:if test="${! img}"><img src="${assetPath(src: 'common/noimages.gif')}" alt="NO IMAGE"></g:if>
+						<g:if test="${img}"><img src="${img?.filepath + '/' + img?.filename}" alt="활동 모습" /></g:if>
 					</dt>
 					<dd>
 						<div class="main-service-tit">
