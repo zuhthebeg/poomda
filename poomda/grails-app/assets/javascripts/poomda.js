@@ -78,7 +78,6 @@ function itemClick(targetObj){
 
 
 function uploadImgSetting(obj){
-		console.log(obj)
     var files = !!obj.files ? obj.files : [];
 
     if (!files.length || !window.FileReader) return;

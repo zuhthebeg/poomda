@@ -1,5 +1,6 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.activity.*" %>
 <g:each in="${activityList }" var="activity">
 	<g:if test="${type == 1 }">
 		<section>
@@ -80,7 +81,7 @@
 							</span>
 							<br>
 							<span class="main-service-people">
-								${activity.activityUser.size() } 명
+								${ActivityParticipants.countByActivity(activity) } 명
 							</span>
 						</div>
 					</dd>

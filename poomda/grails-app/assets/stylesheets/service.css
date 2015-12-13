@@ -305,7 +305,7 @@
 	position:relative;
 }
 .outreach-content > .img-content > img{
-	border:1px solid #ccc;
+	border:1px solid #ccc;    max-width: 450px;
 }
 .outreach-content > .img-content > label{
 	position:absolute;

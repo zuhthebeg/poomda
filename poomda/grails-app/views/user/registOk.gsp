@@ -44,7 +44,7 @@
 
 			</div>
 			<div class="info_btn">
-				<g:link action="index" controller="login">로그인 하러가기</g:link>
+				<g:link action="mypage">로그인</g:link>
 			</div>
 		</section>
 		<!-- 본문 영역 끝 -->

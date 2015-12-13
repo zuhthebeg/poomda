@@ -17,9 +17,9 @@ class BootStrap {
 
     def init = { servletContext ->
 		
-		User admin = new User(username:'admin@admin.com', password:'admin', nickname:'admin', enabled:true).save(failOnError:true)
+		User admin = new User(username:'admin@admin.com', password:'admin',age:27,phone:'line : licocy', nickname:'admin',profile:'/poomda/upload/member/profile_sample.png', enabled:true).save(failOnError:true)
 		User manager = new User(username:'manager@manager.com', password:'manager', nickname:'manager', enabled:true).save(failOnError:true)
-		User user = new User(username:'user@user.com', password:'user',  nickname:'개발자', enabled:true, gender:'남',birthday:new Date()-10000, introduction : '유저입니다.', activityHistory:'개발했어요').save(failOnError:true)
+		User user = new User(username:'user@user.com', password:'user',  nickname:'개발자', ,age:27,phone:'line : licocy',profile:'/poomda/upload/member/profile_sample.png',enabled:true, gender:'남',birthday:new Date()-10000, introduction : '유저입니다.', activityHistory:'개발했어요').save(failOnError:true)
 		
 		def roleAdmin = Role.findOrSaveWhere(authority:"ROLE_ADMIN").save(failOnError:true)
 		def roleManager = new Role(authority: 'ROLE_MANAGER').save(failOnError:true)

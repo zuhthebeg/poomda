@@ -268,3 +268,21 @@
 	display:block;
 	clear:both;
 }
+.service-input .input-img button[type=button]{
+	margin: 5px;
+    width: 34px;
+    height: 32px;
+    background: url('main/poomda_img.png') no-repeat -280px -16px;
+    font-size: 0;
+}
+.service-input .input-img {
+	width:420px;
+	height:450px;
+	display:block;
+	background:url(../images/common/no-image-big3.gif) no-repeat;
+	border: 1px solid #ccc;
+}
+.service-input .input-img #imgActivity1{
+	display: none;
+}
+.input-form{float: right;}

@@ -1,5 +1,6 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.activity.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -58,7 +59,7 @@
 											대상<span>*</span>
 										</th>
 										<td class="target-td">
-											<input type="text" value="${sponsorTarget}" readonly>
+											<input type="text" value="${sponsorTarget ?: Activity.get(params.id)}" readonly>
 											<a href="#;" onclick="history.back();">
 												변경
 											</a>
@@ -145,7 +146,7 @@
 							</table>
 							<input type="hidden" value="${activityType}" name="activityType" />
 							<input type="hidden" value="${target}" name="target" />
-							<input type="hidden" value="${sponsorTarget.id}" name="sponsorTarget" />
+							<input type="hidden" value="${sponsorTarget?.id}" name="sponsorTarget" />
 							
 						</div>
 						<div class="input-img">

@@ -1,7 +1,9 @@
 package org.poomda.activity
 
 import grails.plugin.springsecurity.annotation.Secured
+
 import org.poomda.animal.Animal
+import org.poomda.file.ImgActivity
 import org.poomda.member.User
 import org.poomda.shelter.Shelter
 
@@ -32,11 +34,38 @@ class SponsorController {
 		params.period = new Date()
 		
 		//params.activityType = null//ActivityType.findByType(params.activityType).id
-		def activity = new Activity(params).save(failOnError:true)
-		activity.addToActivityUser(user).save(true)
-		//if(params.activityType == 'Volunteer') new Volunteer(params).save(failOnError:true)
-		//else if (params.target == 'Sponsor') new Sponsor(params).save(failOnError:true)
+		def activity = new Activity(params)
+
 		
+		if(!activity.save(true)){
+			println activity.getErrors()
+			redirect url:params.prevUrl, params:params
+		}else{
+			def ap = new ActivityParticipants(activity:activity, user:user,status:'REGIST')
+			if(!ap.save(true))println ap.getErrors()
+		
+			def tempPath = "/upload/activity/"
+			def storagePath = servletContext.getRealPath("/") +tempPath;
+			
+			def files = []
+			files << params.imgActivity1
+			
+			files.each{
+				if(!it.empty){
+					def fileItem = it.getFileItem()
+					it.transferTo(new File(storagePath+"/"+fileItem.name))
+					def imgFile = new ImgActivity(  activity:activity, user : user, filename:fileItem.name,filepath:request.getContextPath()+tempPath, extention : fileItem.name.split('\\.')[1], status : 'INITIALIZE' )
+					if(!imgFile.save(true)){
+						println imgFile.getErrors()
+					}
+				}
+			}
+		}
 		render view:'sponsor3', model : [activity : activity]
+	}
+	def activityLikeUser(){
+		def activity = Activity.get(params.activityId)
+		render activity.activityLikeUser(User.get(userId)).save(true)
+		
 	}
 }

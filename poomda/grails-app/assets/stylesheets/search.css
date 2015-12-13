@@ -36,7 +36,7 @@ ul.sch_ul >li.on h2 button{background:#0054a5; color:#fff; border:0 }
 .list_area .centerList section h1 {padding-top:230px}
 .list_area section img {position:absolute; top:0; border-radius:5px 5px 0 0}
 .list_area section span:nth-child(2) {position:absolute; display:block; width:50px; height:55px;top:0; left:180px;border-radius:0 0 5px 5px; z-index:10; background: rgba(1,173,239,0.5); color:#fff; text-align:center; }
-.list_area section span:nth-child(2) >span {width:25px; height:30px;margin:0 auto;display:block;font-size:0; background:url(../images/common/poomda_img2.png) no-repeat -310px 3px }
+.list_area section span:nth-child(2) >span {width:25px; height:30px;margin:0 auto;display:block;font-size:0; background:url(./common/poomda_img2.png) no-repeat -310px 3px }
 .list_area section span:nth-child(2).myFav >span {background-position:-335px 3px}
 .list_area section p {font-weight:600; padding:0 10px 10px; line-height:1.3;    height: 46px;   overflow: overlay;}
 .list_area section span:nth-child(6) {display:block; height:40px;;padding-left: 30px;;border-top:1px solid #ccc; line-height:2.8; font-weight:800; background:url(../images/common/location.png) no-repeat 10px}
@@ -107,14 +107,6 @@ div.more_info {display:none;position:absolute; top:0; left:0;width:248px; height
 .info_contents .center_inform >table td {padding:10px 0 ; font-size:18px; color:#353535}
 .info_contents .center_inform >table td:nth-child(2) {width:215px}
 .info_contents .center_inform >table a.url {color:#0072bc; border-bottom:1px solid}
-.info_contents .volunteer h1 {margin:50px 0 20px 0;padding:0 0 0 5px; font-size:16px;}
-.info_contents .volunteer >div {border:1px solid #ccc; margin-left:5px}
-.info_contents .volunteer .vlt_pic {display:inline-block ;text-align:center; width:150px; height:220px; padding:20px; vertical-align:top}
-.info_contents .volunteer .vlt_pic img {display:block; width:150px; height:180px; }
-.info_contents .volunteer .vlt_pic button { width:150px; height:30px; margin:10px 0 0 0;background:#00aeef; color:#fff; font-family:Malgun-Gothic; font-size:16px; border-radius:5px}
-.info_contents .volunteer table {display:inline-block; width:380px; margin:10px 0 0 5px}
-.info_contents .volunteer table th {width:95px; text-align:left; vertical-align:top; padding:10px 0}
-.info_contents .volunteer table td {padding:10px 0; font-size:14px; color:#353535}
 
 .list_area >h2 {width:770px;;font-size:30px; font-weight:600; color:#777; display:inline-block; }
 .center_info .list_area >span {margin:0; display:inline-block; vertical-align:baseline; width:300px; text-align:right}

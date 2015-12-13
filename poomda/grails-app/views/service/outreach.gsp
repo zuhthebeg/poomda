@@ -24,72 +24,11 @@
 
 			<!-- outreach-box // S -->
 			<div class="outreach-box">
-				
-				<!-- outreach-tit // S -->
-				<div class="outreach-tit">
-					<h2>
-						${activity.title }
-					</h2>
-					<div>
-						<ul class="user-menu">
-							<li>
-								<a href="#;" class="user-declaration">
-									신고하기
-								</a>
-							</li>
-							<li>
-								<a href="#;" class="user-adminpage">
-									관리페이지
-								</a>
-							</li>
-						</ul>
-						<ul class="user-menu-2">
-							<li class="user-ddabong">
-								<a href="#;" class="on">
-									추천 ${org.poomda.member.UserLikeActivity.countByActivity(activity)}
-								</a>
-							</li>
-							<li class="user-share">
-								<a href="#;">
-									공유 ${activity.shareCount}
-								</a>
-							</li>
-							<li class="user-interest">
-								<a href="#;">
-									관심 ${activity.viewCount}+
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- outreach-tit // E -->
-				
+				<g:render template="outreachTitle" model="[activity:activity]"/>
+								
 				<!-- outreach-body // S -->
 				<div class="outreach-body">
-					<div class="outreach-menu">
-						<ul>
-							<li>
-								<a href="#" class="on">
-									활동정보
-								</a>
-							</li>
-							<li>
-								<a href="outreach2">
-									활동현황 <span>(999+)</span>
-								</a>
-							</li>
-							<li>
-								<a href="outreach3">
-									댓글  <span>(9)</span>
-								</a>
-							</li>
-							<li>
-								<a href="outreach4">
-									후기 <span>(0)</span>
-								</a>
-							</li>
-						</ul>
-					</div>
+					<g:render template="outreachMenu"/>
 					
 					<div class="outreach-content">
 						<div class="img-content">
@@ -103,7 +42,7 @@
 							</label>
 						</div>
 						<div class="information-content">
-							<a href="#">
+							<a href="#" onclick="requestJoinActivity(${activity.id},'<sec:username/>')">
 								참여신청하기
 							</a>
 							<table class="outreach-joinform">
@@ -134,7 +73,7 @@
 											남은시간
 										</th>
 										<td>
-											<strong>${activity.activityUser.size() }</strong> 일
+											<strong>${ActivityParticipants.countByActivity(activity) }</strong> 일
 										</td>
 									</tr>
 									<tr>
@@ -163,11 +102,11 @@
 							</table>
 							<g:render template="../user/profileCard" model="[user:activity.user,type:2]"></g:render>
 							<h3>
-								참여인원 (${activity.activityUser.size()}명)
+								참여인원 (${ActivityParticipants.countByActivity(activity)}명)
 							</h3>
 							<div class="outreach-joinform-3">
 							
-								<g:each in="${activity.activityUser}" var="user">
+								<g:each in="${ActivityParticipants.findAllByActivity(activity)?.user}" var="user">
 									<a href="#;">
 										<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-small.jpg')}" />
 										<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" /> 
@@ -200,5 +139,22 @@
 		</div>
 	</div>
 	<!-- sub-content // E -->
+<script>
+	function requestJoinActivity(activityId, email){
+		if(!confirm('참여 신청 하시겠습니까?')) return false;
+		if(email == '') {alert('로그인 해주세요.');return false;}
+
+		$.ajax({
+			url : '../requestJoinActivity',
+			data : {activityId:activityId, email : email},
+			method : 'post',
+			success : function (data){
+				console.log(data);
+				if(data == true) location.reload();
+				else alert('이미 신청하셨거나, 잘못된 요청입니다.');
+			}
+		});
+	}
+</script>
 </body>
 </html>

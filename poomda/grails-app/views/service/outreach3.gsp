@@ -22,72 +22,11 @@
 
 			<!-- outreach-box // S -->
 			<div class="outreach-box">
-				
-				<!-- outreach-tit // S -->
-				<div class="outreach-tit">
-					<h2>
-						2차] 반달이네 보호소 정기 봉사활동
-					</h2>
-					<div>
-						<ul class="user-menu">
-							<li>
-								<a href="#;" class="user-declaration">
-									신고하기
-								</a>
-							</li>
-							<li>
-								<a href="#;" class="user-adminpage">
-									관리페이지
-								</a>
-							</li>
-						</ul>
-						<ul class="user-menu-2">
-							<li class="user-ddabong">
-								<a href="#;" class="on">
-									추천 777
-								</a>
-							</li>
-							<li class="user-share">
-								<a href="#;">
-									공유 99
-								</a>
-							</li>
-							<li class="user-interest">
-								<a href="#;">
-									관심 999+
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- outreach-tit // E -->
-				
+				<g:render template="outreachTitle" model="[activity:activity]"/>
+								
 				<!-- outreach-body // S -->
-					<div class="outreach-body">
-					<div class="outreach-menu">
-						<ul>
-							<li>
-								<a href="./outreach.jsp" class="on">
-									활동정보
-								</a>
-							</li>
-							<li>
-								<a href="./outreach2.jsp">
-									활동현황 <span>(999+)</span>
-								</a>
-							</li>
-							<li>
-								<a href="./outreach3.jsp">
-									댓글  <span>(9)</span>
-								</a>
-							</li>
-							<li>
-								<a href="./outreach4.jsp">
-									후기 <span>(0)</span>
-								</a>
-							</li>
-						</ul>
-					</div>
+				<div class="outreach-body">
+					<g:render template="outreachMenu"/>
 					
 					<!-- 업로드 // S -->
 					<div class="outreach-upload-2">

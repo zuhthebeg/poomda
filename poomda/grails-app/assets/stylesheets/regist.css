@@ -1,0 +1,35 @@
+.ip_b{border:1px solid #ccc;border-radius:4px;font-size:14px;color:#353535;padding:14px 0 0 10px;position:relative;display:inline-block;height:34px;}
+.ip_select{border:2px solid #01adef;color:#01adef;font-weight:bold;}
+.item_list{position:absolute;z-index:10;border:1px solid #01adef;left:-2px;top:46px;background:#fff;overflow:hidden;overflow-y:scroll;font-weight:normal;color:#353535;height:140px;padding-right:12px;}
+.item_list li{padding:10px;}
+.item_list li:hover{background:#eee;}
+.select_btn{position:absolute;top:20px;right:20px;background:url(../img/poomda_img.png)no-repeat -375px 0px;width:15px;height:8px;padding:4px;}
+.deselect_btn{position:absolute;top:20px;right:20px;background:url(../img/poomda_img.png)no-repeat -390px 0px;width:15px;height:8px;padding:4px;}
+
+div.page_nb{margin-bottom:120px;height:40px;text-align:center;}
+div.page_nb ul li{display:inline-block;}
+div.page_nb ul li a{float:left;padding:10px 15px;border:1px solid #ccc;background:#fff;margin-right:10px;color:#353535;}
+div.page_nb ul li a:hover, div.page_nb ul li a.remain_pg{background:#212326;color:#fff;} 
+
+.cancle_btn{display:inline-block;background:#ccc;color:#fff;font-size:24px;padding:24px 100px;}
+.ok_btn{display:inline-block;background:#1c81db;color:#fff;font-size:24px;padding:24px 100px;}
+.cancle_btn:hover{background:#aaa;}
+.ok_btn:hover{background:#0166be;}
+.ip_inset_btn{background:#01adef;border-radius:4px;padding:8px 16px;color:#fff;font-size:14px;position:absolute;right:10px;top:8px;}
+.ip_btn{background:#01adef;border-radius:4px;padding:17px;color:#fff;font-size:14px;position:absolute;margin-left:10px;width:90px;}
+.ip_b.ip_tx{background:none;padding:8px;}
+.ip_b.post_w{padding:10px 0 0 10px;overflow:hidden;}
+.pop_wrap{border-radius:8px;-webkit-box-shadow:0 1px 2px 0px rgba(0,0,0,0.75);-moz-box-shadow:0px 1px 2px 0px rgba(0,0,0,0.75);box-shadow:px 1px 2px 0px rgba(0,0,0,0.75);background:#fff;position:relative;}
+.pop_title{background:#0054a5;padding:24px;font-size:24px;color:#fff;border-radius:8px 8px 0 0;border-bottom:1px solid #ccc;}
+.pop_close_btn{background:url(../img/poomda_img.png)no-repeat -306px -47px;width:19px;height:19px;position:absolute;right:20px;}
+.pop_wrap p{margin:100px 10px;text-align:center;font-size:18px;color:#353535;line-height:1.5em;}
+.pop_btn_wrap{text-align:center;padding-bottom:40px;}
+.pop.cancle_btn{background:#aaa;padding:24px;margin:0 5px;}
+.pop.ok_btn{background:#01adef;padding:24px;margin:0 5px;}
+.pop.cancle_btn:hover{background:#888;}
+.pop.ok_btn:hover{background:#0088df;}
+.w_400{width:400px} 
+.w_250{width:250px} 
+#join .sub_tab div.tab_progress a {
+    color: #fff;
+}

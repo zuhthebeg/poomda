@@ -225,7 +225,7 @@ body {overflow-y:scroll;}
 	display:block;
 	width:32px;
 	height:32px;
-	background:url(/img/common/poomda_img2.png) no-repeat -8px -44px;
+	background:url(./common/poomda_img2.png) no-repeat -8px -44px;
 	position:absolute;
 	top:16px;
 	left:10px;
@@ -469,3 +469,19 @@ body {overflow-y:scroll;}
 .message_layer span.txt_count {display:block; text-align:right; padding:7px 30px 0 0}
 .message_layer form button[type=submit],input[type=submit]  {display:block; margin:40px auto 0;width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#01adef ; color:#fff;border-radius:8px}
 div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%; z-index:200 }
+
+/*------------------------------------------!
+	* profile Card *
+/*-----------------------------------------*/
+.volunteer h1 {margin:50px 0 20px 0;padding:0 0 0 5px; font-size:16px;}
+.volunteer >div {border:1px solid #ccc; margin-left:5px}
+.volunteer .vlt_pic {margin:3px;border-radius:3px;display:inline-block ;text-align:center; width:150px; height:220px; padding:20px; vertical-align:top;background:url(./common/noimage-big.jpg) no-repeat;}
+.volunteer .vlt_pic img {display:block; width:150px; height:180px; }
+.volunteer .vlt_pic button { width:150px; height:30px; margin:10px 0 0 0;background:#00aeef; color:#fff; font-family:Malgun-Gothic; font-size:16px; border-radius:5px}
+.volunteer .vlt_pic input[type=file]{display: none;}
+.volunteer table {display:inline-block; width:380px; margin:10px 0 0 5px}
+.volunteer table th {width:95px; text-align:left; vertical-align:top; padding:10px 0}
+.volunteer table td {padding:10px 0; font-size:14px; color:#353535}
+.volunteer table td input[type=text], textarea{    border: 1px solid #ccc;    border-radius: 4px;    font-size: 14px;    color: #353535;    padding: 5px;width: 280px;}
+.volunteer table td textarea{min-height:70px;}
+.volunteer .vlt_pic .imgAddBtn{display: block;width: 34px;height: 32px;background: url('./main/poomda_img.png') no-repeat -280px -16px; font-size: 0;text-indent: -9999px} 

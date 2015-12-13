@@ -22,6 +22,7 @@ class User {
 	String liveTag
 	String secessionType
 	String secessionReason
+	String facebookID
 	
 	Date dateCreated
 	Date lastUpdated
@@ -43,6 +44,7 @@ class User {
 		liveTag nullable:true
 		secessionType nullable:true
 		secessionReason nullable:true
+		facebookID nullable:true
 	}
 
 	static mapping = {

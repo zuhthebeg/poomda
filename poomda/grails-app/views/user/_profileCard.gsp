@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<th scope="row"><h2>연령대/성별</h2></th>
-					<td>${user? (user?.age/10).toInteger() : 2}0대  / ${user?.gender}</td>
+					<td>${user?.age ? (user?.age/10).toInteger() : 2}0대  / ${user?.gender}</td>
 				</tr>
 				<tr>
 					<th scope="row"><h2>연락처</h2></th>

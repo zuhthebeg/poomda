@@ -39,7 +39,7 @@
 				</sec:ifNotLoggedIn>
 				<sec:ifLoggedIn>
 					<li>
-						<g:link controller="user" action="show" params="[id:sec.loggedInUserInfo(field: 'id')]">
+						<g:link controller="user" action="mypage" params="[id:sec.loggedInUserInfo(field: 'id')]">
 							마이페이지
 						</g:link>
 					</li>

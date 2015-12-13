@@ -26,7 +26,7 @@ class Activity {
 	Integer viewCount = 0
 	Integer shareCount = 0
 	
-	static hasMany = [activityUser: User, attchImg:CommonFile]
+	static hasMany = [activityLikeUser: User, attchImg:CommonFile]
 
 	Date dateCreated
 	Date lastUpdated
@@ -44,5 +44,9 @@ class Activity {
 		viewCount defaultValue: "0"
 		shareCount defaultValue: "0"
 		activityStatus defaultValue : "'모집중'"
+		
+		activityUser indexColumn: [name: "status", type: String]
 	}
+	
+	String toString(){title}
 }
