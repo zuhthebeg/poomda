@@ -1,6 +1,7 @@
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.file.*" %>
+<%@ page import="org.poomda.member.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,22 +31,8 @@
 					<div class="search_form sch_center">
 						<form action="" method="">
 							<fieldset>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" value="지역"  class="select" readonly />
-									<button type="button">지역을 선택하세요</button>
-									<ul class="option_li">
-										<g:each in="${org.poomda.locale.Address.list() }" var="address">
-											<li>${address.state}</li>
-										</g:each>
-									</ul>
-								</div>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" value="구"  class="select" readonly />
-									<button type="button">세부 지역을 선택하세요</button>
-									<ul class="option_li">
-										<li>전체</li>
-									</ul>
-								</div>
+								<g:render template="../address/customInputAddress"></g:render>
+								
 								<input type="text" class="center_name remove_val" value="보호소명을 입력해주세요">
 								<button type="search" class="btn_sch">찾기</button>						
 							</fieldset>
@@ -57,15 +44,17 @@
 								<li>최근등록순</li>
 								<li>추천순</li>
 							</ul>
-							<g:set var="searchResult" value="${Shelter.list([max:8, sort:'dateCreated', order:'desc']) }" />
-							<span>검색결과 <span>${searchResult.size()}</span></span>
+							<g:set var="searchResult" value="${shelterList}" />
+							<span>검색결과 <span>${searchCount}</span></span>
 							<div class="centerList">
 								<g:each in="${searchResult}" var="shelter">
 									<section>
 										<h1>${shelter.name }</h1>
-										<span class="myFav"><span>나를 포함 이 동물을 관심등록한 수</span>+999</span>
+										<span class="myFav"><span>나를 포함 이 보호소를 관심등록한 수</span>+${UserLikeShelter.countByShelter(shelter)}</span>
 										<g:set var="imgShelter" value="${ImgShelter.findByShelter(shelter)}"/>
-										<img src="${imgShelter?.filepath + '/' + imgShelter?.filename}" alt="보호소모습" width="100%" />
+										<div class="img_cover">
+											<img src="${imgShelter?.filepath + '/' + imgShelter?.filename}" alt="보호소모습" width="100%" />
+										</div>
 										<p>${shelter.introduction }</p>
 										<span>${shelter.address}</span>
 										<div class="more_info">
@@ -76,20 +65,9 @@
 									</section>
 								</g:each>
 							</div>	
-							<ul class="page">
-								<li><a href="" title="이전목록으로 이동">&lt;</a></li>
-								<li class="on"><a href="" title="1페이지 바로가기">1</a></li>
-								<li><a href="" title="2페이지 바로가기">2</a></li>
-								<li><a href="" title="3페이지 바로가기">3</a></li>
-								<li><a href="" title="4페이지 바로가기">4</a></li>
-								<li><a href="" title="5페이지 바로가기">5</a></li>
-								<li><a href="" title="6페이지 바로가기">6</a></li>
-								<li><a href="" title="7페이지 바로가기">7</a></li>
-								<li><a href="" title="8페이지 바로가기">8</a></li>
-								<li><a href="" title="9페이지 바로가기">9</a></li>
-								<li><a href="" title="10페이지 바로가기">10</a></li>
-								<li><a href="" title="다음목록으로 이동">&gt;</a></li>
-							</ul>
+							<label>
+								<div class="paginate"><g:paginate total="${searchCount}" max="8" /></div>
+							</label>
 					</div><!--center list END-->
 					
 					

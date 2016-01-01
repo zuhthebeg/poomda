@@ -1,5 +1,6 @@
 package org.poomda.shelter
 
+import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 import org.poomda.file.ImgShelter
@@ -61,9 +62,16 @@ class ShelterController {
 		render template : 'centerList', model : [shelterList:shelterList]
 	}
 
+	@Secured(['permitAll'])
 	def centerInfo(){
 		
 		render view:'centerInfo', model : [shelter:Shelter.get(params.shelterId)]
+	}
+	
+	
+	def duplicateCheck(){
+		def shelter = Shelter.findByName(params.name)
+		render shelter == null
 	}
 	
 }

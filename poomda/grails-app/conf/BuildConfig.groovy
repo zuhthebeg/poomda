@@ -78,5 +78,13 @@ grails.project.dependency.resolution = {
         //compile ":coffee-asset-pipeline:1.8.0"
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 		compile ":facebook-sdk:2.3.0"
+		
+		compile "org.grails.plugins:jquery-ui:1.10.4"
+		compile "org.grails.plugins:quartz:1.0.2"
+		
+		compile "org.grails.plugins:full-calendar:1.5.1.0"
+		compile "org.grails.plugins:jquery-calendar:0.2.3"
+		
+		compile "org.grails.plugins:jquery-date-time-picker:0.2.0"
     }
 }

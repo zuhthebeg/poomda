@@ -6,7 +6,7 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="service.css"/> 
-		
+		<asset:stylesheet src="search.css"/>
 		
 	</head>
 	<body>
@@ -37,20 +37,10 @@
 					진정한 실천을 하고 있는 아름다운 당신!
 				</p>
 				
-				
-				
 				<!-- service-place // S -->
 				<div class="service-place">
-					<label>
-						<g:select from="${org.poomda.locale.Address.list()}" optionKey="state" name="addressId" noSelection="${['':'지역'] }" value="${params.addressId}" />
-					</label>
-					<label>
-						<select>
-							<option selected>
-								구 
-							</option>
-						</select>
-					</label>
+					<g:render template="../address/selectInputAddress"></g:render>
+					
 					<label>
 						<select>
 							<option selected>보호소 </option>
@@ -98,56 +88,22 @@
 					</li>
 				</ul>
 				<p>
-					등록된 봉사활동 <span>${org.poomda.activity.Activity.count() } 개</span>
+					등록된 활동 <span>${org.poomda.activity.Activity.count() } 개</span>
+					검색된 활동 <span>${searchCount } 개</span>
 				</p>
 			</div>
 			<!-- main-service-list Program box // S -->
 			<div class="main-service-list">
 				
-				<g:render template="activityList" model="[type:1, activityList:org.poomda.activity.Activity.list()]"/>
+				<g:render template="activityList" model="[type:1, activityList:activityList]"/>
 				
 			</div>
 			<!-- main-service-list Program box // E -->
 			
 			<!-- pagenav // S -->
-			<div class="pagenav">
-				<a href="#;">
-					&lt;
-				</a>
-				<a href="#;" class="on">
-					1
-				</a>
-				<a href="#;">
-					2
-				</a>
-				<a href="#;">
-					3
-				</a>
-				<a href="#;">
-					4
-				</a>
-				<a href="#;">
-					5
-				</a>
-				<a href="#;">
-					6
-				</a>
-				<a href="#;">
-					7
-				</a>
-				<a href="#;">
-					8
-				</a>
-				<a href="#;">
-					9
-				</a>
-				<a href="#;">
-					10
-				</a>
-				<a href="#;">
-					&gt;
-				</a>
-			</div>
+			<label>
+				<div class="paginate"><g:paginate total="${searchCount}" max="4" /></div>
+			</label>
 			<!-- pagenav // E -->
 
 		</div>

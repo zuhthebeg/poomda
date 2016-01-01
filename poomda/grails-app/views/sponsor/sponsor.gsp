@@ -84,30 +84,16 @@
 
 				<!-- sponsor-place // S -->
 				<div class="sponsor-place">
-					<label>
-						<g:select from="${org.poomda.locale.Address.list()}" optionKey="state" name="addressId" noSelection="${['':'지역'] }" value="${params.addressId}" />
-					</label>
-					<label>
-						<select>
-							<option selected>
-								구 
-							</option>
-							<option>
-								지역
-							</option>
-							<option>
-								지역
-							</option>
-						</select>
-					</label>
+					<g:render template="../address/selectInputAddress"></g:render>
+					
 					<input type="text" placeholder="보호소명을 입력해 주세요.">
 					<div>
 						<a href="#;">
 							찾기
 						</a>
-						<a href="#;">
+						<g:link controller="shelter" action="regCenter">
 							보호소 신규등록
-						</a>
+						</g:link>
 					</div>
 				</div>
 				<!-- sponsor-place // E -->
@@ -127,9 +113,9 @@
 							${UserLikeAnimal.countByAnimal(animal) }+
 						</a>
 						<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
-						<a href="#animalList" class="checked" onclick="$('#targetValue').val('${animal.id}')">
+						<a href="#none" class="checked" onclick="$('#targetValue').val('${animal.id}')">
 							<dl>
-								<dt>
+								<dt style="overflow: hidden;">
 									<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
 								</dt>
 								<dd>
@@ -158,9 +144,9 @@
 							<span class="on"></span>
 							${UserLikeShelter.countByShelter(shelter) }+
 						</a>
-						<a href="#shelterList" class="checked" onclick="$('#targetValue').val('${shelter.id}')">
+						<a href="#none" class="checked" onclick="$('#targetValue').val('${shelter.id}')">
 							<dl>
-								<dt>
+								<dt style="overflow: hidden;">
 									<g:set var="imgShelter" value="${ImgShelter.findByShelter(shelter)}"/>
 									<img src="${imgShelter ? imgShelter?.filepath + '/' + imgShelter?.filename : ''}" alt="보호소 사진" width="100%" />
 								</dt>

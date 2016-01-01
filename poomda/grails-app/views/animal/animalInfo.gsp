@@ -1,6 +1,7 @@
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.file.*" %>
+<%@ page import="org.poomda.activity.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -44,7 +45,7 @@
 				<section class="center_inform">
 					<h1>보호동물 상세정보</h1>
 					<div class="btn_wrap">
-						<button type="button">입양문의</button>
+						<button type="button" >입양문의</button>
 						<div class="question_layer">
 								<h2>입양문의 방법</h2>
 								<div>
@@ -59,20 +60,9 @@
 								<button type="button" class="send_msg" onclick="">쪽지보내기</button>
 								<button type="button" class="close_lyr">닫기</button>
 						</div>
-						<button type="button">봉사문의</button>
-						<div class="question_layer">
-								<h2>봉사문의 방법</h2>
-								<div>
-									<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />
-									<span>${animal.user?.nickname} / ${animal.user.getAgeByBirthday()}${animal.user.gender}</span>
-									<p>
-										봉사는 페이지에 있는 대표 사이트 다음카페로 오셔서<br />
-										봉사신청을 하셔야 합니다.
-									</p>
-								</div> 
-								<button type="button" class="send_msg" onclick="$('.close_lyr').click();openSendMsgModal()" >쪽지보내기</button>
-								<button type="button" class="close_lyr">닫기</button>
-						</div>
+						<g:if test="${animal.shelter}">
+							<button type="button" onclick="location.href='${request.contextPath}/shelter/centerInfo?shelterId=${animal.shelter.id }';">보호소 보러가기</button>
+						</g:if>
 					</div>	
 					<table>
 						<caption>보호 동물 정보</caption>
@@ -112,8 +102,33 @@
 					<g:if test="${animal.user}">
 						<g:render template="../user/profileCard" model="[user:animal.user,type:1]"></g:render>
 					</g:if>
+					
 				</section>
 			</div>	
+			<g:if test="${animal.shelter}">
+				<div class="list_area ">
+					<h2>보호소에 함께 있는 동물들</h2>
+					<span class="animal_num">함께 등록된 동물 <span>${Animal.countByShelter(animal.shelter)} 마리</span></span>	
+					<div class="animalList">
+						<g:render template="../animal/animallist" model="[animalList : Animal.findAllByShelter(animal.shelter,params)]"></g:render>
+					</div>	<!--section END-->
+					
+					<label>
+						<div class="paginate"><g:paginate total="${Animal.countByShelter(animal.shelter)}" max="8" params="[animalId:params.animalId]" /></div>
+					</label>
+				</div>	
+			</g:if>
+			
+			<div class="voluntary">
+				<h2>품고있는 활동들</h2>
+				<span>등록된 활동 <span>${Activity.countByAnimal(animal)}개</span></span>
+				<div class="volunList">
+					<g:render template="../service/activityList" model="[type:2, activityList:Activity.findAllByAnimal(animal,params)]"/>
+				</div>
+				<label>
+					<div class="paginate"><g:paginate total="${Activity.countByAnimal(animal)}" max="4" /></div>
+				</label>
+			</div><!--voluntary END-->	
 		</section>
 	<!-- sub-content // E -->
 </div>

@@ -50,7 +50,7 @@
 									</ul>
 								</div>
 								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" value="구"  class="select" readonly />
+									<input type="text" value="시/군/구"  class="select" readonly />
 									<button type="button">구를 선택하세요</button>
 									<ul class="option_li">
 										<li>전체</li>
@@ -198,36 +198,8 @@
 					<div>
 						<form action="" method="">
 							<fieldset>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" value="지역"  class="select" readonly />
-									<button type="button">지역을 선택하세요</button>
-									<ul class="option_li">
-										<li>경기도</li>
-										<li>강원도</li>
-										<li>경상남도</li>
-										<li>경상북도</li>
-										<li>광주광역시</li>
-										<li>대구광역시</li>
-										<li>대전광역시</li>
-										<li>부산광역시</li>
-										<li>서울특별시</li>
-										<li>세종특별자치시</li>
-										<li>울산광역시</li>
-										<li>인천광역시</li>
-										<li>전라남도</li>
-										<li>전라북도</li>
-										<li>제주특별자치도</li>
-										<li>충청남도</li>
-										<li>충청북도</li>
-									</ul>
-								</div>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" value="구"  class="select" readonly />
-									<button type="button">세부 지역을 선택하세요</button>
-									<ul class="option_li">
-										<li>전체</li>
-									</ul>
-								</div>
+								<g:render template="../address/customInputAddress"></g:render>
+								
 								<input type="text" class="center_name" value="보호소 명을 입력해주세요">
 								<button type="search" class="btn_sch">찾기</button>						
 							</fieldset>

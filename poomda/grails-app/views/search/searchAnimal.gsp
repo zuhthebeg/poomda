@@ -32,18 +32,18 @@
 						<fieldset>
 							<legend>보호중인 동물 찾기</legend>
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="지역" name="address" class="select" readonly />
+								<input type="text" id="state" value="지역" name="address" class="select" readonly />
 								<button type="button">지역을 선택하세요</button>
-								<ul class="option_li">
-										<g:each in="${org.poomda.locale.Address.list() }" var="address">
-											<li>${address.state}</li>
-										</g:each>
+								<ul class="option_li" >
+									<g:each in="${org.poomda.locale.Address.list().state.unique() }" var="state">
+										<li>${state}</li>
+									</g:each>
 								</ul>
 							</div>
 							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" value="구" name="addressDetails"  class="select" readonly />
-								<button type="button">구를 선택하세요</button>
-								<ul class="option_li">
+								<input type="text" id="city" value="시/군/구" name="addressDetails"  class="select" readonly />
+								<button type="button" onclick="getCityListByState($('#state').val())">세부 지역을 선택하세요</button>
+								<ul class="option_li" id="cityList">
 									<li>전체</li>
 								</ul>
 							</div>	
@@ -82,10 +82,20 @@
 						<li>최근등록순</li>
 						<li>추천순</li>
 					</ul>
-					<span>등록된 동물 <span>${Animal.count() } 마리 </span></span>
+					<span>
+					등록된 동물 <span>${Animal.count() } 마리 </span>
+					검색된 동물 <span>${searchCount} 마리 </span>
+					</span> 
 					<div class="animalList">
 						<g:render template="../animal/animallist" model="[animalList : animalList]"></g:render>
 					</div>	<!--section END-->
+					
+					<label>
+						<div class="paginate">
+							<g:paginate total="${searchCount}" max="8" />
+						</div>
+					</label>
+					<!-- 
 					<ul class="page">
 						<li><a href="" title="이전목록으로 이동">&lt;</a></li>
 						<li class="on"><a href="" title="1페이지 바로가기">1</a></li>
@@ -100,6 +110,7 @@
 						<li><a href="" title="10페이지 바로가기">10</a></li>
 						<li><a href="" title="다음목록으로 이동">&gt;</a></li>
 					</ul>
+					 -->
 				</div><!--center list END-->
 				
 			</div>

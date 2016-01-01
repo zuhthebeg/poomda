@@ -52,29 +52,29 @@
 						<tr>
 							<th scope="row"><h2>보호소 </h2><span>*</span></th>
 							<td>
-								<input name="name" type="text" value="경기도 남양주시 마석보호소" />
-								<button type="button">중복확인</button>
+								<input type="hidden" id="dupCheck" value="false" />
+								<input name="name" type="text" value="마석보호소" />
+								<button type="button" onclick="duplicateCheck($(this).prev().val())">중복확인</button>
+								<script>
+									function duplicateCheck(name){
+										$.ajax({
+											url : './duplicateCheck',
+											data : {name:name},
+											method : 'post',
+											success : function (data){
+												$('#dupCheck').val(data);
+												if(data == 'true') alert('등록 가능합니다.')
+												else alert('이미 등록된 보호소입니다.');
+											}
+										});
+									}
+								</script>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row"><h2>지역</h2><span>*</span></th>
 							<td>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input name="address" type="text" value="경기도"  class="select" readonly />
-									<button type="button">지역을 선택하세요</button>
-									<ul class="option_li">
-										<g:each in="${org.poomda.locale.Address.list() }" var="address">
-											<li>${address.state}</li>
-										</g:each>
-									</ul>
-								</div>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input name="addressDetails" type="text" value="전체"  class="select" readonly />
-									<button type="button">세부 지역을 선택하세요</button>
-									<ul class="option_li">
-										<li>전체</li>
-									</ul>
-								</div>								
+								<g:render template="../address/customInputAddress"></g:render>								
 							</td>
 						</tr>
 						<tr>
@@ -82,7 +82,7 @@
 							<td>
 								<fieldset class="txtareaWrap">
 									<textarea name="introduction" maxlength="1000">보호소에 대한 소개를 적어주세요</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</fieldset>	
 							</td>
 						</tr>
@@ -91,7 +91,7 @@
 							<td>
 								<fieldset class="txtareaWrap">
 									<textarea name="adoptionInquiry" maxlength="1000" >보호중인 동물을 입양할 수 있는 방법을 상세히 적어주세요.</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</fieldset>
 							</td>
 						</tr>
@@ -100,7 +100,7 @@
 							<td>
 								<fieldset class="txtareaWrap">
 									<textarea name="serviceInquiry" maxlength="1000">보호소 봉사활동에 참여할 수 있는 방법을 상세히 적어주세요.</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</fieldset>
 							</td>
 						</tr>

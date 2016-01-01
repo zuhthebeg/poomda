@@ -127,9 +127,11 @@
 					<p>
 						${activity.activityInfo}
 					</p>
+					<!-- 
 					<div>
 						<img src="${assetPath(src: 'service/outreach-testimg-2.jpg')}">
 					</div>
+					 -->
 				</div>
 				<!-- outreach-intro // E -->
 

@@ -33,10 +33,13 @@
 						<g:link controller='animal' action="animalInfo" params="[animalId:animal?.id]" title='등록 동물 바로가기' class="btn_blue">
 							<dl>
 								<dt>
-									<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
-									<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
-									<span class="main-shelter-case-${i%3}">
-										${animal.breed}
+									<div class="img_cover">
+										<g:set var="imgAnimal" value="${ImgAnimal.findByAnimal(animal)}" />
+										<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
+									</div>
+									
+									<span class="main-shelter-case-1">
+										${animal.status}
 									</span>
 								</dt>
 								<dd>

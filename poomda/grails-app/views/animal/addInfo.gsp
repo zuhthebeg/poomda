@@ -100,7 +100,7 @@
 							<td>
 								<div>
 									<textarea maxlength="1000">보호소에 대한 소개를 적어주세요</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</div>	
 							</td>
 						</tr>
@@ -109,7 +109,7 @@
 							<td>
 								<div>
 									<textarea maxlength="1000" >보호중인 동물을 입양할 수 있는 방법을 상세히 적어주세요.</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</div>
 							</td>
 						</tr>
@@ -118,7 +118,7 @@
 							<td>
 								<div>
 									<textarea maxlength="1000">보호소 봉사활동에 참여할 수 있는 방법을 상세히 적어주세요.</textarea>
-									<span class="textLength"><span></span>/1000자</span>
+									<span class="textLength"></span>
 								</div>
 							</td>
 						</tr>

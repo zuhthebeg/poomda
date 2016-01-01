@@ -7,7 +7,24 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Poomda</title>
 		<asset:stylesheet src="sponsor.css"/>
-		
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script>
+		  $(function() {
+		    $( "#datepicker" ).datepicker({
+		        dateFormat: 'yy-mm-dd',
+		        prevText: '이전 달',
+		        nextText: '다음 달',
+		        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		        dayNames: ['일','월','화','수','목','금','토'],
+		        dayNamesShort: ['일','월','화','수','목','금','토'],
+		        dayNamesMin: ['일','월','화','수','목','금','토'],
+		        showMonthAfterYear: true,
+		        yearSuffix: '년',
+		      });
+		  });
+		  </script>
 		
 	</head>
 	<body>
@@ -45,7 +62,7 @@
 				<!-- service-input // S -->
 				<div class="service-input">
 					<form action="sponsor3" id="activityForm" method="post" enctype="multipart/form-data">
-
+						<input type="hidden" value="${prevUrl }" name="prevUrl"/>
 						<div class="input-form">
 							
 							<table>
@@ -78,7 +95,7 @@
 											모집기간<span>*</span>
 										</th>
 										<td class="calendar-td">
-											<input type="text" value="2015-02-05" name="period" readonly>
+											<input type="text" value="2015-02-05" name="period" id="datepicker">
 											<a href="#;"></a>
 										</td>
 									</tr>
@@ -89,8 +106,8 @@
 										<td class="place-td">
 											<label>
 												<select name="address"> 
-													<g:each in="${org.poomda.locale.Address.list() }" var="address">
-														<option>${address.state}</option>
+													<g:each in="${org.poomda.locale.Address.list().state.unique() }" var="state">
+														<option>${state}</option>
 													</g:each>
 												</select>
 											</label>
@@ -132,9 +149,8 @@
 											소개글<span>*</span>
 										</th>
 										<td class="active-introduce">
-											<textarea name="introduction">타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드
-	티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-	</textarea>
+											<textarea name="introduction" maxlength="1000">타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
+											</textarea>
 											<p>
 												107 <span class="gray-text">/ 1000 자</span><br>
 												<br>

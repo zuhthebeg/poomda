@@ -57,6 +57,19 @@ ul.page li a:link ,ul.page li a:visited {color:#000}
 ul.page li.on a {background:#000;}
 ul.page li.on a:link ,ul.page li.on a:visited {color:#fff}
 
+.paginate {margin:30px auto;width: 560px;height: 70px;}
+.paginate span, .paginate a{
+	display: block;
+    width: 40px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 10px;
+    float:left;
+    margin:2px;
+}
+.paginate .currentStep{background: #000;color:white;}
 /*리스트 마우스오버*/
 div.more_info {display:none;position:absolute; top:0; left:0;width:248px; height:385px; background:rgba(0,0,0,0.5); border-radius:5px; text-align:center; }
 .list_area div.more_info a{margin:0 auto; display:block; width:160px; height:55px; background:#fff; border-radius:7px; font-size:17px; line-height:3}
@@ -91,7 +104,7 @@ div.more_info {display:none;position:absolute; top:0; left:0;width:248px; height
 .info_contents .center_image ul li:first-child img {width:420px; height:450px;}
 .info_contents .center_image ul li:last-child {margin-left:15px;}
 .info_contents .center_image ul li button {position:absolute; width:36px; height:36px ;top:10px; left: 10px; background:url(../images/search/add.png) no-repeat; font-size:0}
-.info_contents .center_inform {width:600px; height:635px; margin:0 0 0 70px; }
+.info_contents .center_inform {width:600px; /*height:635px;*/ margin:0 0 0 70px; }
 .info_contents .center_inform .btn_wrap >button {width:280px; height:60px; font-size:24px; font-family:Malgun-Gothic; background:#01adef ; color:#fff;border-radius:8px}
 .info_contents .center_inform .btn_wrap >button:nth-child(3) {background:#1ca3bb;margin:0  0 0 35px; }
 .info_contents .center_inform .btn_wrap >div {display:none; position:absolute; top:-55px ; left:200px;width:660px ; height:490px; background:#fff; border-radius:10px; z-index:300}

@@ -140,7 +140,7 @@
 						<td colspan="3">
 							<fieldset class="txtareaWrap">
 								<textarea name="introduction" maxlength="1000" >${params.introduction}예) 타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 지금은 보호소에서 건강히 지내고 있으며 애교가 많습니다.</textarea>
-								<span class="textLength"><span></span>/1000자</span>
+								<span class="textLength"></span>
 							</fieldset>
 						
 						</td>
@@ -151,7 +151,7 @@
 							<fieldset class="txtareaWrap">
 								<textarea name="adoptionInquiry" maxlength="1000">${params.adoptionInquiry}예) 개인 보호중 입니다. 010-000-0000 연락 바랍니다.	오전10시~오후8시 연락가능.
 								</textarea>
-								<span class="textLength"><span></span>/1000자</span>
+								<span class="textLength"></span>
 							</fieldset>
 						</td>
 					</tr>

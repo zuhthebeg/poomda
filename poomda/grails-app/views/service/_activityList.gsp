@@ -95,7 +95,9 @@
 		<section>
 			<h1 class="vol_cate${activity.activityType == 'Sponsored' ? 2 : 1}">${activity.activityType == 'Sponsored' ? '후원' : '봉사'}<br />활동</h1>
 			<div class="vol_left">
-				<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="봉사활동 등록사진" />
+				<g:link action="outreach" controller="service" params="[id:activity.id]">
+					<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="봉사활동 등록사진" />
+				</g:link>
 				<span class="connect"><span>이 봉사활동을 공유한 수</span>+${activity.shareCount}</span>
 				<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+${org.poomda.member.UserLikeActivity.countByActivity(activity)}+</span>
 			</div>
@@ -128,7 +130,7 @@
 			<div class="vol_right">
 				<h2><span>봉사진행상황</span>${activity.activityStatus }</h2>
 				<h2>
-					참여인원<span class="bold">${activity.activityUser.size()}명</span>
+					참여인원<span class="bold">${ActivityParticipants.countByActivity(activity)}명</span>
 				</h2>
 				<div>
 					<img src="${assetPath(src: 'search/img_spl.png')}" alt="봉사등록자 이미지" />

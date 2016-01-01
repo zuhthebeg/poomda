@@ -15,23 +15,20 @@ class SponsorController {
 	def sponsor(){}
 	def sponsor2(){
 		def typeList = ActivityType.findAllByType(params.activityType)
-		
 		def sponsorTarget
 		if(params.target == 'Shelter') sponsorTarget = Shelter.get(params.targetValue)
 		else if (params.target == 'Animal') sponsorTarget = Animal.get(params.targetValue)
 		
-		render view:'sponsor2', model:[typeList:typeList, target:params.target, sponsorTarget:sponsorTarget, activityType:params.activityType]
+		render view:'sponsor2', model:[typeList:typeList, target:params.target, sponsorTarget:sponsorTarget, activityType:params.activityType, prevUrl:"/${params.controller}/${params.action}?${request.queryString}"]
 	}
 	def sponsor3(){
 		
 		if(params.target == 'Shelter')	params.shelter = Shelter.get(params.sponsorTarget)
 		else if(params.target == 'Animal') params.animal = Animal.get(params.sponsorTarget)
 		
-		println params.target
-		
 		def user = User.get(springSecurityService.principal.id)
 		params.user = user
-		params.period = new Date()
+		params.period = new Date().parse("yyyy-MM-dd", params.period)
 		
 		//params.activityType = null//ActivityType.findByType(params.activityType).id
 		def activity = new Activity(params)
@@ -39,7 +36,7 @@ class SponsorController {
 		
 		if(!activity.save(true)){
 			println activity.getErrors()
-			redirect url:params.prevUrl, params:params
+			redirect url:params.prevUrl, params:request.params
 		}else{
 			def ap = new ActivityParticipants(activity:activity, user:user,status:'REGIST')
 			if(!ap.save(true))println ap.getErrors()

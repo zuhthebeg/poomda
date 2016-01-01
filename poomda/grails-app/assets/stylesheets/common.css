@@ -484,4 +484,13 @@ div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%
 .volunteer table td {padding:10px 0; font-size:14px; color:#353535}
 .volunteer table td input[type=text], textarea{    border: 1px solid #ccc;    border-radius: 4px;    font-size: 14px;    color: #353535;    padding: 5px;width: 280px;}
 .volunteer table td textarea{min-height:70px;}
-.volunteer .vlt_pic .imgAddBtn{display: block;width: 34px;height: 32px;background: url('./main/poomda_img.png') no-repeat -280px -16px; font-size: 0;text-indent: -9999px} 
+.volunteer .vlt_pic .imgAddBtn{display: block;width: 34px;height: 32px;background: url('./main/poomda_img.png') no-repeat -280px -16px; font-size: 0;text-indent: -9999px}
+
+.img_cover{
+	position: absolute;
+    top: 0;
+    z-index: -1;
+    height: 232px;
+    width: 248px;
+    overflow: hidden;
+} 

@@ -26,12 +26,30 @@ class ServiceController {
 		render view:'outreach2' , model : [activity:Activity.get(params.id)]}
 	def outreach3(){render view:'outreach3' , model : [activity:Activity.get(params.id)]}
 	def outreach4(){render view:'outreach4' , model : [activity:Activity.get(params.id)]}
-	def service(){}
+	def service(){
+		def activityList = Activity.findAll(params){
+		}
+		def searchCount = Activity.findAll(params){
+		}.size()
+		render view:'service' , model : [activityList:activityList,searchCount:searchCount]
+	}
 	def volunteer(){
-		render view : 'service', model: [activityTypeList : ActivityType.findAllByType('Volunteer') ]
+		def activityList = Activity.findAll(params){
+			eq('activityType','Volunteer')
+		}
+		def searchCount = Activity.findAll(params){
+			eq('activityType','Volunteer')
+		}.size()
+		render view : 'service', model: [activityList:activityList,activityTypeList : ActivityType.findAllByType('Volunteer') ,searchCount:searchCount]
 	}
 	def sponsored(){
-		render view : 'service', model: [activityTypeList : ActivityType.findAllByType('Sponsored') ]
+		def activityList = Activity.findAll(params){
+			eq('activityType','Sponsored')
+		}
+		def searchCount = Activity.findAll(params){
+			eq('activityType','Sponsored')
+		}.size()
+		render view : 'service', model: [activityList:activityList,activityTypeList : ActivityType.findAllByType('Sponsored'),searchCount:searchCount]
 	}
 	
 	def service2(){}

@@ -31,22 +31,9 @@
 						<g:formRemote name="searchForm" url="[controller: 'Shelter', action:'searchShelter']" method="post" before="return beforeSearchFormSubmit(this)" >
 							<fieldset>
 								<legend>보호중인 보호소 찾기</legend>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" name="address" value="지역"  class="select" readonly />
-									<button type="button">지역을 선택하세요</button>
-									<ul class="option_li">
-										<g:each in="${org.poomda.locale.Address.list()}" var="address">
-											<li>${address.state}</li>
-										</g:each>
-									</ul>
-								</div>
-								<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-									<input type="text" name="addressDetails" value="구"  class="select" readonly />
-									<button type="button"  onclick="$(this).next().show();">세부 지역을 선택하세요</button>
-									<ul class="option_li">
-										<li>전체</li>
-									</ul>
-								</div>	
+								
+								<g:render template="../address/customInputAddress"></g:render>
+								
 								<input type="search" name="name" placeholder="보호소 명을 입력해주세요">
 								<button type="submit" class="btn_sch" onclick="beforeSearchFormSubmit($('#searchForm'))">찾기</button> 
 								<!-- <g:submitToRemote url="[controller: 'Shelter', action:'searchShelter']" update="centerList" value="Update"  class="btn_sch" />-->
@@ -72,8 +59,8 @@
 								<input type="text" name="address" value="경기도"  class="select" readonly />
 								<button type="button">지역을 선택하세요</button>
 								<ul class="option_li">
-									<g:each in="${org.poomda.locale.Address.list() }" var="address">
-										<li>${address.state}</li>
+									<g:each in="${org.poomda.locale.Address.list().state.unique() }" var="state">
+										<li>${state}</li>
 									</g:each>
 								</ul>
 							</div>

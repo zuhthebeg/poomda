@@ -9,7 +9,9 @@
 			<h1>${shelter.name}</h1>
 			<span class="myFav"><span>이 보호소를 관심등록한 수</span>+999</span>
 			<g:set var="imgShelter" value="${ImgShelter.findByShelter(shelter)}" />
-			<img src="${imgShelter ? imgShelter?.filepath + '/' + imgShelter?.filename : ''}" alt="보호소모습" width="100%" />
+			<div class="img_cover">
+				<img src="${imgShelter ? imgShelter?.filepath + '/' + imgShelter?.filename : ''}" alt="보호소모습" width="100%" />
+			</div>
 			<p>${shelter.introduction }</p>
 			<span>${shelter.address}</span>
 		</section>

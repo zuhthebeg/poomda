@@ -1,6 +1,7 @@
 <%@ page import="org.poomda.shelter.*" %>
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.file.*" %>
+<%@ page import="org.poomda.activity.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -104,43 +105,22 @@
 				<h2>품고있는 동물들</h2>
 				<span class="animal_num">등록된 동물 <span>${Animal.countByShelter(shelter)} 마리</span></span>	
 				<div class="animalList">
-					<g:render template="../animal/animallist" model="[animalList : Animal.findAllByShelter(shelter,[max:8,offset:0])]"></g:render>
+					<g:render template="../animal/animallist" model="[animalList : Animal.findAllByShelter(shelter,params)]"></g:render>
 				</div>	<!--section END-->
-				<ul class="page">
-						<li><a href="" title="이전목록으로 이동">&lt;</a></li>
-						<li class="on"><a href="" title="1페이지 바로가기">1</a></li>
-						<li><a href="" title="2페이지 바로가기">2</a></li>
-						<li><a href="" title="3페이지 바로가기">3</a></li>
-						<li><a href="" title="4페이지 바로가기">4</a></li>
-						<li><a href="" title="5페이지 바로가기">5</a></li>
-						<li><a href="" title="6페이지 바로가기">6</a></li>
-						<li><a href="" title="7페이지 바로가기">7</a></li>
-						<li><a href="" title="8페이지 바로가기">8</a></li>
-						<li><a href="" title="9페이지 바로가기">9</a></li>
-						<li><a href="" title="10페이지 바로가기">10</a></li>
-						<li><a href="" title="다음목록으로 이동">&gt;</a></li>
-					</ul>
+				
+				<label>
+					<div class="paginate"><g:paginate total="${Animal.countByShelter(shelter)}" max="4" params="[shelterId:params.shelterId]" /></div>
+				</label>
 			</div>	
 			<div class="voluntary">
 				<h2>품고있는 활동들</h2>
-				<span>등록된 활동 <span>3개</span></span>
+				<span>등록된 활동 <span>${Activity.countByShelter(shelter)}개</span></span>
 				<div class="volunList">
-					<g:render template="../service/activityList" model="[type:2, activityList:org.poomda.activity.Activity.findAllByShelter(shelter,[max:2,order:'desc',sort:'dateCreated'])]"/>
+					<g:render template="../service/activityList" model="[type:2, activityList:Activity.findAllByShelter(shelter,[max:2,order:'desc',sort:'dateCreated'])]"/>
 				</div>
-				<ul class="page">
-						<li><a href="" title="이전목록으로 이동">&lt;</a></li>
-						<li class="on"><a href="" title="1페이지 바로가기">1</a></li>
-						<li><a href="" title="2페이지 바로가기">2</a></li>
-						<li><a href="" title="3페이지 바로가기">3</a></li>
-						<li><a href="" title="4페이지 바로가기">4</a></li>
-						<li><a href="" title="5페이지 바로가기">5</a></li>
-						<li><a href="" title="6페이지 바로가기">6</a></li>
-						<li><a href="" title="7페이지 바로가기">7</a></li>
-						<li><a href="" title="8페이지 바로가기">8</a></li>
-						<li><a href="" title="9페이지 바로가기">9</a></li>
-						<li><a href="" title="10페이지 바로가기">10</a></li>
-						<li><a href="" title="다음목록으로 이동">&gt;</a></li>
-					</ul>
+				<label>
+					<div class="paginate"><g:paginate controller="shelter" action="centerInfo" total="${Activity.countByShelter(shelter)}" max="4" /></div>
+				</label>
 			</div><!--voluntary END-->
 			<div class="reply">
 				<h2>댓글</h2>
