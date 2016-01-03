@@ -5,7 +5,7 @@
 		<div>
 			<div class="vlt_pic">
 				<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-big.jpg')}" />
-				<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" />
+				<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" class="thumb lightbox-photo" data-caption="등록 유저 프로필 사진"/>
 				<button type="button" class="go_msg">쪽지보내기</button>
 			</div>
 			<table>
@@ -50,9 +50,7 @@
 				<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진"     width="120" />
 			</li>
 			<li>
-				<a href="#">
-					쪽지보내기
-				</a>
+				<a href="#none" class="go_msg">쪽지보내기</a>
 			</li>
 		</ul>
 		<table class="outreach-joinform-2">

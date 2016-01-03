@@ -490,7 +490,22 @@ div.back {position:absolute;background:rgba(0,0,0,0.6);top:0; left:0; width:100%
 	position: absolute;
     top: 0;
     z-index: -1;
-    height: 232px;
+    height: 222px;
     width: 248px;
     overflow: hidden;
 } 
+.question_layer textarea{
+	    display: block;
+    width: 480px;
+    height: 160px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.question_layer .textLength{
+    display: block;
+    width: 495px;
+    text-align: right;
+}
+.mypage_tabs{margin:50px 0px;}
+.width50p{width: 50%;}

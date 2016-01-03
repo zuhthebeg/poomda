@@ -30,7 +30,20 @@
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		<g:render template="/layouts/message" />	
 		<g:render template="/layouts/footer" />	
+		<g:render template="/commonFile/imageModal"></g:render>
+		
+		<sec:ifLoggedIn>
+			<div id="msgModal" class="message_layer">
+				<span>쪽지확인</span>
+				<form action="#">
+					<g:set var="msg" value="${org.poomda.member.UserMessage.findByUserAndIsRead(org.poomda.member.User.get(sec.loggedInUserInfo(field: 'id')),false,[order:'dateCreated',max:1])}"/>
+					<span><em>${msg?.sendUser}</em>님으로 부터</span> <span>${msg?.dateCreated }</span>
+					<textarea name="content" readonly="readonly" maxlength="1000">${msg?.content}</textarea><span></span>
+					<button type="submit" class="go_msg">답장 하기</button>
+				</form>
+				<button type="button" class="close_lyr">닫기</button>
+			</div>
+		</sec:ifLoggedIn>
 	</body>
 </html>

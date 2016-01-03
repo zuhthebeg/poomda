@@ -38,8 +38,12 @@
 										<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
 									</div>
 									
+									<g:set var="status1" value="${animal.status.size() !=3 ? animal.status.substring(0,2) : animal.status}" />
+									<g:set var="status2" value="${animal.status.size() > 2 && animal.status.size() !=3 ? animal.status.substring(2,animal.status.size()) : ''}" />
 									<span class="main-shelter-case-1">
-										${animal.status}
+										<span style="display: block;${!status2 ? 'margin-top:10px;' : ''}">
+										${status1}<br/>${status2}
+										</span>
 									</span>
 								</dt>
 								<dd>

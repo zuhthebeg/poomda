@@ -9,7 +9,7 @@
 </div>
 <div class="custom_input"><!--커스텀 셀렉박스 공통-->
 	<input type="text" id="city" name="addressDetails" value="시/군/구"  class="select" readonly />
-	<button type="button" onclick="getCityListByState($('#state').val())">세부 지역을 선택하세요</button>
+	<button type="button" onclick="getCityListByState(this)">세부 지역을 선택하세요</button>
 	<ul class="option_li" id="cityList">
 		<li>전체</li>
 	</ul>

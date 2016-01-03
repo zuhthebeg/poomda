@@ -53,7 +53,7 @@
 							<th scope="row"><h2>보호소 </h2><span>*</span></th>
 							<td>
 								<input type="hidden" id="dupCheck" value="false" />
-								<input name="name" type="text" value="마석보호소" />
+								<input name="name" type="text" value="" placeholder="마석보호소" />
 								<button type="button" onclick="duplicateCheck($(this).prev().val())">중복확인</button>
 								<script>
 									function duplicateCheck(name){
@@ -81,7 +81,7 @@
 							<th><h2>소개</h2><span>*</span></th>
 							<td>
 								<fieldset class="txtareaWrap">
-									<textarea name="introduction" maxlength="1000">보호소에 대한 소개를 적어주세요</textarea>
+									<textarea name="introduction" maxlength="1000" placeholder="보호소에 대한 소개를 적어주세요"></textarea>
 									<span class="textLength"></span>
 								</fieldset>	
 							</td>
@@ -90,7 +90,7 @@
 							<th><h2>입양문의</h2></span>*</span></th>
 							<td>
 								<fieldset class="txtareaWrap">
-									<textarea name="adoptionInquiry" maxlength="1000" >보호중인 동물을 입양할 수 있는 방법을 상세히 적어주세요.</textarea>
+									<textarea name="adoptionInquiry" maxlength="1000" placeholder="보호중인 동물을 입양할 수 있는 방법을 상세히 적어주세요."></textarea>
 									<span class="textLength"></span>
 								</fieldset>
 							</td>
@@ -99,7 +99,7 @@
 							<th><h2>봉사문의</h2></span>*</span></th>
 							<td>
 								<fieldset class="txtareaWrap">
-									<textarea name="serviceInquiry" maxlength="1000">보호소 봉사활동에 참여할 수 있는 방법을 상세히 적어주세요.</textarea>
+									<textarea name="serviceInquiry" maxlength="1000" placeholder="보호소 봉사활동에 참여할 수 있는 방법을 상세히 적어주세요."></textarea>
 									<span class="textLength"></span>
 								</fieldset>
 							</td>
@@ -107,7 +107,7 @@
 						<tr>
 							<th><h2>사이트</h2><span>*</span></th>
 							<td>
-								<input name="siteName" type="text" value="http://www.naver.com" />
+								<input name="siteName" type="text" value="" placeholder="http://www.naver.com"/>
 							</td>
 						</tr>
 					</table>

@@ -91,6 +91,20 @@ function uploadImgSetting(obj){
         };
     }
 }
+function uploadImgSettingOnActivity(obj){
+    var files = !!obj.files ? obj.files : [];
+
+    if (!files.length || !window.FileReader) return;
+
+    if (/^image/.test( files[0].type)){
+
+        var reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onloadend = function(){
+        	$(obj).prev().attr("src", this.result);
+        };
+    }
+}
 
 /***********************************************************************************************************/
 /** 문자열 길이 리턴(한글 2, 영문 1)                                                                              */

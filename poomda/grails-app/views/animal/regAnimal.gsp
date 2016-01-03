@@ -55,22 +55,9 @@
 					<g:form controller="Animal" action="regAnimal2" name="personalForm" method="post">
 						<fieldset>
 							<span>지역</span>
-							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" name="address" value="경기도"  class="select" readonly />
-								<button type="button">지역을 선택하세요</button>
-								<ul class="option_li">
-									<g:each in="${org.poomda.locale.Address.list().state.unique() }" var="state">
-										<li>${state}</li>
-									</g:each>
-								</ul>
-							</div>
-							<div class="custom_input"><!--커스텀 셀렉박스 공통-->
-								<input type="text" name="addressDetails" value="전체"  class="select" readonly />
-								<button type="button">세부 지역을 선택하세요</button>
-								<ul class="option_li">
-									<li>전체</li>
-								</ul>
-							</div>
+							
+							<g:render template="../address/customInputAddress"></g:render>
+							
 							<span>상세지역</span>
 							<input type="text" name="tempShelter" value="상세주소(선택입력)" />
 						</fieldset>

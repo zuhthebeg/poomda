@@ -29,16 +29,16 @@ class SponsorController {
 		def user = User.get(springSecurityService.principal.id)
 		params.user = user
 		params.period = new Date().parse("yyyy-MM-dd", params.period)
-		
+		params.address = params.state + ' ' + params.city
+		params.area = params.areaDetails
 		//params.activityType = null//ActivityType.findByType(params.activityType).id
 		def activity = new Activity(params)
 
-		
 		if(!activity.save(true)){
 			println activity.getErrors()
 			redirect url:params.prevUrl, params:request.params
 		}else{
-			def ap = new ActivityParticipants(activity:activity, user:user,status:'REGIST')
+			def ap = new ActivityParticipants(activity:activity, user:user,status:'APPROVAL',application:'관리자')
 			if(!ap.save(true))println ap.getErrors()
 		
 			def tempPath = "/upload/activity/"
@@ -62,7 +62,6 @@ class SponsorController {
 	}
 	def activityLikeUser(){
 		def activity = Activity.get(params.activityId)
-		render activity.activityLikeUser(User.get(userId)).save(true)
-		
+		render activity.activityLikeUser(User.get(params.userId)).save(true)
 	}
 }

@@ -56,13 +56,12 @@ class ServiceController {
 	
 	def requestJoinActivity(){
 		def result = false
-		
 		def activity = Activity.get(params.activityId)
 		def user = User.findByUsername(params.email)
 		
 		def ap = ActivityParticipants.findByActivityAndUser(activity, user)
 		if(!ap){
-			ap = new ActivityParticipants(activity:activity, user:user,status:'REGIST')
+			ap = new ActivityParticipants(activity:activity, user:user,status:'REGIST',application:params.application)
 			if(!ap.save(true))println ap.getErrors()
 			else result = true
 		}
@@ -81,6 +80,15 @@ class ServiceController {
 			ap.save(true)
 			result = true
 		}
+		render result
+	}
+	def requestChangeStatusByActivity(){
+		
+		def activity = Activity.get(params.activityId)
+		
+		def result = activity ? ActivityParticipants.executeUpdate("update ActivityParticipants ap set ap.status = '${params.status}' where ap.activityId = ${activity.id}") : false
+		println result 
+		
 		render result
 	}
 }

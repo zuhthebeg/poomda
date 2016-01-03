@@ -1,5 +1,7 @@
 <%@ page import="org.poomda.service.*" %>
 <%@ page import="org.poomda.animal.*" %>
+<%@ page import="org.poomda.acivity.*" %>
+<%@ page import="org.poomda.file.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,155 +30,108 @@
 				<div class="outreach-body">
 					<g:render template="outreachMenu"/>
 					
-					<!-- 업로드 // S -->
-					<div class="outreach-upload">
-						<span>
-							<img src="../img/service/reply.jpg">
-						</span>
-						<textarea></textarea>
-						<img src="../img/service/add-img.jpg">
-						<ul>
-							<li>
-								<a href="#">
-									사진첨부
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									등록하기
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- 업로드 // E -->
-
-				</div>
-
-				<!-- outreach-intro // S -->
-				<div class="outreach-intro">
-					<h2 class="padding-reset">
-						<img src="../img/common/noimage-small2.jpg"><strong>2015-01-07 (수) <span>현황</span></strong><a href="#" class="on"></a>
-					</h2>
-					<p>
-						안녕하세요. 이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. <br>
-						추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다. 안녕하세요. <br>
-						이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. 추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다.
-						<br>
-						<br>
-						<br>
-					</p>
-					<!-- 내용 화살표 버튼 토글 // S -->
-					<div class="outreach-intro-body">
-
-						<!-- 댓글2 // S -->
-						<div class="outreach-reply-2">
-							<div>
-								<img src="../img/common/noimage-small2.jpg">
-								<dl>
-									<dt>
-										간달풍  <span>1시간전</span><a href="#;"></a>
-									</dt>
-									<dd>
-										와우!! 최은영님 최고!!
-									</dd>
-								</dl>
-								<ul class="reply-reply">
+					<g:if test="${sec.loggedInUserInfo(field: 'id').toString() == activity.user.id.toString() }">
+						<!-- 업로드 // S -->
+						<g:form controller="review" action="registReview" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="activityId" value="${params.id }" />
+							<div class="outreach-upload">
+								<span>
+									<g:set var="imgs" value="${ImgActivity.findAllByActivity(activity) }" />
+									<g:if test="${! imgs}"><img  width="100" height="100" src="${assetPath(src: 'common/noimage-big.jpg')}"></g:if>
+									<g:each var="imgActivity" in="${imgs}">
+										<img  width="100" height="100" src="${imgActivity?.filepath + '/' + imgActivity?.filename}" alt="활동 모습" width="100%"  class="thumb lightbox-photo" data-caption="활동 모습" />
+									</g:each>
+								</span>
+								<textarea name="content" maxlength="1000"></textarea>
+								<img src="${assetPath(src: 'common/no-image-big3.gif')}" width="140" height="100" onclick="$(this).next().click()" style="cursor: pointer;">
+								<input type="file" name="imgFile1" id="imgReview1" onchange="uploadImgSettingOnActivity(this)" style="display: none;" />
+								<ul>
 									<li>
-										<img src="../img/common/noimage-small2.jpg">
-										<dl>
-											<dt>
-												간달풍  <span>1시간전</span><a href="#;"></a>
-											</dt>
-											<dd>
-												와우!! 최은영님 최고!!
-											</dd>
-										</dl>
-									</li>
-									<li class="before-none">
-										<div>
-											<input type="text" placeholder="댓글을 남겨 주세요">
-											<a href="#;">
-												등록하기
-											</a>
-										</div>
+										<a href="#none" onclick="$('#imgReview1').click()">
+											사진첨부
+										</a>
 									</li>
 									<li>
-										<img src="../img/common/noimage-small2.jpg">
-										<dl>
-											<dt>
-												간달풍  <span>1시간전</span><a href="#;"></a>
-											</dt>
-											<dd>
-												와우!! 최은영님 최고!!
-											</dd>
-										</dl>
-									</li>
-									<li>
-										<img src="../img/common/noimage-small2.jpg">
-										<dl>
-											<dt>
-												간달풍  <span>1시간전</span><a href="#;"></a>
-											</dt>
-											<dd>
-												와우!! 최은영님 최고!!
-											</dd>
-										</dl>
+										<a href="#none" onclick="$('.outreach-body > form').submit()">
+											등록하기
+										</a>
 									</li>
 								</ul>
 							</div>
-							<div>
-								<img src="../img/common/noimage-small2.jpg">
-								<dl>
-									<dt>
-										간달풍  <span>1시간전</span><a href="#;"></a>
-									</dt>
-									<dd>
-										와우!! 최은영님 최고!!
-									</dd>
-								</dl>
+						</g:form>
+						<!-- 업로드 // E -->
+					</g:if>
+				</div>
+				
+				<g:each in="${org.poomda.activity.Review.findAllByActivity(activity,[order:'desc',sort:'dateCreated'])}" var="review" status="i">
+					<div class="outreach-intro">
+						<h2>
+							<strong>${review.user.nickname }님의 <span>후기</span> (${((new Date().time - review.dateCreated.time)/(1000*60*60*24)).toInteger() }일전) </strong>
+							<a href="#none" class="${i>0 ? '' : 'on' }" onclick="$(this).toggleClass('on').parent().nextAll().slideToggle();"></a>
+						</h2>
+						<!-- 내용 화살표 버튼 토글 // S -->
+						<div class="outreach-intro-body" style="${i>0 ? '' : 'display:block;' }">
+							<p>
+								${review.content }
+							</p>
+							<div class="img-left">
+								<g:set var="attchImgs" value="${review.attchImg}" />
+								<g:each in="${attchImgs }" var="img">
+									<img src="${img?.filepath + '/' + img?.filename}" title="${img.filename }"  class="thumb lightbox-photo width50p" data-caption="활동 모습">
+								</g:each>
 							</div>
-							<div>
-								<img src="../img/common/noimage-small2.jpg">
-								<dl>
-									<dt>
-										간달풍  <span>1시간전</span><a href="#;"></a>
-									</dt>
-									<dd>
-										와우!! 최은영님 최고!!
-									</dd>
-								</dl>
+							<br/>
+							<!-- 댓글1 // S -->
+							
+							<g:form controller="reply" action="registReply">
+								<input type="hidden" name="activityId" value="${activity.id }" />
+								<input type="hidden" name="reviewId" value="${review.id }" />
+								<input type="hidden" name="prevAction" value="${params.action}"/>
+								<div class="outreach-reply">
+										<img src="${assetPath(src: 'common/noimage-middle.jpg')}">
+										<textarea type="text" name="content" placeholder="댓글을 남겨 주세요."></textarea>
+										<sec:ifLoggedIn>
+											<a href="#none" onclick="$(this).parent().parent().submit()">
+												등록하기
+											</a>
+										</sec:ifLoggedIn>
+										<sec:ifNotLoggedIn>
+											<a href="#none" onclick="alert('로그인해주세요.')">
+												등록하기
+											</a>
+										</sec:ifNotLoggedIn>
+								</div>
+							</g:form>
+							
+							<!-- 댓글1 // E -->
+	
+							<!-- 댓글2 // S -->
+							<div class="outreach-reply-2"  style="${i>0 ? '' : 'display:block;' }">
+								<g:each in="${org.poomda.activity.Reply.findAllByActivityAndReview(activity,review,[order:'desc',sort:'dateCreated'])}" var="reply">
+									<div>
+										<img src="${assetPath(src: 'common/noimage-small2.jpg')}">
+										<dl>
+											<dt>
+												${reply.user.nickname} <span>${((new Date().time - reply.dateCreated.time)/(1000*60)).toInteger()}분전</span><a href="#;"></a>
+											</dt>
+											<dd>
+												${reply.content }
+											</dd>
+										</dl>
+									</div>
+								</g:each>
 							</div>
+							<!-- 댓글2 // E -->
 						</div>
-						<!-- 댓글2 // E -->
+						<!-- 내용 화살표 버튼 토글 // E -->						
+						
 					</div>
-					<!-- 내용 화살표 버튼 토글 // E -->
-
-				</div>
-				<!-- outreach-intro // E -->
-
-				<!-- outreach-intro // S -->
-				<div class="outreach-intro">
-					<h2 class="padding-reset">
-						<img src="../img/common/noimage-small2.jpg"><strong>감달풍님의 후기 <span>2일전</span></strong><a href="#" class="on"></a>
-					</h2>
-					<p>
-						안녕하세요. 이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. <br>
-						추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다. 안녕하세요. <br>
-						이번에 반달이네 보호소에 화재발생으로 많은 봉사인원이 필요합니다. 아래 사진은 현재 타버린 강아지들의 보금자리입니다. 추운 겨울이라 이 곳의 보수가 절실히 필요한 상황입니다.
-						<br>
-						<br>
-						<br>
-					</p>
-
-				</div>
-				<!-- outreach-intro // E -->
-
+				</g:each>
 			</div>
 			<!-- outreach-box // E -->
 			
 		</div>
 	</div>
 	<!-- sub-content // E -->
-	
 </body>
 </html>

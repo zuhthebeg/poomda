@@ -15,6 +15,9 @@ class Shelter {
 	String serviceInquiry
 	String adoptionInquiry
 	
+	Integer viewCount = 0
+	Integer shareCount = 0
+	
 	Date dateCreated
 	Date lastUpdated
 	
@@ -26,7 +29,12 @@ class Shelter {
 		addressDetails nullable : true
 		serviceInquiry nullable:true, maxSize : 1000
 		adoptionInquiry nullable:true, maxSize : 1000
+		
     }
+	static mapping={
+		viewCount defaultValue: "0"
+		shareCount defaultValue: "0"
+	}
 	
 	String toString(){return name}
 }

@@ -10,7 +10,13 @@ class History {
 	static hasMany = [attchImg:CommonFile]
 	
 	String content
+	
+	Date dateCreated
+	Date lastUpdated
     static constraints = {
-		content nullable : false, maxsize : 3000, minSize:50
+		content nullable : false
     }
+	static mapping = {
+		content type: 'text'
+	}
 }

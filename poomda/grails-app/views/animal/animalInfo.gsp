@@ -20,6 +20,9 @@
 		</div>
 		<aside>
 			<button type="button">신고하기</button>
+			<g:if test="${sec?.loggedInUserInfo(field: 'id').toString().equals(animal.user.id.toString())}">
+				<g:link action="manageAnimal" params="[id:animal.id]" title="관리페이지 바로가기">관리페이지</g:link>
+			</g:if>
 		</aside>	
 		<section class="info_container">
 			<h1>${shelter}</h1>
@@ -34,8 +37,8 @@
 					<ul>
 						<g:each var="imgAnimal" in="${ImgAnimal.findAllByAnimal(animal)}">
 						<li>
-							<img src="${imgAnimal?.filepath + '/' + imgAnimal?.filename}" alt="보호소모습" width="100%" />
-							<button type="button">확대보기</button>
+							<img src="${imgAnimal?.filepath + '/' + imgAnimal?.filename}" alt="동물 모습" width="100%" class="thumb lightbox-photo" data-caption="동물모습"/>
+							<button type="button" onclick="$(this).prev().click()">확대보기</button>
 						</li>
 						</g:each>
 						<%--<li><img src="../img/main/shaterlisttast.jpg" alt="보호소사진2" /><button type="button">확대보기</button></li>
@@ -57,7 +60,7 @@
 										혹은 보호소 대표 카페로 오시면 됩니다.
 									</p>
 								</div>
-								<button type="button" class="send_msg" onclick="">쪽지보내기</button>
+								<button type="button" class="send_msg">쪽지보내기</button>
 								<button type="button" class="close_lyr">닫기</button>
 						</div>
 						<g:if test="${animal.shelter}">
@@ -132,5 +135,6 @@
 		</section>
 	<!-- sub-content // E -->
 </div>
+<g:render template="/layouts/message" model="[user:animal.user]"/>	
 </body>
 </html>

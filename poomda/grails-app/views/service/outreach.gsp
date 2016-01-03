@@ -2,6 +2,7 @@
 <%@ page import="org.poomda.animal.*" %>
 <%@ page import="org.poomda.activity.*" %>
 <%@ page import="org.poomda.file.*" %>
+<%@ page import="org.poomda.member.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,16 +36,17 @@
 							<g:set var="imgs" value="${ImgActivity.findAllByActivity(activity) }" />
 							<g:if test="${! imgs}"><img src="${assetPath(src: 'common/noimage-big.jpg')}"></g:if>
 							<g:each var="imgActivity" in="${imgs}">
-								<img src="${imgActivity?.filepath + '/' + imgActivity?.filename}" alt="활동 모습" width="100%" />
+								<img src="${imgActivity?.filepath + '/' + imgActivity?.filename}" alt="활동 모습" width="100%"  class="thumb lightbox-photo" data-caption="활동 모습" />
 							</g:each>
-							<label>
-								<input type="file">
-							</label>
+							<label onclick="$(this).prev().click()"></label>
 						</div>
 						<div class="information-content">
-							<a href="#" onclick="requestJoinActivity(${activity.id},'<sec:username/>')">
+							<a href="#none" class="modal_up">
 								참여신청하기
 							</a>
+							<sec:ifLoggedIn>
+								<g:render template="application" model="[user:User.get(sec.loggedInUserInfo(field: 'id'))]"></g:render>
+							</sec:ifLoggedIn>
 							<table class="outreach-joinform">
 								<colgroup>
 									<col width="17%">
@@ -56,8 +58,8 @@
 											활동대상
 										</th>
 										<td>
-											<g:if test="${activity.shelter}">${activity.shelter}<g:link controller="shelter" action="centerInfo" params="[shelterId:activity.shelter.id]">자세히</g:link></g:if>
-											<g:if test="${activity.animal}">${activity.animal}<g:link controller="animal" action="animalInfo" params="[animalId:activity.animal.id]">자세히</g:link></g:if>
+											<g:if test="${activity.shelter}">${activity.shelter} <g:link controller="shelter" action="centerInfo" params="[shelterId:activity.shelter.id]"> 자세히</g:link></g:if>
+											<g:if test="${activity.animal}">${activity.animal} <g:link controller="animal" action="animalInfo" params="[animalId:activity.animal.id]"> 자세히</g:link></g:if>
 										</td>
 									</tr>
 									<tr>
@@ -73,7 +75,7 @@
 											남은시간
 										</th>
 										<td>
-											<strong>${ActivityParticipants.countByActivity(activity) }</strong> 일
+											<strong>${( (activity.period.time - new Date().time)/ (1000*60*60*24) ).toInteger()}</strong> 일
 										</td>
 									</tr>
 									<tr>
@@ -102,11 +104,12 @@
 							</table>
 							<g:render template="../user/profileCard" model="[user:activity.user,type:2]"></g:render>
 							<h3>
-								참여인원 (${ActivityParticipants.countByActivity(activity)}명)
+								신청인원 (${ActivityParticipants.countByActivity(activity)}명)
+								/ 참여인원 (${ActivityParticipants.countByActivityAndStatus(activity,'APPROVAL')}명)
 							</h3>
 							<div class="outreach-joinform-3">
 							
-								<g:each in="${ActivityParticipants.findAllByActivity(activity)?.user}" var="user">
+								<g:each in="${ActivityParticipants.findAllByActivityAndStatus(activity,'APPROVAL')?.user}" var="user">
 									<a href="#;">
 										<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-small.jpg')}" />
 										<img src="${user.profile ? user.profile : defaultImgPath}" alt="등록한 유저 사진" /> 
@@ -141,22 +144,6 @@
 		</div>
 	</div>
 	<!-- sub-content // E -->
-<script>
-	function requestJoinActivity(activityId, email){
-		if(!confirm('참여 신청 하시겠습니까?')) return false;
-		if(email == '') {alert('로그인 해주세요.');return false;}
-
-		$.ajax({
-			url : '../requestJoinActivity',
-			data : {activityId:activityId, email : email},
-			method : 'post',
-			success : function (data){
-				console.log(data);
-				if(data == true) location.reload();
-				else alert('이미 신청하셨거나, 잘못된 요청입니다.');
-			}
-		});
-	}
-</script>
+<g:render template="/layouts/message" model="[user:activity.user]"/>	
 </body>
 </html>

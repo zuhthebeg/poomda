@@ -35,8 +35,9 @@
 					<ul>
 						<g:each var="imgShelter" in="${ImgShelter.findAllByShelter(shelter)}">
 						<li>
-							<img src="${imgShelter?.filepath + '/' + imgShelter?.filename}" alt="보호소모습" width="100%" />
-							<button type="button">확대보기</button>
+							<img src="${imgShelter?.filepath + '/' + imgShelter?.filename}" alt="보호소모습" width="100%" class="thumb lightbox-photo" data-caption="보호소모습"  />
+							
+							<button type="button" onclick="$(this).prev().click()">확대보기</button>
 						</li>
 						</g:each>
 						<%--<li><img src="../img/main/shaterlisttast.jpg" alt="보호소사진2" /><button type="button">확대보기</button></li>

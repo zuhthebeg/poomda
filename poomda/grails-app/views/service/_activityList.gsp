@@ -13,7 +13,6 @@
 				${org.poomda.member.UserLikeActivity.countByActivity(activity)}+
 			</a>
 			<a href="#;" class="main-service-case-3">
-				<!-- <img src="${activity.attchImg.size() > 0 ? assetPath(src: 'main/shaterlisttast.jpg') :assetPath(src: 'common/noimage-small.jpg')}"> -->
 				<g:set var="defaultImgPath" value="${assetPath(src: 'common/noimage-small.jpg')}" />
 				<img src="${activity.user.profile ? activity.user.profile : defaultImgPath}" alt="등록한 유저 사진" /> 
 				${activity.user}
@@ -96,7 +95,9 @@
 			<h1 class="vol_cate${activity.activityType == 'Sponsored' ? 2 : 1}">${activity.activityType == 'Sponsored' ? '후원' : '봉사'}<br />활동</h1>
 			<div class="vol_left">
 				<g:link action="outreach" controller="service" params="[id:activity.id]">
-					<img src="${assetPath(src: 'main/shaterlisttast.jpg')}" alt="봉사활동 등록사진" />
+					<g:set var="img" value="${org.poomda.file.ImgActivity.findByActivity(activity) }" />
+					<g:if test="${! img}"><img src="${assetPath(src: 'common/noimages.gif')}" alt="NO IMAGE"></g:if>
+					<g:if test="${img}"><img src="${img?.filepath + '/' + img?.filename}" alt="활동 모습" /></g:if>
 				</g:link>
 				<span class="connect"><span>이 봉사활동을 공유한 수</span>+${activity.shareCount}</span>
 				<span class="fav"><span>이 봉사활동을 관심등록한 수</span>+${org.poomda.member.UserLikeActivity.countByActivity(activity)}+</span>

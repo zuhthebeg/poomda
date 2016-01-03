@@ -61,7 +61,7 @@
 						<th scope="row">보호장소<span>*</span></th>
 						<td colspan="3">
 							<fieldset>
-								<input type="text" value="${Shelter.get(params.shelterId)}" />
+								<input type="text" value="${params.shelterId ? Shelter.get(params.shelterId) : tempShelter}" />
 								<a href="javascript:history.back();" title="보호중 보호소찾기로 돌아가기">변경</a>
 							</fieldset>
 						</td>
@@ -139,7 +139,7 @@
 						<th scope="row">소개<span>*</span></th>
 						<td colspan="3">
 							<fieldset class="txtareaWrap">
-								<textarea name="introduction" maxlength="1000" >${params.introduction}예) 타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 지금은 보호소에서 건강히 지내고 있으며 애교가 많습니다.</textarea>
+								<textarea name="introduction" maxlength="1000" placeholder="예) 타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 지금은 보호소에서 건강히 지내고 있으며 애교가 많습니다." >${params.introduction}</textarea>
 								<span class="textLength"></span>
 							</fieldset>
 						
@@ -149,8 +149,7 @@
 						<th scope="row">입양문의<span>*</span></th>
 						<td colspan="3">
 							<fieldset class="txtareaWrap">
-								<textarea name="adoptionInquiry" maxlength="1000">${params.adoptionInquiry}예) 개인 보호중 입니다. 010-000-0000 연락 바랍니다.	오전10시~오후8시 연락가능.
-								</textarea>
+								<textarea name="adoptionInquiry" maxlength="1000" placeholder="예) 개인 보호중 입니다. 010-000-0000 연락 바랍니다.	오전10시~오후8시 연락가능.">${params.adoptionInquiry}</textarea>
 								<span class="textLength"></span>
 							</fieldset>
 						</td>

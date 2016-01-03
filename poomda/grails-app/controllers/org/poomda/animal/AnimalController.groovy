@@ -22,9 +22,7 @@ class AnimalController {
 		println params
 		def tempShelter
 		if(request.method.equals("POST")){
-			def address = Address.findByStateLike(params.address)
-			tempShelter = address.state
-			println address
+			tempShelter = params.address + " " + params.addressDetails + " " + params.tempShelter
 		}else if(request.method.equals("GET")){
 			def shelter = Shelter.get(params.shelterId)
 			println shelter
@@ -78,5 +76,9 @@ class AnimalController {
 	}
 	def animalInfo(){
 		render view:'animalInfo', model : [animal:Animal.get(params.animalId)]
+	}
+	def manageAnimal(){
+		
+		render view:'regAnimal2'
 	}
 }

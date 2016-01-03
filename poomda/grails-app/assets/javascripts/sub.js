@@ -6,7 +6,7 @@ $(document).ready(function(){
 		var msg_length = $(this).val().length;
 		var max_length = $(this).attr('maxlength');
 		
-		$(this).next().text(msg_length + '/'+ max_length+'자');
+		if($(this).next().tagName == 'span') $(this).next().text(msg_length + '/'+ max_length+'자');
 		
 		if(msg_length > max_length){ $(this).next('.textLength').css('color','red'); return false;}
 		else{ $(this).next('.textLength').css('color','black'); }
@@ -18,7 +18,6 @@ $(document).ready(function(){
 		$(this).parent().addClass("on");
 		
 		var idx=$(this).parent().index();
-		console.log(idx);
 		if(idx==0){
 			$(".reg_animal").css("height","1450px");
 			
@@ -75,7 +74,7 @@ $(document).ready(function(){
 	});
 
 	//쪽지보내기
-	$("button.go_msg").on("click",function(){
+	$(".go_msg").on("click",function(){
 		$("body").append("<div class='back'></div>");
 		$("#msgSendModal").show();
 		$(".message_layer textarea").focus();
@@ -209,18 +208,19 @@ function getCityListByStateInSelect(state){
 	});
 }
 
-function getCityListByState(state){
+function getCityListByState(stateObj){
+	var state = $(stateObj).parent().prev().find('input').val();
 	$.ajax({
 		url : '../address/getCityListByState',
 		data : {state:state},
 		method : 'post',
 		success : function (data){
-			$('#cityList').empty();
+			$(stateObj).next().empty();
 			for(var i=0; i<data.length; i++){
-				$('#cityList').append("<li>"+data[i]+"</li>");
-				$('#cityList > li').each(function(){
+				$(stateObj).next().append("<li>"+data[i]+"</li>");
+				$(stateObj).next().find('li').each(function(){
 					var city = $(this).text();
-					$(this).on('click',function(){$('#city').val(city);$(this).parent().hide();});
+					$(this).on('click',function(){$(stateObj).prev().val(city);$(this).parent().hide();});
 				});
 			}
 		}

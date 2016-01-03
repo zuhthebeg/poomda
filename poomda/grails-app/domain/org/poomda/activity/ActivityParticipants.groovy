@@ -11,10 +11,12 @@ class ActivityParticipants implements Serializable {
 	
 	String status = "REGIST"
 	String reason
+	String application
 	
 
     static constraints = {
 		reason nullable : true
+		application nullable : false
 		status nullable : false, inList : ['REGIST','APPROVAL', 'REJECT']
     }
 	static mapping = {

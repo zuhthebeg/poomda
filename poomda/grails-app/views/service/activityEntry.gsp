@@ -53,7 +53,8 @@
 				<!-- active-more-2-tab // E -->
 				<!-- active-more-2-joiner // S -->
 				<div class="active-more-2-joiner">
-					<g:each in="${ActivityParticipants.findAllByActivityAndStatus(Activity.get(params.id),'APPROVAL')}" var="joiner">
+					<g:set var="joinerList" value="${ActivityParticipants.findAllByActivityAndStatus(Activity.get(params.id),'APPROVAL') }" />
+					<g:each in="${joinerList}" var="joiner">
 						<div>
 							<g:set var="defaultImgPath" value="${assetPath(src: 'common/no-image-big2.gif')}" />
 							<img src="${joiner.user.profile ? joiner.user.profile : defaultImgPath}" alt="등록한 유저 사진" width=40 height=40 />
@@ -72,16 +73,17 @@
 								<g:link action="profile" controller="user" params="[id:joiner.user.id]">
 									상세프로필
 								</g:link>
-								<a href="#;">
+								<a href="#none" class="modal_up">
 									신청서 보기
 								</a>
-								<a href="#" onclick="requestChangeStatus(${joiner.activity.id},'${joiner.user.username }','REJECT')" class="gray-bg">
+								<g:render template="applicationByManager" model="[joiner:joiner]"></g:render>
+								<a href="#none" onclick="requestChangeStatus(${joiner.activity.id},'${joiner.user.username }','REGIST')" class="gray-bg">
 									승인취소
 								</a>
 							</div>
 						</div>
 					</g:each>
-					
+					${!joinerList ?'참가자가 없습니다.':''}
 				</div>
 				<!-- active-more-2-joiner // E -->
 
@@ -99,5 +101,6 @@
 		</div>
 	</div>
 	<!-- sub-content // E -->
+	<asset:javascript src="activity.js"/>
 </body>
 </html>

@@ -5,8 +5,10 @@
 		<h1>${animal }</h1>
 		<span><span>이 동물을 관심등록한 수</span>${UserLikeAnimal.countByAnimal(animal) }</span>
 		<g:set var="imgAnimal" value="${org.poomda.file.ImgAnimal.findByAnimalAndFilenameIsNotNull(animal)}" />
-		<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
-			<span class="temp">임시<br />보호중</span>
+		<div class="img_cover">
+			<img src="${imgAnimal ? imgAnimal?.filepath + '/' + imgAnimal?.filename : ''}" alt="동물 사진" width="100%" />
+		</div>
+		<span class="temp">임시<br />보호중</span>
 		<p>${animal.gender } / ${animal.age } / ${animal.breed}-${animal.feature}</p>
 		<span style="overflow: hidden;"><span class="bold">${animal?.shelter }</span>(${animal.shelter?.address})</span>
 		<div class="more_info">

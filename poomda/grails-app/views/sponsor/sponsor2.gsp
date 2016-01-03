@@ -95,8 +95,8 @@
 											모집기간<span>*</span>
 										</th>
 										<td class="calendar-td">
-											<input type="text" value="2015-02-05" name="period" id="datepicker">
-											<a href="#;"></a>
+											<input type="text" placeholder="${new Date().format('yyyy-MM-dd') }" name="period" id="datepicker">
+											<a href="#none" onclick="$(this).prev().click()"></a>
 										</td>
 									</tr>
 									<tr>
@@ -104,28 +104,8 @@
 											장소<span>*</span>
 										</th>
 										<td class="place-td">
-											<label>
-												<select name="address"> 
-													<g:each in="${org.poomda.locale.Address.list().state.unique() }" var="state">
-														<option>${state}</option>
-													</g:each>
-												</select>
-											</label>
-											<label>
-												<select name="area" class="all-select">
-													<option selected>
-														전체
-													</option>
-													<option>
-														지역
-													</option>
-													<option>
-														지역
-													</option>
-												<option>This Is A Longer Option</option>
-												</select>
-											</label>
-											<input type="text" name="areaDetails" value="상세주소" placeholder="상세주소(선택입력)">
+											<g:render template="../address/selectInputAddress"></g:render>
+											<input type="text" name="areaDetails" placeholder="상세주소" style="width:124px;">
 										</td>
 									</tr>
 									<tr>
@@ -149,11 +129,9 @@
 											소개글<span>*</span>
 										</th>
 										<td class="active-introduce">
-											<textarea name="introduction" maxlength="1000">타이어 공장 뒷편 야산 근처에서 발견 되었습니다. 발견될 당시 빨간색 후드티를 입고 있었고, 상당히 야윈 상태로 발견 되었습니다. 
-											</textarea>
+											<textarea name="introduction" maxlength="1000" placeholder="소개글을 입력해주세요."></textarea>
+											<span class="textLength" style="float:right;"></span><br/><br/>
 											<p>
-												107 <span class="gray-text">/ 1000 자</span><br>
-												<br>
 												<span class="red-text">*</span> 된 표시는 필수입력 입니다.
 											</p>
 										</td>
@@ -180,7 +158,7 @@
 				<a href="/" class="sponsor-cancle">
 					취 소
 				</a>
-				<a href="#" onclick="$('#activityForm').submit()" class="sponsor-ok">
+				<a href="#none" onclick="$('#activityForm').submit()" class="sponsor-ok">
 					완 료
 				</a>
 			</div>
