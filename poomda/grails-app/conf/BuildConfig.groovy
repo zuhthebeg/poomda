@@ -6,7 +6,7 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 grails.project.war.file = "target/ROOT.war"
-grails.server.port.http = 80
+grails.server.port.http = 8080
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [

@@ -1,9 +1,11 @@
-	<!-- footer // S -->
+<%@ page import="org.poomda.site.*" %>
+<g:set var="site" value="${Information.findByName('poomda')}" />
+<!-- footer // S -->
 	<footer>
 		<div class="contact">
 			<ul>
 				<li>
-					<a href="mailto:poomda@poomda.kr" class="email">
+					<a href="mailto:${site.contactEmail}" class="email">
 						이메일
 					</a>
 				</li>
@@ -11,7 +13,7 @@
 					<span></span>
 				</li>
 				<li>
-					<a href="https://ko-kr.facebook.com/pawinhand" target="_blank" class="facebook">
+					<a href="${site.facebook}" target="_blank" class="facebook">
 						페이스북
 					</a>
 				</li>
@@ -59,8 +61,8 @@
 			</ul>
 		</div>
 		<div class="copyright">
-			Copyrightⓒ Poomda.kr All right reserved. 개인정보관리책임자 : 이환희<br>
-			Contact : <address><a href="mailto:poomda@poomda.kr">poomdaproject@gmail.com</a></address>
+			${site.copyright} 개인정보관리책임자 : ${site.administrator}<br>
+			Contact : <address><a href="mailto:${site.contactEmail}">${site.contactEmail}</a></address>
 		</div>
 	</footer>
 	<!-- footer // E -->

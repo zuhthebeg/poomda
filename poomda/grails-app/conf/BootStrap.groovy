@@ -11,15 +11,37 @@ import org.poomda.member.User
 import org.poomda.member.UserLikeAnimal
 import org.poomda.member.UserRole
 import org.poomda.shelter.Shelter
+import org.poomda.site.Information
 
 
 class BootStrap {
 
     def init = { servletContext ->
-		
+		new Information(
+				name:'poomda',
+				facebook:'https://ko-kr.facebook.com/pawinhand',
+				title : '전국 사설 보호소와 동물들을 품다',
+				contactEmail:'poomdaproject@gmail.com',
+				administrator:'이환희',
+				introduction:"품다는 전국의 사설보호소와 동물들을 돕기 위해 봉사자들이 참여해서 만들어가는 공간입니다.",
+				personalInfo:'',
+				appointment:"""
+					제 1조 목적
+					품다 웹사이트 이용약관
+					최종갱신일 : 2015. 2. 21
+					이 약관은 품다팀이 운영하는 인터넷사이트 poomda에서 제공하는 인터넷 관련 서비스를 이용함에 있어 이용자의 권리와 의무 책임사항 및 회원의 서비스 이용절차에 관한 사항을 규정함을 목적으로 합니다.
+					제 2조 용어의 정의
+					이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 본 약관에 명시되지 않은 용어는 관련 법령에 정하는 바에 따르며, 그 외에는 일반적인 .....
+					제 3조 약관의 명시와 개정
+					생략...
+				""",
+				copyright:"Copyrightⓒ Poomda.kr All right reserved.",
+				policy:''
+		).save(failOnError:true)
+
 		User admin = new User(username:'admin@admin.com', password:'admin',age:27,phone:'line : licocy', nickname:'admin',profile:'/poomda/upload/member/profile_sample.png', enabled:true).save(failOnError:true)
 		User manager = new User(username:'manager@manager.com', password:'manager', nickname:'manager', enabled:true).save(failOnError:true)
-		User user = new User(username:'user@user.com', password:'user',  nickname:'개발자', ,age:27,phone:'line : licocy',profile:'/poomda/upload/member/profile_sample.png',enabled:true, gender:'남',birthday:new Date()-10000, introduction : '유저입니다.', activityHistory:'개발했어요').save(failOnError:true)
+		User user = new User(username:'user@user.com', password:'user',  nickname:'개발자' ,age:27,phone:'line : licocy',profile:'/poomda/upload/member/profile_sample.png',enabled:true, gender:'남',birthday:new Date()-10000, introduction : '유저입니다.', activityHistory:'개발했어요').save(failOnError:true)
 		
 		def roleAdmin = Role.findOrSaveWhere(authority:"ROLE_ADMIN").save(failOnError:true)
 		def roleManager = new Role(authority: 'ROLE_MANAGER').save(failOnError:true)
